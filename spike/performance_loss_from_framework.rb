@@ -25,14 +25,14 @@ RackSkeleton.new.call(request_env)
 dump_app_duration = Time.now - start
 
 start = Time.now
-RackAPP.call(request_env)
+RackApp.call(request_env)
 rackapp_duration = Time.now - start
 
 start = Time.now
-GrapeAPP.call(request_env)
+GrapeApp.call(request_env)
 grape_duration = Time.now - start
 
 puts "Dump duration with zero if or routing: #{dump_app_duration} s",
-     "Rack::APP duration with routing lookup: #{rackapp_duration} s",
+     "Rack::App duration with routing lookup: #{rackapp_duration} s",
      "Grape::API duration with routing lookup: #{grape_duration} s"
 

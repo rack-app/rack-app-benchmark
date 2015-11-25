@@ -1,5 +1,5 @@
 require 'rack/app'
-class RackAPP < Rack::APP
+class RackApp < Rack::App
 
   get '/' do
     'hello'

@@ -1,6 +1,6 @@
 require 'grape'
 
-class GrapeAPP < Grape::API
+class GrapeApp < Grape::API
 
   get '/' do
     'hello'

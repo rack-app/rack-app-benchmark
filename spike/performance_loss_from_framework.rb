@@ -29,7 +29,7 @@ calc = {
 
 require 'progressbar'
 
-testing_times = 1000000
+testing_times = 100000
 
 samples_bar = ProgressBar.new('samples',testing_times)
 
@@ -92,12 +92,12 @@ dumb_grape_diff = grape_duration - dumb_duration
 process_bar.finish
 
 puts "\n",
-     "Dump duration with zero business logic or routing: #{dumb_duration} s",
+     "simple lambda duration as Rack application: #{dumb_duration} s",
      "Rack::App duration with routing lookup: #{rack_app_duration} s",
      "Grape::API duration with routing lookup: #{grape_duration} s",
      "\n\n",
      "Rack::App #{rack_app_faster_than_grape}x faster (#{rack_app_grape_diff} sec) that Grape::API",
-     "returning a simple rack response array without any logic is #{dumb_faster_than_rack_app}x faster (#{dumb_rack_app_diff} sec) that Rack::App",
-     "the same dumb empty proc call is #{dumb_faster_than_grape}x faster than Grape::API (#{dumb_grape_diff} sec)"
+     "Simple lambda #{dumb_faster_than_rack_app}x faster (#{dumb_rack_app_diff} sec) that Rack::App",
+     "Simple lambda #{dumb_faster_than_grape}x faster (#{dumb_grape_diff} sec) than Grape::API"
      "\n"
 

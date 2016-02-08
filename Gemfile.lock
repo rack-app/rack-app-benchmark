@@ -1,3 +1,9 @@
+PATH
+  remote: /Users/aluzsi/Works/rack-app/rack-app
+  specs:
+    rack-app (0.14.0)
+      rack
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -71,8 +77,6 @@ GEM
     rack (1.6.4)
     rack-accept (0.4.5)
       rack (>= 0.4)
-    rack-app (0.13.0)
-      rack
     rack-mount (0.8.3)
       rack (>= 1.0.0)
     rack-test (0.6.3)
@@ -122,7 +126,7 @@ PLATFORMS
 DEPENDENCIES
   grape
   progressbar
-  rack-app
+  rack-app!
   rails
 
 BUNDLED WITH

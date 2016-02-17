@@ -6,12 +6,8 @@ class GrapeApp < Grape::API
     'hello'
   end
 
-  CUSTOM_ENDPOINT_NUMBER.times do |index|
-
-    get "/#{index}" do
-      'hello'
-    end
-
+  get '/users/:user_id' do
+    'hello'
   end
 
 end

@@ -31,25 +31,18 @@ require 'progressbar'
 
 testing_times = 100000
 
-samples_bar = ProgressBar.new('samples',testing_times)
+require 'benchmark'
+samples_bar = ProgressBar.new('samples', testing_times)
 
 testing_times.times do
 
 
-  start = Time.now
-  RackSkeleton.new.call(request_env)
-  dump_app_duration = Time.now - start
-
-  start = Time.now
-  RackApp.call(request_env)
-  rackapp_duration = Time.now - start
-
-  start = Time.now
-  GrapeApp.call(request_env)
-  grape_duration = Time.now - start
+  dump_app_duration = Benchmark.measure { RackSkeleton.call(request_env) }.real
+  rack_app_duration = Benchmark.measure { RackApp.call(request_env) }.real
+  grape_duration = Benchmark.measure { GrapeApp.call(request_env) }.real
 
   calc[:dumb] << dump_app_duration
-  calc[:app] << rackapp_duration
+  calc[:app] << rack_app_duration
   calc[:grape] << grape_duration
 
   samples_bar.inc
@@ -57,12 +50,11 @@ end
 
 samples_bar.finish
 
-
 def avg(array)
   array.reduce(:+).to_f / array.size
 end
 
-process_bar = ProgressBar.new('processing',9)
+process_bar = ProgressBar.new('processing', 9)
 
 grape_duration = avg(calc[:grape])
 process_bar.inc
@@ -92,12 +84,11 @@ dumb_grape_diff = grape_duration - dumb_duration
 process_bar.finish
 
 puts "\n",
-     "simple lambda duration as Rack application: #{dumb_duration} s",
-     "Rack::App duration with routing lookup: #{rack_app_duration} s",
-     "Grape::API duration with routing lookup: #{grape_duration} s",
+     "RackSkeleton avg duration: #{dumb_duration} s",
+     "Rack::App avg duration: #{rack_app_duration} s",
+     "Grape::API avg duration: #{grape_duration} s",
      "\n\n",
      "Rack::App #{rack_app_faster_than_grape}x faster (#{rack_app_grape_diff} sec) that Grape::API",
-     "Simple lambda #{dumb_faster_than_rack_app}x faster (#{dumb_rack_app_diff} sec) that Rack::App",
-     "Simple lambda #{dumb_faster_than_grape}x faster (#{dumb_grape_diff} sec) than Grape::API"
-     "\n"
+     "RackSkeleton #{dumb_faster_than_rack_app}x faster (#{dumb_rack_app_diff} sec) that Rack::App",
+     "RackSkeleton #{dumb_faster_than_grape}x faster (#{dumb_grape_diff} sec) than Grape::API", "\n"
 

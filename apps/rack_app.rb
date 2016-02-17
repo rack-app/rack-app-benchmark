@@ -5,15 +5,8 @@ class RackApp < Rack::App
     'hello'
   end
 
-  1000000.times do |index|
-    get "/#{index}" do
-      'hello'
-    end
+  get '/users/:user_id' do
+    'hello'
   end
-
-  1000000.times do |index|
-    define_method("endpoint_helper_method_#{index}"){}
-  end
-
 
 end

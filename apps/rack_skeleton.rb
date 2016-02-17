@@ -1,8 +1,12 @@
 class RackSkeleton
 
+  def self.call(env)
+    new.call(env)
+  end
+
   def call(env)
 
-    request_path = env[Rack::REQUEST_PATH]
+    request_path = env['REQUEST_PATH']
 
     case true
 
@@ -17,10 +21,6 @@ class RackSkeleton
 
     end
 
-  end
-
-  1000000.times do |index|
-    define_method("endpoint_helper_method_#{index}"){}
   end
 
 end

@@ -1,0 +1,15 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    cuba (3.5.0)
+      rack (~> 1.6.0)
+    rack (1.6.4)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  cuba
+
+BUNDLED WITH
+   1.11.0

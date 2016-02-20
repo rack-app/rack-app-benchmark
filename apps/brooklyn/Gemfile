@@ -1,0 +1,4 @@
+source 'https://rubygems.org'
+
+gem 'rack'
+gem 'brooklyn', git: "https://github.com/luislavena/brooklyn",     branch: "master"

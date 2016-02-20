@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+require_relative('../lib/bootstrap')
+
+benchmarker = File.realpath(File.join(File.dirname(__FILE__), 'measure_performance_for'))
+
+app_folders.each do |app_project_directory|
+  app_name = File.basename(app_project_directory)
+
+  $stdout.puts("#{app_name}#start")
+  `#{benchmarker} #{app_name}`
+  $stdout.puts("#{app_name}#done")
+
+end

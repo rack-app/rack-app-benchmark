@@ -1,0 +1,21 @@
+GIT
+  remote: https://github.com/patriciomacadden/hobbit
+  revision: 756f9cf140bb8904d621fe32ae9f352c45f80b80
+  branch: master
+  specs:
+    hobbit (0.6.0)
+      rack
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    rack (1.6.4)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  hobbit!
+
+BUNDLED WITH
+   1.11.0

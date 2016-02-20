@@ -1,0 +1,32 @@
+GIT
+  remote: https://github.com/Wardrop/Scorched
+  revision: aa61dbb8112a8983f49c6d319cb375cd3a9aa848
+  branch: master
+  specs:
+    scorched (0.24)
+      rack (~> 1.4)
+      rack-accept (~> 0.4)
+      scorched-accept (~> 0.1)
+      tilt (~> 1.4)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    blankslate (3.1.3)
+    parslet (1.7.1)
+      blankslate (>= 2.0, <= 4.0)
+    rack (1.6.4)
+    rack-accept (0.4.5)
+      rack (>= 0.4)
+    scorched-accept (0.1)
+      parslet (~> 1.7)
+    tilt (1.4.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  scorched!
+
+BUNDLED WITH
+   1.11.0

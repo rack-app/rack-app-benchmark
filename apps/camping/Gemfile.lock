@@ -1,0 +1,17 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    camping (2.1.532)
+      mab (>= 0.0.3)
+      rack (>= 1.0)
+    mab (0.0.3)
+    rack (1.6.4)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  camping
+
+BUNDLED WITH
+   1.11.0

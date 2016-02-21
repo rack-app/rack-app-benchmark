@@ -85,6 +85,11 @@ rack-app:
   total: 2.98
   real: 2.973043
   test_quantity: 100000
+- user: 0.30000000000000004
+  system: 0.010000000000000002
+  total: 0.31000000000000005
+  real: 0.314692
+  test_quantity: 10000
 brooklyn:
 - user: 0.12999999999999998
   system: 0.0
@@ -132,6 +137,11 @@ camping:
   total: 95.14000000000001
   real: 101.733008
   test_quantity: 100000
+- user: 7.85
+  system: 0.060000000000000005
+  total: 7.909999999999999
+  real: 7.92261
+  test_quantity: 10000
 cuba:
 - user: 1.1400000000000001
   system: 0.010000000000000002
@@ -148,6 +158,21 @@ cuba:
   total: 118.24999999999999
   real: 118.972432
   test_quantity: 100000
+- user: 11.309999999999999
+  system: 0.049999999999999996
+  total: 11.36
+  real: 11.377806
+  test_quantity: 10000
+- user: 11.28
+  system: 0.060000000000000005
+  total: 11.34
+  real: 11.351866
+  test_quantity: 10000
+- user: 11.329999999999998
+  system: 0.049999999999999996
+  total: 11.379999999999999
+  real: 11.395264
+  test_quantity: 10000
 grape:
 - user: 0.8999999999999999
   system: 0.020000000000000004
@@ -318,6 +343,21 @@ rails:
   total: 63.209999999999994
   real: 63.695018
   test_quantity: 100000
+- user: 5.510000000000001
+  system: 0.15000000000000002
+  total: 5.660000000000001
+  real: 5.674399
+  test_quantity: 10000
+- user: 5.5
+  system: 0.16
+  total: 5.66
+  real: 5.668663
+  test_quantity: 10000
+- user: 5.61
+  system: 0.17
+  total: 5.78
+  real: 5.780966
+  test_quantity: 10000
 ramaze:
 - user: 0.040000000000000036
   system: 0.0
@@ -378,6 +418,26 @@ ramaze:
   system: 0.08000000000000002
   total: 4.3
   real: 4.318002
+  test_quantity: 100000
+- user: 0.43
+  system: 0.019999999999999997
+  total: 0.45
+  real: 0.444131
+  test_quantity: 10000
+- user: 0.43
+  system: 0.019999999999999997
+  total: 0.45
+  real: 0.443005
+  test_quantity: 10000
+- user: 4.170000000000001
+  system: 0.09
+  total: 4.260000000000001
+  real: 4.274783
+  test_quantity: 100000
+- user: 4.32
+  system: 0.1
+  total: 4.42
+  real: 4.424263
   test_quantity: 100000
 scorched:
 - user: 0.29000000000000004

@@ -1,10 +1,16 @@
 #!/usr/bin/env ruby
 require 'benchmark'
-TEST_CASES = [
-    10000,
-    100000,
-    1000000,
-]
+TEST_CASES = []
+
+if ARGV[1].nil?
+  TEST_CASES.push(10000, 100000, 1000000)
+else
+  test_count = ARGV[1].to_i
+
+  raise('test count must be more than at least 10000') if test_count < 10000
+
+  TEST_CASES.push(test_count)
+end
 
 SUBJECT = {
     name: ARGV[0].to_s.downcase

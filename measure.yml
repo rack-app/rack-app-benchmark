@@ -605,6 +605,21 @@ scorched:
   total: 28.080000000000002
   real: 28.205871
   test_quantity: 100000
+- user: 2.91
+  system: 0.020000000000000004
+  total: 2.93
+  real: 2.982034
+  test_quantity: 10000
+- user: 29.299999999999997
+  system: 0.27999999999999997
+  total: 29.58
+  real: 29.919147
+  test_quantity: 100000
+- user: 325.76
+  system: 5.87
+  total: 331.63
+  real: 346.197658
+  test_quantity: 1000000
 sinatra:
 - user: 0.31000000000000005
   system: 0.0
@@ -621,3 +636,18 @@ sinatra:
   total: 27.45
   real: 27.585891
   test_quantity: 100000
+- user: 3.37
+  system: 0.07
+  total: 3.44
+  real: 3.649797
+  test_quantity: 10000
+- user: 32.739999999999995
+  system: 0.73
+  total: 33.46999999999999
+  real: 34.635301
+  test_quantity: 100000
+- user: 268.47
+  system: 3.39
+  total: 271.86
+  real: 274.405738
+  test_quantity: 1000000

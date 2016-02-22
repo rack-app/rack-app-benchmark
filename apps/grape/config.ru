@@ -2,7 +2,7 @@ require 'grape'
 
 class API < Grape::API
 
-  100.times do |index|
+  1000.times do |index|
     get "/#{index}" do
       { hello: "world" }
     end

@@ -4,7 +4,7 @@ require "nancy"
 
 class HelloWorld < Nancy::Base
 
-  100.times do |index|
+  1000.times do |index|
     get "/#{index}" do
       "hello world"
     end

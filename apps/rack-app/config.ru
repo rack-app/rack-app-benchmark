@@ -2,7 +2,7 @@ require 'rack/app'
 
 class App < Rack::App
 
-  100.times do |index|
+  1000.times do |index|
     get "/#{index}" do
       'hello world Rack::App'
     end

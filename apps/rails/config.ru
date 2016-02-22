@@ -10,7 +10,7 @@ class HelloWorld < Rails::Application
 
   routes.append do
 
-    100.times do |index|
+    1000.times do |index|
       get "/index" => "hello#world"
     end
 

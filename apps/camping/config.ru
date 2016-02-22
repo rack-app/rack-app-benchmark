@@ -4,7 +4,7 @@ Camping.goes :Hello
 
 module Hello::Controllers
 
-  100.times do |index|
+  1000.times do |index|
 
     eval <<-RUBY
       class Endpoint#{index} < R '/#{index}'

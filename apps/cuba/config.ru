@@ -7,7 +7,7 @@ require "cuba"
 
 HelloWorld = Cuba.new do
 
-  100.times do |index|
+  1000.times do |index|
     on "/#{index}" do
       res.write "hello world"
     end

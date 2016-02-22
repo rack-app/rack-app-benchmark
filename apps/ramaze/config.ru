@@ -4,7 +4,7 @@ require "ramaze"
 
 class HelloWorld < Ramaze::Controller
 
-  100.times do |index|
+  1000.times do |index|
     map "/#{index}"
   end
 

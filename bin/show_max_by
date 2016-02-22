@@ -20,7 +20,11 @@ results = reports.reduce([]) do |results, (app, reports)|
   element['name'] = app
 
   %W[user system total real].each do |key|
-    element[key]= reports.inject(0.0) { |result, el| result + (el[key].to_f / el['test_quantity']) }
+    weighted_times = reports.reduce([]){|wr,el| el['test_quantity'].times{ wr << (el[key].to_f / el['test_quantity']) } ;wr}
+
+    average_time = (weighted_times.reduce(0.0,&:+)) / weighted_times.length
+
+    element[key]= average_time
   end
 
   results.push(element)

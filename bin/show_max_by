@@ -48,7 +48,7 @@ def ljust_join(array, label_width)
   "| #{array.map { |e| e.to_s.ljust(label_width) }.join(' | ')} |"
 end
 
-headers = ['name', *measured_times, times_slower_label]
+headers = ['name',times_slower_label, *measured_times]
 $stdout.puts(ljust_join(headers, label_width))
 
 first_speed = nil
@@ -60,12 +60,13 @@ results.sort_by { |e| e[sort_by_key] }.each do |element|
 
   to_write = []
   to_write << element['name']
-  measured_times.each do |key|
-    to_write << element[key]
-  end
 
   slower_than_first_amount = (element[sort_by_key] / first_speed).round(3)
   to_write << slower_than_first_amount
+
+  measured_times.each do |key|
+    to_write << element[key]
+  end
 
   $stdout.puts(ljust_join(to_write, label_width))
 

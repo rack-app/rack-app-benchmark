@@ -90,6 +90,21 @@ rack-app:
   total: 0.31000000000000005
   real: 0.314692
   test_quantity: 10000
+- user: 0.31
+  system: 0.009999999999999995
+  total: 0.32
+  real: 0.327916
+  test_quantity: 10000
+- user: 4.08
+  system: 0.06
+  total: 4.14
+  real: 4.297761
+  test_quantity: 100000
+- user: 40.47
+  system: 0.62
+  total: 41.089999999999996
+  real: 44.11599
+  test_quantity: 1000000
 brooklyn:
 - user: 0.12999999999999998
   system: 0.0
@@ -121,6 +136,21 @@ brooklyn:
   total: 11.989999999999998
   real: 12.017282
   test_quantity: 100000
+- user: 1.25
+  system: 0.010000000000000002
+  total: 1.26
+  real: 1.257311
+  test_quantity: 10000
+- user: 12.649999999999999
+  system: 0.060000000000000005
+  total: 12.709999999999999
+  real: 12.963094
+  test_quantity: 100000
+- user: 139.5
+  system: 1.27
+  total: 140.77
+  real: 145.641585
+  test_quantity: 1000000
 camping:
 - user: 1.06
   system: 0.03
@@ -142,6 +172,21 @@ camping:
   total: 7.909999999999999
   real: 7.92261
   test_quantity: 10000
+- user: 8.49
+  system: 0.12
+  total: 8.61
+  real: 8.737858
+  test_quantity: 10000
+- user: 89.06
+  system: 1.84
+  total: 90.9
+  real: 93.621184
+  test_quantity: 100000
+- user: 891.72
+  system: 17.37
+  total: 909.09
+  real: 929.757356
+  test_quantity: 1000000
 cuba:
 - user: 1.1400000000000001
   system: 0.010000000000000002
@@ -173,6 +218,21 @@ cuba:
   total: 11.379999999999999
   real: 11.395264
   test_quantity: 10000
+- user: 13.84
+  system: 0.27
+  total: 14.11
+  real: 14.870029
+  test_quantity: 10000
+- user: 138.96
+  system: 1.95
+  total: 140.91
+  real: 147.886034
+  test_quantity: 100000
+- user: 1299.87
+  system: 16.310000000000002
+  total: 1316.1799999999998
+  real: 1359.793053
+  test_quantity: 1000000
 grape:
 - user: 0.8999999999999999
   system: 0.020000000000000004
@@ -189,6 +249,21 @@ grape:
   total: 49.650000000000006
   real: 49.937104
   test_quantity: 100000
+- user: 6.050000000000001
+  system: 0.06999999999999999
+  total: 6.120000000000001
+  real: 6.390545
+  test_quantity: 10000
+- user: 58.7
+  system: 0.64
+  total: 59.34
+  real: 61.504616
+  test_quantity: 100000
+- user: 539.08
+  system: 4.96
+  total: 544.0400000000001
+  real: 557.447353
+  test_quantity: 1000000
 hobbit:
 - user: 0.08000000000000002
   system: 0.0
@@ -280,6 +355,21 @@ hobbit:
   total: 7.5200000000000005
   real: 7.541837
   test_quantity: 100000
+- user: 0.8600000000000001
+  system: 0.019999999999999997
+  total: 0.8800000000000001
+  real: 0.964734
+  test_quantity: 10000
+- user: 8.540000000000001
+  system: 0.06
+  total: 8.600000000000001
+  real: 8.926382
+  test_quantity: 100000
+- user: 84.97
+  system: 0.72
+  total: 85.69
+  real: 88.600763
+  test_quantity: 1000000
 nancy:
 - user: 0.12999999999999998
   system: 0.0
@@ -311,6 +401,21 @@ nancy:
   total: 13.870000000000001
   real: 14.047723
   test_quantity: 100000
+- user: 1.7899999999999998
+  system: 0.030000000000000006
+  total: 1.8199999999999998
+  real: 1.907819
+  test_quantity: 10000
+- user: 14.630000000000003
+  system: 0.10999999999999999
+  total: 14.740000000000002
+  real: 14.961464
+  test_quantity: 100000
+- user: 155.51999999999998
+  system: 1.6400000000000001
+  total: 157.15999999999997
+  real: 162.558486
+  test_quantity: 1000000
 rack:
 - user: 0.010000000000000009
   system: 0.0
@@ -327,6 +432,21 @@ rack:
   total: 1.18
   real: 1.203721
   test_quantity: 100000
+- user: 0.09
+  system: 0.010000000000000002
+  total: 0.1
+  real: 0.097509
+  test_quantity: 10000
+- user: 1.1099999999999999
+  system: 0.019999999999999997
+  total: 1.13
+  real: 1.133603
+  test_quantity: 100000
+- user: 11.77
+  system: 0.22999999999999998
+  total: 12.0
+  real: 12.666449
+  test_quantity: 1000000
 rails:
 - user: 0.6799999999999999
   system: 0.03
@@ -358,6 +478,21 @@ rails:
   total: 5.78
   real: 5.780966
   test_quantity: 10000
+- user: 7.24
+  system: 0.25
+  total: 7.49
+  real: 7.70025
+  test_quantity: 10000
+- user: 66.81
+  system: 2.29
+  total: 69.10000000000001
+  real: 72.265646
+  test_quantity: 100000
+- user: 697.08
+  system: 24.75
+  total: 721.83
+  real: 749.730901
+  test_quantity: 1000000
 ramaze:
 - user: 0.040000000000000036
   system: 0.0
@@ -439,6 +574,21 @@ ramaze:
   total: 4.42
   real: 4.424263
   test_quantity: 100000
+- user: 0.43999999999999995
+  system: 0.009999999999999995
+  total: 0.44999999999999996
+  real: 0.463931
+  test_quantity: 10000
+- user: 4.62
+  system: 0.19
+  total: 4.8100000000000005
+  real: 5.026627
+  test_quantity: 100000
+- user: 49.0
+  system: 1.9999999999999998
+  total: 51.0
+  real: 52.998671
+  test_quantity: 1000000
 scorched:
 - user: 0.29000000000000004
   system: 0.0

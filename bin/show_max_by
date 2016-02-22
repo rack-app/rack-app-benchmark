@@ -20,9 +20,9 @@ results = reports.reduce([]) do |results, (app, reports)|
   element['name'] = app
 
   %W[user system total real].each do |key|
-    weighted_times = reports.reduce([]){|wr,el| el['test_quantity'].times{ wr << (el[key].to_f / el['test_quantity']) } ;wr}
+    weighted_times = reports.reduce([]) { |wr, el| el['test_quantity'].times { wr << (el[key].to_f / el['test_quantity']) }; wr }
 
-    average_time = (weighted_times.reduce(0.0,&:+)) / weighted_times.length
+    average_time = (weighted_times.reduce(0.0, &:+)) / weighted_times.length
 
     element[key]= average_time
   end
@@ -32,7 +32,8 @@ results = reports.reduce([]) do |results, (app, reports)|
   results
 end
 
-label_width = (measured_times + ['name']).reduce(0) do |label_width, key|
+times_slower_label = 'current / fastest'
+label_width = (measured_times + ['name', times_slower_label]).reduce(0) do |label_width, key|
 
   max_value_for_key = results.map { |r| r[key].to_s.length }.max
   if max_value_for_key > label_width
@@ -47,16 +48,24 @@ def ljust_join(array, label_width)
   "| #{array.map { |e| e.to_s.ljust(label_width) }.join(' | ')} |"
 end
 
-$stdout.puts(ljust_join(['name', *measured_times], label_width))
+headers = ['name', *measured_times, times_slower_label]
+$stdout.puts(ljust_join(headers, label_width))
 
-$stdout.puts(ljust_join((measured_times.length+1).times.map { '-' * label_width }, label_width))
+first_speed = nil
+
+$stdout.puts(ljust_join((headers.length).times.map { '-' * label_width }, label_width))
+
 results.sort_by { |e| e[sort_by_key] }.each do |element|
+  first_speed ||= element[sort_by_key].to_f
 
   to_write = []
   to_write << element['name']
   measured_times.each do |key|
     to_write << element[key]
   end
+
+  slower_than_first_amount = (element[sort_by_key] / first_speed).round(3)
+  to_write << slower_than_first_amount
 
   $stdout.puts(ljust_join(to_write, label_width))
 

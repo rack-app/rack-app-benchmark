@@ -4,7 +4,7 @@ Camping.goes :Hello
 
 module Hello::Controllers
 
-  1000.times do |index|
+  (ENDPOINT_DECLARATION_AMOUNT || ENV['EDA']).times do |index|
 
     eval <<-RUBY
       class Endpoint#{index} < R '/#{index}'

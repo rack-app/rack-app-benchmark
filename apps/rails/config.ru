@@ -10,7 +10,7 @@ class HelloWorld < Rails::Application
 
   routes.append do
 
-    1000.times do |index|
+    (ENDPOINT_DECLARATION_AMOUNT || ENV['EDA']).times do |index|
       get "/index" => "hello#world"
     end
 

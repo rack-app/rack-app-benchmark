@@ -15,63 +15,67 @@ measure_file_path = File.join(benchmark_folder, 'measure.yml')
 reports = YAML.load_file(measure_file_path)
 
 results = reports.reduce([]) do |results, (app, versions)|
-  versions.each do |version, reports|
+  versions.each do |version, ungroupped_reports|
+    ungroupped_reports.group_by{|el| el['eda'] }.each do |eda,reports|
 
-    element = {}
-    element['name'] = app
-    element['version'] = version
+      element = {}
+      element['name'] = app
+      element['version'] = version
+      element['eda'] = eda
 
-    %W[user system total real].each do |key|
-      weighted_times = reports.reduce([]) { |wr, el| el['weight'].to_i.times { wr << (el[key].to_f / el['weight'].to_i) }; wr }
+      %W[user system total real].each do |key|
+        weighted_times = reports.reduce([]) { |wr, el| el['weight'].to_i.times { wr << (el[key].to_f / el['weight'].to_i) }; wr }
 
-      average_time = (weighted_times.reduce(0.0, &:+)) / weighted_times.length
+        average_time = (weighted_times.reduce(0.0, &:+)) / weighted_times.length
 
-      element[key]= average_time
+        element[key]= average_time
+      end
+
+      results.push(element)
+
     end
-
-    results.push(element)
-
   end
 
   results
 end
 
 times_slower_label = 'current / fastest'
-label_width = (measured_times + ['name', times_slower_label]).reduce(0) do |label_width, key|
+headers = ['name', 'version', 'number of declared endpoints',times_slower_label, sort_by_key]
+label_width = (measured_times + headers).reduce(0) do |label_width, key|
+  new_width = label_width
 
   max_value_for_key = results.map { |r| r[key].to_s.length }.max
-  if max_value_for_key > label_width
-    max_value_for_key
-  else
-    label_width
+  header_length = key.to_s.length
+  if header_length > new_width
+    new_width = header_length
   end
 
+  if max_value_for_key > new_width
+    new_width = max_value_for_key
+  end
+
+  new_width
 end
 
 def ljust_join(array, label_width)
   "| #{array.map { |e| e.to_s.ljust(label_width) }.join(' | ')} |"
 end
 
-headers = ['name', 'version', times_slower_label, *measured_times]
 $stdout.puts(ljust_join(headers, label_width))
-
-first_speed = nil
-
 $stdout.puts(ljust_join((headers.length).times.map { '-' * label_width }, label_width))
 
+first_speed = nil
 results.sort_by { |e| e[sort_by_key] }.each do |element|
   first_speed ||= element[sort_by_key].to_f
 
   to_write = []
   to_write << element['name']
   to_write << element['version']
+  to_write << element['eda']
 
   slower_than_first_amount = (element[sort_by_key] / first_speed).round(3)
   to_write << slower_than_first_amount
-
-  measured_times.each do |key|
-    to_write << element[key]
-  end
+  to_write << element[sort_by_key]
 
   $stdout.puts(ljust_join(to_write, label_width))
 end

@@ -4,7 +4,7 @@ require "scorched"
 
 class HelloWorld < Scorched::Controller
 
-  1000.times do |index|
+  (ENDPOINT_DECLARATION_AMOUNT || ENV['EDA']).times do |index|
     get "/#{index}" do
       "hello world"
     end

@@ -7,7 +7,7 @@ require "hobbit"
 
 class HelloWorld < Hobbit::Base
 
-  1000.times do |index|
+  (ENDPOINT_DECLARATION_AMOUNT || ENV['EDA']).times do |index|
     get "/#{index}" do
       "hello world"
     end

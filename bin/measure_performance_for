@@ -2,24 +2,21 @@
 require 'benchmark'
 require 'rubygems'
 TEST_OPTIONS = {}
-TEST_OPTIONS[:amount]= 10000
-SUBJECT = {:name => ARGV[0].to_s.downcase}
 
-unless ARGV[1].nil?
-  test_count = ARGV[1].to_i
+test_count = ARGV[1].to_i
+raise('test count must be more than at least 0') if test_count <= 0
 
-  raise('test count must be more than at least 10000') if test_count < 10000
+TESTING_AMOUNT= test_count
+ENDPOINT_DECLARATION_AMOUNT = (ARGV[1] || raise('missing endpoint count')).to_i
+SUBJECT_NAME= ARGV[0].to_s.downcase
 
-  TEST_OPTIONS[:amount]= test_count
-end
-
-
+T = {}
 def run(app)
-  SUBJECT[:instance] = app
+  T[:instance] = app
 end
 
 benchmark_folder = File.realpath(File.dirname(File.dirname(__FILE__)))
-app_folder = File.realpath(File.join(File.dirname(__FILE__), '..', 'apps', SUBJECT[:name].downcase))
+app_folder = File.realpath(File.join(File.dirname(__FILE__), '..', 'apps', SUBJECT_NAME.downcase))
 config_file_path = File.join(app_folder, 'config.ru')
 
 Dir.chdir(app_folder)
@@ -50,9 +47,9 @@ rack_env = {
 }
 
 require 'yaml'
-benchmark_result = TEST_OPTIONS[:amount].times.map do
+benchmark_result = TESTING_AMOUNT.times.map do
   env = rack_env.dup
-  Benchmark.measure { SUBJECT[:instance].call(env) }
+  Benchmark.measure { T[:instance].call(env) }
 end
 
 
@@ -71,18 +68,18 @@ end
 measure_file_path = File.join(benchmark_folder, 'measure.yml')
 benchmarks = load_file(measure_file_path)
 
-gem_version = Gem.loaded_specs[SUBJECT[:name]].version.to_s
-gem_space = (benchmarks[SUBJECT[:name]] ||= {})
+gem_version = Gem.loaded_specs[SUBJECT_NAME].version.to_s
+gem_space = (benchmarks[SUBJECT_NAME] ||= {})
 results = (gem_space[gem_version] ||= [])
 
-def avg(array,method)
-  array.reduce(0.0){|r,bm| r + bm.public_send(method) } / array.length
+def avg(array, method)
+  array.reduce(0.0) { |r, bm| r + bm.public_send(method) } / array.length
 end
 
-user_time = avg(benchmark_result,:utime)
-system_time = avg(benchmark_result,:stime)
-total_time = avg(benchmark_result,:total)
-real_time = avg(benchmark_result,:real)
+user_time = avg(benchmark_result, :utime)
+system_time = avg(benchmark_result, :stime)
+total_time = avg(benchmark_result, :total)
+real_time = avg(benchmark_result, :real)
 
 results.push(
     {
@@ -90,7 +87,8 @@ results.push(
         'system' => system_time,
         'total' => total_time,
         'real' => real_time,
-        'weight' => TEST_OPTIONS[:amount]
+        'eda' => ENDPOINT_DECLARATION_AMOUNT,
+        'weight' => TESTING_AMOUNT
     }
 )
 

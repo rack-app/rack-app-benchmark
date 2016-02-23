@@ -1,13 +1,27 @@
 #!/usr/bin/env ruby
 require_relative('../lib/bootstrap')
+require 'progressbar'
+
+ENDPOINT_CASES = [100, 1000, 10000]
+APP_FOLDERS = app_folders
+TEST_SAMPLES_AMOUNT = 5
 
 benchmarker = File.realpath(File.join(File.dirname(__FILE__), 'measure_performance_for'))
 
-app_folders.each do |app_project_directory|
-  app_name = File.basename(app_project_directory)
+bar = ProgressBar.new('start',(APP_FOLDERS.length * ENDPOINT_CASES.length * TEST_SAMPLES_AMOUNT))
+APP_FOLDERS.each do |app_project_directory|
 
-  $stdout.puts("#{app_name}#start")
-  `#{benchmarker} #{app_name}`
-  $stdout.puts("#{app_name}#done")
+  app_name = File.basename(app_project_directory)
+  bar.instance_variable_set(:@title,app_name)
+
+  ENDPOINT_CASES.each do |endpoint_count|
+    TEST_SAMPLES_AMOUNT.times do
+      `#{benchmarker} #{app_name} #{endpoint_count}`
+
+      bar.inc
+    end
+  end
 
 end
+
+bar.finish

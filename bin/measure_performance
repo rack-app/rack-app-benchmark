@@ -4,7 +4,7 @@ require 'progressbar'
 
 ENDPOINT_CASES = [100, 1000, 10000]
 APP_FOLDERS = app_folders
-TEST_SAMPLES_AMOUNT = 5
+TEST_SAMPLES_AMOUNT = (ARGV[0] || 1).to_i
 
 benchmarker = File.realpath(File.join(File.dirname(__FILE__), 'measure_performance_for'))
 

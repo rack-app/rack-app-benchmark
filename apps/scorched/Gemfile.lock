@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/Wardrop/Scorched
-  revision: aa61dbb8112a8983f49c6d319cb375cd3a9aa848
+  revision: 5a197665c2af222ae97e98da7c15d40712e9a6a0
   branch: master
   specs:
-    scorched (0.24)
+    scorched (0.25)
       rack (~> 1.4)
       rack-accept (~> 0.4)
       scorched-accept (~> 0.1)

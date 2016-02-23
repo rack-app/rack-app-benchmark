@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/patriciomacadden/hobbit
-  revision: 756f9cf140bb8904d621fe32ae9f352c45f80b80
+  revision: 9e88cb2f2eda971ec586fc148a1d9326bc450615
   branch: master
   specs:
-    hobbit (0.6.0)
+    hobbit (0.6.1)
       rack
 
 GEM

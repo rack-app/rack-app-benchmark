@@ -1,15 +1,20 @@
+GIT
+  remote: git://github.com/rack-app/rack-app.git
+  revision: 0c1d312ea618fd01b9541582555ee3935525f01d
+  specs:
+    rack-app (0.23.0)
+      rack
+
 GEM
   remote: https://rubygems.org/
   specs:
     rack (1.6.4)
-    rack-app (0.21.0)
-      rack
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  rack-app
+  rack-app!
 
 BUNDLED WITH
    1.11.0

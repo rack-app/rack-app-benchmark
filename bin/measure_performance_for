@@ -1,20 +1,18 @@
 #!/usr/bin/env ruby
 require 'benchmark'
-TEST_CASES = []
+require 'rubygems'
+TEST_OPTIONS = {}
+TEST_OPTIONS[:amount]= 10000
+SUBJECT = {:name => ARGV[0].to_s.downcase}
 
-if ARGV[1].nil?
-  TEST_CASES.push(10000, 100000, 1000000)
-else
+unless ARGV[1].nil?
   test_count = ARGV[1].to_i
 
   raise('test count must be more than at least 10000') if test_count < 10000
 
-  TEST_CASES.push(test_count)
+  TEST_OPTIONS[:amount]= test_count
 end
 
-SUBJECT = {
-    name: ARGV[0].to_s.downcase
-}
 
 def run(app)
   SUBJECT[:instance] = app
@@ -51,14 +49,12 @@ rack_env = {
     "rack.input" => ::Rack::Lint::InputWrapper.new(StringIO.new(''))
 }
 
-
-benchmark_result = Benchmark.bm(20) do |x|
-  TEST_CASES.each do |amount|
-    x.report(amount) { amount.times { SUBJECT[:instance].call(rack_env.dup) } }
-  end
+require 'yaml'
+benchmark_result = TEST_OPTIONS[:amount].times.map do
+  env = rack_env.dup
+  Benchmark.measure { SUBJECT[:instance].call(env) }
 end
 
-require 'yaml'
 
 def load_file(file_path)
   file_content = File.read(file_path)
@@ -74,19 +70,29 @@ end
 
 measure_file_path = File.join(benchmark_folder, 'measure.yml')
 benchmarks = load_file(measure_file_path)
-results = (benchmarks[SUBJECT[:name]] ||= [])
 
-benchmark_result.each do |bm|
-  results.push(
-      {
-          'user' => bm.utime,
-          'system' => bm.stime,
-          'total' => bm.total,
-          'real' => bm.real,
-          'test_quantity' => bm.label.to_i
-      }
-  )
+gem_version = Gem.loaded_specs[SUBJECT[:name]].version.to_s
+gem_space = (benchmarks[SUBJECT[:name]] ||= {})
+results = (gem_space[gem_version] ||= [])
+
+def avg(array,method)
+  array.reduce(0.0){|r,bm| r + bm.public_send(method) } / array.length
 end
+
+user_time = avg(benchmark_result,:utime)
+system_time = avg(benchmark_result,:stime)
+total_time = avg(benchmark_result,:total)
+real_time = avg(benchmark_result,:real)
+
+results.push(
+    {
+        'user' => user_time,
+        'system' => system_time,
+        'total' => total_time,
+        'real' => real_time,
+        'weight' => TEST_OPTIONS[:amount]
+    }
+)
 
 File.write(measure_file_path, YAML.dump(benchmarks))
 

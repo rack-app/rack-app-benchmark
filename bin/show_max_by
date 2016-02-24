@@ -16,7 +16,7 @@ reports = YAML.load_file(measure_file_path)
 
 results = reports.reduce([]) do |results, (app, versions)|
   versions.each do |version, ungroupped_reports|
-    ungroupped_reports.group_by{|el| el['eda'] }.each do |eda,reports|
+    ungroupped_reports.group_by { |el| el['eda'] }.each do |eda, reports|
 
       element = {}
       element['name'] = app
@@ -40,7 +40,7 @@ results = reports.reduce([]) do |results, (app, versions)|
 end
 
 times_slower_label = 'current / fastest'
-headers = ['name', 'version', 'number of declared endpoints',times_slower_label, sort_by_key]
+headers = ['name', 'version', times_slower_label, sort_by_key]
 label_width = (measured_times + headers).reduce(0) do |label_width, key|
   new_width = label_width
 
@@ -61,21 +61,31 @@ def ljust_join(array, label_width)
   "| #{array.map { |e| e.to_s.ljust(label_width) }.join(' | ')} |"
 end
 
-$stdout.puts(ljust_join(headers, label_width))
-$stdout.puts(ljust_join((headers.length).times.map { '-' * label_width }, label_width))
 
-first_speed = nil
-results.sort_by { |e| e[sort_by_key] }.each do |element|
-  first_speed ||= element[sort_by_key].to_f
+def out_put_table_for(eda, results, headers, sort_by_key, column_width)
+  $stdout.puts("\n\n### number of declared endpoints: #{eda}\n\n")
+  $stdout.puts(ljust_join(headers, column_width))
+  $stdout.puts(ljust_join((headers.length).times.map { '-' * column_width }, column_width))
 
-  to_write = []
-  to_write << element['name']
-  to_write << element['version']
-  to_write << element['eda']
+  first_speed = nil
+  results.sort_by { |e| e[sort_by_key] }.each do |element|
+    first_speed ||= element[sort_by_key].to_f
 
-  slower_than_first_amount = (element[sort_by_key] / first_speed).round(3)
-  to_write << slower_than_first_amount
-  to_write << element[sort_by_key]
+    to_write = []
+    to_write << element['name']
+    to_write << element['version']
 
-  $stdout.puts(ljust_join(to_write, label_width))
+    slower_than_first_amount = (element[sort_by_key] / first_speed).round(3)
+    to_write << slower_than_first_amount
+    to_write << element[sort_by_key]
+
+    $stdout.puts(ljust_join(to_write, column_width))
+  end
+end
+
+rack_results = results.select{|el| el['name'] == 'rack' }
+results.group_by { |el| el['eda'] }.sort_by{|eda,_| eda }.each do |eda, grouped_results|
+  next if eda.to_i == 1
+
+  out_put_table_for(eda, (rack_results + grouped_results), headers, sort_by_key, label_width)
 end

@@ -2177,6 +2177,72 @@ rails:
     real: 0.773871
     eda: 1000
     weight: 1000
+  - user: 0.7
+    system: 0.02999999999999997
+    total: 0.73
+    real: 0.734992
+    eda: 1000
+    weight: 1000
+  - user: 0.6399999999999999
+    system: 0.030000000000000027
+    total: 0.6699999999999999
+    real: 0.680015
+    eda: 1000
+    weight: 1000
+  - user: 0.6599999999999999
+    system: 0.02999999999999997
+    total: 0.69
+    real: 0.692371
+    eda: 1000
+    weight: 1000
+  - user: 0.73
+    system: 0.040000000000000036
+    total: 0.77
+    real: 0.847012
+    eda: 1000
+    weight: 1000
+  - user: 0.6399999999999999
+    system: 0.02999999999999997
+    total: 0.6699999999999999
+    real: 0.6715
+    eda: 1000
+    weight: 1000
+  - user: 0.6099999999999999
+    system: 0.03
+    total: 0.6399999999999999
+    real: 0.637734
+    eda: 200
+    weight: 1000
+  - user: 0.58
+    system: 0.01999999999999999
+    total: 0.6
+    real: 0.604458
+    eda: 500
+    weight: 1000
+  - user: 0.7
+    system: 0.03
+    total: 0.73
+    real: 0.732423
+    eda: 500
+    weight: 1000
+  - user: 0.5700000000000001
+    system: 0.01999999999999999
+    total: 0.5900000000000001
+    real: 0.595879
+    eda: 500
+    weight: 1000
+  - user: 0.6900000000000001
+    system: 0.03
+    total: 0.7200000000000001
+    real: 0.716581
+    eda: 500
+    weight: 1000
+  - user: 0.57
+    system: 0.03
+    total: 0.6
+    real: 0.59381
+    eda: 500
+    weight: 1000
 ramaze:
   2012.12.08:
   - user: 0.040000000000000036

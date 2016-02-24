@@ -11,7 +11,7 @@ class HelloWorld < Rails::Application
   routes.append do
 
     ENV['EDA'].to_i.times do |index|
-      get "/index" => "hello#world"
+      get "/index" => "hello#{index}#world"
     end
 
     root "hello#world"
@@ -26,6 +26,20 @@ class HelloWorld < Rails::Application
     config.middleware.delete(middleware)
   end
 
+end
+
+ENV['EDA'].to_i.times do |index|
+eval <<-RUBY
+
+class Hello#{index}Controller < ActionController::Base
+
+  def world
+    render text: "hello world rails"
+  end
+
+end
+
+RUBY
 end
 
 class HelloController < ActionController::Base

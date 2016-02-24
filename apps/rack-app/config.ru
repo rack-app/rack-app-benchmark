@@ -2,7 +2,7 @@ require 'rack/app'
 
 class App < Rack::App
 
-  (ENDPOINT_DECLARATION_AMOUNT || ENV['EDA']).times do |index|
+  ENV['EDA'].to_i.times do |index|
     get "/#{index}" do
       'hello world Rack::App'
     end

@@ -1,221 +1,2905 @@
 ---
 brooklyn:
   0.0.1:
-  - user: 9.999999999999982e-05
-    system: 0.0
-    total: 9.999999999999982e-05
-    real: 0.00012902
+  - user: 0.13
+    system: 0.010000000000000002
+    total: 0.14
+    real: 0.128045
     eda: 100
-    weight: 100
-  - user: 9.999999999999982e-05
+    weight: 1000
+  - user: 0.12999999999999998
     system: 0.0
-    total: 9.999999999999982e-05
-    real: 0.00012468999999999997
+    total: 0.12999999999999998
+    real: 0.137795
     eda: 100
-    weight: 100
-  - user: 0.0001999999999999999
+    weight: 1000
+  - user: 0.12000000000000002
     system: 0.0
-    total: 0.0001999999999999999
-    real: 0.00014306999999999994
+    total: 0.12000000000000002
+    real: 0.118156
     eda: 100
-    weight: 100
-  - user: 0.00020000000000000017
+    weight: 1000
+  - user: 0.11000000000000001
     system: 0.0
-    total: 0.00020000000000000017
-    real: 0.00013799999999999994
+    total: 0.11000000000000001
+    real: 0.118388
     eda: 100
-    weight: 100
-  - user: 0.00010000000000000009
-    system: 0.0
-    total: 0.00010000000000000009
-    real: 0.00012691999999999993
+    weight: 1000
+  - user: 0.11000000000000001
+    system: 0.010000000000000002
+    total: 0.12000000000000002
+    real: 0.11883
     eda: 100
-    weight: 100
-  - user: 0.0005700000000000001
+    weight: 1000
+  - user: 0.12000000000000002
     system: 0.0
-    total: 0.0005700000000000001
-    real: 0.0005709579999999998
+    total: 0.12000000000000002
+    real: 0.117993
+    eda: 100
+    weight: 1000
+  - user: 0.12999999999999998
+    system: 0.0
+    total: 0.12999999999999998
+    real: 0.124966
+    eda: 100
+    weight: 1000
+  - user: 0.12
+    system: 0.0
+    total: 0.12
+    real: 0.116972
+    eda: 100
+    weight: 1000
+  - user: 0.12000000000000002
+    system: 0.010000000000000002
+    total: 0.13000000000000003
+    real: 0.119377
+    eda: 100
+    weight: 1000
+  - user: 0.11999999999999997
+    system: 0.0
+    total: 0.11999999999999997
+    real: 0.122383
+    eda: 100
+    weight: 1000
+  - user: 0.17
+    system: 0.010000000000000002
+    total: 0.18000000000000002
+    real: 0.172512
+    eda: 200
+    weight: 1000
+  - user: 0.18999999999999997
+    system: 0.010000000000000002
+    total: 0.19999999999999998
+    real: 0.199809
+    eda: 200
+    weight: 1000
+  - user: 0.21000000000000002
+    system: 0.0
+    total: 0.21000000000000002
+    real: 0.226702
+    eda: 200
+    weight: 1000
+  - user: 0.19999999999999998
+    system: 0.0
+    total: 0.19999999999999998
+    real: 0.201734
+    eda: 200
+    weight: 1000
+  - user: 0.16
+    system: 0.0
+    total: 0.16
+    real: 0.163754
+    eda: 200
+    weight: 1000
+  - user: 0.16999999999999998
+    system: 0.0
+    total: 0.16999999999999998
+    real: 0.177407
+    eda: 200
+    weight: 1000
+  - user: 0.18
+    system: 0.0
+    total: 0.18
+    real: 0.188126
+    eda: 200
+    weight: 1000
+  - user: 0.19999999999999996
+    system: 0.010000000000000002
+    total: 0.20999999999999996
+    real: 0.24278
+    eda: 200
+    weight: 1000
+  - user: 0.16999999999999998
+    system: 0.0
+    total: 0.16999999999999998
+    real: 0.172781
+    eda: 200
+    weight: 1000
+  - user: 0.16999999999999998
+    system: 0.0
+    total: 0.16999999999999998
+    real: 0.173598
+    eda: 200
+    weight: 1000
+  - user: 0.41
+    system: 0.009999999999999995
+    total: 0.42
+    real: 0.442005
+    eda: 500
+    weight: 1000
+  - user: 0.39
+    system: 0.0
+    total: 0.39
+    real: 0.430693
+    eda: 500
+    weight: 1000
+  - user: 0.32999999999999996
+    system: 0.0
+    total: 0.32999999999999996
+    real: 0.334649
+    eda: 500
+    weight: 1000
+  - user: 0.47
+    system: 0.010000000000000002
+    total: 0.48
+    real: 0.481342
+    eda: 500
+    weight: 1000
+  - user: 0.32999999999999996
+    system: 0.0
+    total: 0.32999999999999996
+    real: 0.348269
+    eda: 500
+    weight: 1000
+  - user: 0.35
+    system: 0.010000000000000002
+    total: 0.36
+    real: 0.36075
+    eda: 500
+    weight: 1000
+  - user: 0.41000000000000003
+    system: 0.0
+    total: 0.41000000000000003
+    real: 0.462762
+    eda: 500
+    weight: 1000
+  - user: 0.45999999999999996
+    system: 0.019999999999999997
+    total: 0.48
+    real: 0.496417
+    eda: 500
+    weight: 1000
+  - user: 0.39
+    system: 0.010000000000000002
+    total: 0.4
+    real: 0.403825
+    eda: 500
+    weight: 1000
+  - user: 0.44999999999999996
+    system: 0.009999999999999995
+    total: 0.45999999999999996
+    real: 0.476427
+    eda: 500
+    weight: 1000
+  - user: 1.04
+    system: 0.030000000000000006
+    total: 1.07
+    real: 1.148949
     eda: 1000
     weight: 1000
-  - user: 0.0006
+  - user: 0.96
+    system: 0.05
+    total: 1.01
+    real: 1.05431
+    eda: 1000
+    weight: 1000
+  - user: 0.8400000000000001
     system: 0.0
-    total: 0.0006
-    real: 0.0006094819999999998
+    total: 0.8400000000000001
+    real: 0.857454
     eda: 1000
     weight: 1000
-  - user: 0.0005899999999999999
-    system: 1.0000000000000003e-05
-    total: 0.0006
-    real: 0.0006396630000000002
+  - user: 0.71
+    system: 0.010000000000000002
+    total: 0.72
+    real: 0.730149
     eda: 1000
     weight: 1000
-  - user: 0.00063
-    system: 1.0000000000000003e-05
-    total: 0.00064
-    real: 0.000624319
-    eda: 1000
-    weight: 1000
-  - user: 0.0007
+  - user: 0.72
     system: 0.0
-    total: 0.0007
-    real: 0.0007139860000000001
+    total: 0.72
+    real: 0.733706
     eda: 1000
     weight: 1000
-  - user: 0.009087000000000005
-    system: 8.400000000000001e-05
-    total: 0.009171000000000007
-    real: 0.009541856699999986
-    eda: 10000
-    weight: 10000
-  - user: 0.009313000000000004
-    system: 8.7e-05
-    total: 0.009400000000000016
-    real: 0.009803916599999974
-    eda: 10000
-    weight: 10000
-  - user: 0.008573000000000002
-    system: 5.9e-05
-    total: 0.008632000000000004
-    real: 0.008798202900000055
-    eda: 10000
-    weight: 10000
-  - user: 0.008911999999999996
-    system: 9.6e-05
-    total: 0.009008000000000002
-    real: 0.009438638200000059
-    eda: 10000
-    weight: 10000
-  - user: 0.00010000000000000009
+  - user: 0.65
     system: 0.0
-    total: 0.00010000000000000009
-    real: 0.00012779
+    total: 0.65
+    real: 0.662699
+    eda: 1000
+    weight: 1000
+  - user: 0.71
+    system: 0.010000000000000002
+    total: 0.72
+    real: 0.727682
+    eda: 1000
+    weight: 1000
+  - user: 0.6900000000000001
+    system: 0.0
+    total: 0.6900000000000001
+    real: 0.708214
+    eda: 1000
+    weight: 1000
+  - user: 0.62
+    system: 0.0
+    total: 0.62
+    real: 0.625904
+    eda: 1000
+    weight: 1000
+  - user: 0.71
+    system: 0.0
+    total: 0.71
+    real: 0.719609
+    eda: 1000
+    weight: 1000
+camping:
+  2.1.532:
+  - user: 0.99
+    system: 0.019999999999999997
+    total: 1.01
+    real: 1.161244
     eda: 100
-    weight: 100
-  - user: 0.00010000000000000009
-    system: 0.0
-    total: 0.00010000000000000009
-    real: 0.00012665
+    weight: 1000
+  - user: 0.8800000000000001
+    system: 0.019999999999999997
+    total: 0.9000000000000001
+    real: 0.958007
     eda: 100
-    weight: 100
-  - user: 0.00010000000000000009
-    system: 0.0
-    total: 0.00010000000000000009
-    real: 0.00013139
+    weight: 1000
+  - user: 1.0
+    system: 0.030000000000000006
+    total: 1.03
+    real: 1.180589
     eda: 100
-    weight: 100
+    weight: 1000
+  - user: 0.8300000000000001
+    system: 0.020000000000000004
+    total: 0.8500000000000001
+    real: 0.857683
+    eda: 100
+    weight: 1000
+  - user: 1.03
+    system: 0.03
+    total: 1.06
+    real: 1.118714
+    eda: 100
+    weight: 1000
+  - user: 0.8300000000000001
+    system: 0.010000000000000002
+    total: 0.8400000000000001
+    real: 0.851791
+    eda: 100
+    weight: 1000
+  - user: 0.9099999999999999
+    system: 0.020000000000000004
+    total: 0.9299999999999999
+    real: 0.942658
+    eda: 100
+    weight: 1000
+  - user: 0.8300000000000001
+    system: 0.020000000000000004
+    total: 0.8500000000000001
+    real: 0.845314
+    eda: 100
+    weight: 1000
+  - user: 0.8200000000000001
+    system: 0.020000000000000004
+    total: 0.8400000000000001
+    real: 0.835707
+    eda: 100
+    weight: 1000
+  - user: 0.8500000000000001
+    system: 0.020000000000000004
+    total: 0.8700000000000001
+    real: 0.868681
+    eda: 100
+    weight: 1000
+  - user: 1.57
+    system: 0.03
+    total: 1.6
+    real: 1.594188
+    eda: 200
+    weight: 1000
+  - user: 1.59
+    system: 0.019999999999999997
+    total: 1.61
+    real: 1.623586
+    eda: 200
+    weight: 1000
+  - user: 1.55
+    system: 0.03
+    total: 1.58
+    real: 1.579527
+    eda: 200
+    weight: 1000
+  - user: 1.58
+    system: 0.030000000000000006
+    total: 1.61
+    real: 1.630063
+    eda: 200
+    weight: 1000
+  - user: 1.56
+    system: 0.03
+    total: 1.59
+    real: 1.58191
+    eda: 200
+    weight: 1000
+  - user: 1.54
+    system: 0.03
+    total: 1.57
+    real: 1.579018
+    eda: 200
+    weight: 1000
+  - user: 1.48
+    system: 0.03
+    total: 1.51
+    real: 1.503108
+    eda: 200
+    weight: 1000
+  - user: 1.5
+    system: 0.020000000000000004
+    total: 1.52
+    real: 1.523798
+    eda: 200
+    weight: 1000
+  - user: 1.61
+    system: 0.03
+    total: 1.6400000000000001
+    real: 1.641441
+    eda: 200
+    weight: 1000
+  - user: 1.53
+    system: 0.03
+    total: 1.56
+    real: 1.564657
+    eda: 200
+    weight: 1000
+  - user: 3.73
+    system: 0.07
+    total: 3.8
+    real: 3.807405
+    eda: 500
+    weight: 1000
+  - user: 3.81
+    system: 0.06
+    total: 3.87
+    real: 3.885711
+    eda: 500
+    weight: 1000
+  - user: 3.6999999999999997
+    system: 0.05
+    total: 3.7499999999999996
+    real: 3.768627
+    eda: 500
+    weight: 1000
+  - user: 3.6999999999999997
+    system: 0.07
+    total: 3.7699999999999996
+    real: 3.777295
+    eda: 500
+    weight: 1000
+  - user: 3.65
+    system: 0.06
+    total: 3.71
+    real: 3.712302
+    eda: 500
+    weight: 1000
+  - user: 3.65
+    system: 0.06
+    total: 3.71
+    real: 3.722946
+    eda: 500
+    weight: 1000
+  - user: 3.7399999999999998
+    system: 0.06
+    total: 3.8
+    real: 3.816729
+    eda: 500
+    weight: 1000
+  - user: 3.65
+    system: 0.06
+    total: 3.71
+    real: 3.714526
+    eda: 500
+    weight: 1000
+  - user: 3.69
+    system: 0.06
+    total: 3.75
+    real: 3.756398
+    eda: 500
+    weight: 1000
+  - user: 3.66
+    system: 0.060000000000000005
+    total: 3.72
+    real: 3.734484
+    eda: 500
+    weight: 1000
+  - user: 7.46
+    system: 0.14
+    total: 7.6
+    real: 7.60943
+    eda: 1000
+    weight: 1000
+  - user: 7.2299999999999995
+    system: 0.1
+    total: 7.329999999999999
+    real: 7.352086
+    eda: 1000
+    weight: 1000
+  - user: 7.36
+    system: 0.14
+    total: 7.5
+    real: 7.52934
+    eda: 1000
+    weight: 1000
+  - user: 7.36
+    system: 0.12
+    total: 7.48
+    real: 7.498258
+    eda: 1000
+    weight: 1000
+  - user: 7.33
+    system: 0.11000000000000001
+    total: 7.44
+    real: 7.45746
+    eda: 1000
+    weight: 1000
+  - user: 7.8
+    system: 0.14
+    total: 7.9399999999999995
+    real: 8.029468
+    eda: 1000
+    weight: 1000
+  - user: 7.609999999999999
+    system: 0.16
+    total: 7.77
+    real: 7.871055
+    eda: 1000
+    weight: 1000
+  - user: 7.960000000000001
+    system: 0.16999999999999998
+    total: 8.13
+    real: 8.383341
+    eda: 1000
+    weight: 1000
+  - user: 7.489999999999999
+    system: 0.12
+    total: 7.609999999999999
+    real: 7.659479
+    eda: 1000
+    weight: 1000
+  - user: 8.19
+    system: 0.18
+    total: 8.37
+    real: 8.647286
+    eda: 1000
+    weight: 1000
+cuba:
+  3.5.0:
+  - user: 1.36
+    system: 0.030000000000000006
+    total: 1.3900000000000001
+    real: 1.422447
+    eda: 100
+    weight: 1000
+  - user: 1.38
+    system: 0.03
+    total: 1.41
+    real: 1.483444
+    eda: 100
+    weight: 1000
+  - user: 1.17
+    system: 0.010000000000000002
+    total: 1.18
+    real: 1.187417
+    eda: 100
+    weight: 1000
+  - user: 1.28
+    system: 0.020000000000000004
+    total: 1.3
+    real: 1.320855
+    eda: 100
+    weight: 1000
+  - user: 1.2
+    system: 0.010000000000000002
+    total: 1.21
+    real: 1.217122
+    eda: 100
+    weight: 1000
+  - user: 1.17
+    system: 0.010000000000000002
+    total: 1.18
+    real: 1.197566
+    eda: 100
+    weight: 1000
+  - user: 1.17
+    system: 0.010000000000000002
+    total: 1.18
+    real: 1.187058
+    eda: 100
+    weight: 1000
+  - user: 1.24
+    system: 0.019999999999999997
+    total: 1.26
+    real: 1.302838
+    eda: 100
+    weight: 1000
+  - user: 1.24
+    system: 0.020000000000000004
+    total: 1.26
+    real: 1.263533
+    eda: 100
+    weight: 1000
+  - user: 1.2
+    system: 0.020000000000000004
+    total: 1.22
+    real: 1.215491
+    eda: 100
+    weight: 1000
+  - user: 2.38
+    system: 0.03
+    total: 2.4099999999999997
+    real: 2.415259
+    eda: 200
+    weight: 1000
+  - user: 2.44
+    system: 0.03
+    total: 2.4699999999999998
+    real: 2.48951
+    eda: 200
+    weight: 1000
+  - user: 2.61
+    system: 0.030000000000000006
+    total: 2.6399999999999997
+    real: 2.743156
+    eda: 200
+    weight: 1000
+  - user: 2.3299999999999996
+    system: 0.020000000000000004
+    total: 2.3499999999999996
+    real: 2.346882
+    eda: 200
+    weight: 1000
+  - user: 2.34
+    system: 0.019999999999999997
+    total: 2.36
+    real: 2.374205
+    eda: 200
+    weight: 1000
+  - user: 2.4499999999999997
+    system: 0.03
+    total: 2.4799999999999995
+    real: 2.491134
+    eda: 200
+    weight: 1000
+  - user: 2.3499999999999996
+    system: 0.020000000000000004
+    total: 2.3699999999999997
+    real: 2.387198
+    eda: 200
+    weight: 1000
+  - user: 2.4
+    system: 0.03
+    total: 2.4299999999999997
+    real: 2.429414
+    eda: 200
+    weight: 1000
+  - user: 2.3299999999999996
+    system: 0.020000000000000004
+    total: 2.3499999999999996
+    real: 2.355599
+    eda: 200
+    weight: 1000
+  - user: 2.43
+    system: 0.03
+    total: 2.46
+    real: 2.487226
+    eda: 200
+    weight: 1000
+  - user: 6.09
+    system: 0.06
+    total: 6.1499999999999995
+    real: 6.208268
+    eda: 500
+    weight: 1000
+  - user: 6.19
+    system: 0.06
+    total: 6.25
+    real: 6.408924
+    eda: 500
+    weight: 1000
+  - user: 7.0
+    system: 0.15999999999999998
+    total: 7.16
+    real: 7.627191
+    eda: 500
+    weight: 1000
+  - user: 6.890000000000001
+    system: 0.14
+    total: 7.03
+    real: 7.392805
+    eda: 500
+    weight: 1000
+  - user: 6.510000000000001
+    system: 0.09
+    total: 6.6000000000000005
+    real: 6.853018
+    eda: 500
+    weight: 1000
+  - user: 6.03
+    system: 0.07
+    total: 6.1000000000000005
+    real: 6.160847
+    eda: 500
+    weight: 1000
+  - user: 6.11
+    system: 0.06
+    total: 6.17
+    real: 6.23346
+    eda: 500
+    weight: 1000
+  - user: 6.41
+    system: 0.06
+    total: 6.47
+    real: 6.715253
+    eda: 500
+    weight: 1000
+  - user: 6.119999999999999
+    system: 0.07
+    total: 6.1899999999999995
+    real: 6.275843
+    eda: 500
+    weight: 1000
+  - user: 5.930000000000001
+    system: 0.05
+    total: 5.98
+    real: 6.004558
+    eda: 500
+    weight: 1000
+  - user: 11.83
+    system: 0.07
+    total: 11.9
+    real: 11.897657
+    eda: 1000
+    weight: 1000
+  - user: 12.32
+    system: 0.10999999999999999
+    total: 12.43
+    real: 12.505787
+    eda: 1000
+    weight: 1000
+  - user: 12.25
+    system: 0.1
+    total: 12.35
+    real: 12.389694
+    eda: 1000
+    weight: 1000
+  - user: 13.159999999999998
+    system: 0.14
+    total: 13.299999999999999
+    real: 13.960075
+    eda: 1000
+    weight: 1000
+  - user: 12.969999999999999
+    system: 0.17
+    total: 13.139999999999999
+    real: 13.572394
+    eda: 1000
+    weight: 1000
+  - user: 13.03
+    system: 0.2
+    total: 13.229999999999999
+    real: 14.027234
+    eda: 1000
+    weight: 1000
+  - user: 12.209999999999999
+    system: 0.12
+    total: 12.329999999999998
+    real: 12.436651
+    eda: 1000
+    weight: 1000
+  - user: 12.6
+    system: 0.15
+    total: 12.75
+    real: 12.922495
+    eda: 1000
+    weight: 1000
+  - user: 12.66
+    system: 0.16
+    total: 12.82
+    real: 13.036397
+    eda: 1000
+    weight: 1000
+  - user: 12.16
+    system: 0.09
+    total: 12.25
+    real: 12.323207
+    eda: 1000
+    weight: 1000
+grape:
+  0.14.0:
+  - user: 1.02
+    system: 0.03
+    total: 1.05
+    real: 1.134102
+    eda: 100
+    weight: 1000
+  - user: 1.0
+    system: 0.039999999999999994
+    total: 1.04
+    real: 1.114824
+    eda: 100
+    weight: 1000
+  - user: 0.9099999999999999
+    system: 0.020000000000000004
+    total: 0.9299999999999999
+    real: 0.920823
+    eda: 100
+    weight: 1000
+  - user: 0.9
+    system: 0.020000000000000004
+    total: 0.92
+    real: 0.928377
+    eda: 100
+    weight: 1000
+  - user: 0.91
+    system: 0.020000000000000004
+    total: 0.93
+    real: 0.928169
+    eda: 100
+    weight: 1000
+  - user: 0.88
+    system: 0.020000000000000004
+    total: 0.9
+    real: 0.900594
+    eda: 100
+    weight: 1000
+  - user: 1.0999999999999999
+    system: 0.020000000000000004
+    total: 1.1199999999999999
+    real: 1.137913
+    eda: 100
+    weight: 1000
+  - user: 0.8899999999999999
+    system: 0.020000000000000004
+    total: 0.9099999999999999
+    real: 0.903292
+    eda: 100
+    weight: 1000
+  - user: 0.8699999999999999
+    system: 0.020000000000000004
+    total: 0.8899999999999999
+    real: 0.894841
+    eda: 100
+    weight: 1000
+  - user: 0.87
+    system: 0.009999999999999995
+    total: 0.88
+    real: 0.895908
+    eda: 100
+    weight: 1000
+  - user: 1.56
+    system: 0.03
+    total: 1.59
+    real: 1.599562
+    eda: 200
+    weight: 1000
+  - user: 1.54
+    system: 0.03
+    total: 1.57
+    real: 1.573977
+    eda: 200
+    weight: 1000
+  - user: 1.5
+    system: 0.03
+    total: 1.53
+    real: 1.539928
+    eda: 200
+    weight: 1000
+  - user: 1.58
+    system: 0.03
+    total: 1.61
+    real: 1.611247
+    eda: 200
+    weight: 1000
+  - user: 1.5499999999999998
+    system: 0.03
+    total: 1.5799999999999998
+    real: 1.586528
+    eda: 200
+    weight: 1000
+  - user: 1.56
+    system: 0.03
+    total: 1.59
+    real: 1.598591
+    eda: 200
+    weight: 1000
+  - user: 1.58
+    system: 0.03
+    total: 1.61
+    real: 1.622301
+    eda: 200
+    weight: 1000
+  - user: 1.5899999999999999
+    system: 0.039999999999999994
+    total: 1.63
+    real: 1.632213
+    eda: 200
+    weight: 1000
+  - user: 1.5
+    system: 0.03
+    total: 1.53
+    real: 1.537089
+    eda: 200
+    weight: 1000
+  - user: 1.5499999999999998
+    system: 0.03
+    total: 1.5799999999999998
+    real: 1.589018
+    eda: 200
+    weight: 1000
+  - user: 4.79
+    system: 0.08
+    total: 4.87
+    real: 4.898034
+    eda: 500
+    weight: 1000
+  - user: 4.68
+    system: 0.08
+    total: 4.76
+    real: 4.770181
+    eda: 500
+    weight: 1000
+  - user: 4.68
+    system: 0.08
+    total: 4.76
+    real: 4.775466
+    eda: 500
+    weight: 1000
+  - user: 4.76
+    system: 0.06
+    total: 4.819999999999999
+    real: 4.845716
+    eda: 500
+    weight: 1000
+  - user: 4.630000000000001
+    system: 0.06999999999999999
+    total: 4.700000000000001
+    real: 4.720544
+    eda: 500
+    weight: 1000
+  - user: 4.8500000000000005
+    system: 0.07
+    total: 4.920000000000001
+    real: 4.94644
+    eda: 500
+    weight: 1000
+  - user: 4.9399999999999995
+    system: 0.08
+    total: 5.02
+    real: 5.082192
+    eda: 500
+    weight: 1000
+  - user: 4.83
+    system: 0.08
+    total: 4.91
+    real: 4.932191
+    eda: 500
+    weight: 1000
+  - user: 4.699999999999999
+    system: 0.08
+    total: 4.779999999999999
+    real: 4.798548
+    eda: 500
+    weight: 1000
+  - user: 5.26
+    system: 0.11
+    total: 5.37
+    real: 5.599692
+    eda: 500
+    weight: 1000
+  - user: 13.55
+    system: 0.2
+    total: 13.75
+    real: 14.089959
+    eda: 1000
+    weight: 1000
+  - user: 13.57
+    system: 0.21000000000000002
+    total: 13.780000000000001
+    real: 13.950933
+    eda: 1000
+    weight: 1000
+  - user: 13.23
+    system: 0.2
+    total: 13.43
+    real: 13.61903
+    eda: 1000
+    weight: 1000
+  - user: 14.13
+    system: 0.25
+    total: 14.38
+    real: 15.130117
+    eda: 1000
+    weight: 1000
+  - user: 13.690000000000001
+    system: 0.2
+    total: 13.89
+    real: 14.137662
+    eda: 1000
+    weight: 1000
+  - user: 13.34
+    system: 0.18999999999999997
+    total: 13.53
+    real: 13.753502
+    eda: 1000
+    weight: 1000
+  - user: 14.4
+    system: 0.27999999999999997
+    total: 14.68
+    real: 15.455691
+    eda: 1000
+    weight: 1000
+  - user: 13.239999999999998
+    system: 0.19000000000000003
+    total: 13.429999999999998
+    real: 13.711734
+    eda: 1000
+    weight: 1000
+  - user: 12.53
+    system: 0.14
+    total: 12.67
+    real: 12.765043
+    eda: 1000
+    weight: 1000
+  - user: 12.84
+    system: 0.15999999999999998
+    total: 13.0
+    real: 13.204339
+    eda: 1000
+    weight: 1000
+hobbit:
+  0.6.1:
+  - user: 0.05999999999999997
+    system: 0.0
+    total: 0.05999999999999997
+    real: 0.068542
+    eda: 100
+    weight: 1000
+  - user: 0.06999999999999998
+    system: 0.0
+    total: 0.06999999999999998
+    real: 0.065057
+    eda: 100
+    weight: 1000
+  - user: 0.05999999999999997
+    system: 0.0
+    total: 0.05999999999999997
+    real: 0.065376
+    eda: 100
+    weight: 1000
+  - user: 0.06999999999999998
+    system: 0.0
+    total: 0.06999999999999998
+    real: 0.065365
+    eda: 100
+    weight: 1000
+  - user: 0.07
+    system: 0.0
+    total: 0.07
+    real: 0.072456
+    eda: 100
+    weight: 1000
+  - user: 0.07
+    system: 0.0
+    total: 0.07
+    real: 0.070195
+    eda: 100
+    weight: 1000
+  - user: 0.06999999999999998
+    system: 0.0
+    total: 0.06999999999999998
+    real: 0.072215
+    eda: 100
+    weight: 1000
+  - user: 0.060000000000000026
+    system: 0.0
+    total: 0.060000000000000026
+    real: 0.06615
+    eda: 100
+    weight: 1000
+  - user: 0.06999999999999998
+    system: 0.0
+    total: 0.06999999999999998
+    real: 0.065293
+    eda: 100
+    weight: 1000
+  - user: 0.06999999999999998
+    system: 0.0
+    total: 0.06999999999999998
+    real: 0.066141
+    eda: 100
+    weight: 1000
+  - user: 0.12000000000000002
+    system: 0.0
+    total: 0.12000000000000002
+    real: 0.116548
+    eda: 200
+    weight: 1000
+  - user: 0.11999999999999997
+    system: 0.0
+    total: 0.11999999999999997
+    real: 0.121925
+    eda: 200
+    weight: 1000
+  - user: 0.11000000000000001
+    system: 0.0
+    total: 0.11000000000000001
+    real: 0.116426
+    eda: 200
+    weight: 1000
+  - user: 0.12000000000000002
+    system: 0.0
+    total: 0.12000000000000002
+    real: 0.124493
+    eda: 200
+    weight: 1000
+  - user: 0.12000000000000002
+    system: 0.0
+    total: 0.12000000000000002
+    real: 0.120124
+    eda: 200
+    weight: 1000
+  - user: 0.11999999999999997
+    system: 0.0
+    total: 0.11999999999999997
+    real: 0.120885
+    eda: 200
+    weight: 1000
+  - user: 0.12999999999999998
+    system: 0.0
+    total: 0.12999999999999998
+    real: 0.128522
+    eda: 200
+    weight: 1000
+  - user: 0.12999999999999998
+    system: 0.0
+    total: 0.12999999999999998
+    real: 0.125222
+    eda: 200
+    weight: 1000
+  - user: 0.13999999999999999
+    system: 0.0
+    total: 0.13999999999999999
+    real: 0.149747
+    eda: 200
+    weight: 1000
+  - user: 0.11000000000000004
+    system: 0.0
+    total: 0.11000000000000004
+    real: 0.114695
+    eda: 200
+    weight: 1000
+  - user: 0.29000000000000004
+    system: 0.0
+    total: 0.29000000000000004
+    real: 0.292873
+    eda: 500
+    weight: 1000
+  - user: 0.27
+    system: 0.0
+    total: 0.27
+    real: 0.275243
+    eda: 500
+    weight: 1000
+  - user: 0.30000000000000004
+    system: 0.0
+    total: 0.30000000000000004
+    real: 0.301719
+    eda: 500
+    weight: 1000
+  - user: 0.28
+    system: 0.0
+    total: 0.28
+    real: 0.277735
+    eda: 500
+    weight: 1000
+  - user: 0.29000000000000004
+    system: 0.0
+    total: 0.29000000000000004
+    real: 0.288719
+    eda: 500
+    weight: 1000
+  - user: 0.29000000000000004
+    system: 0.0
+    total: 0.29000000000000004
+    real: 0.287407
+    eda: 500
+    weight: 1000
+  - user: 0.30000000000000004
+    system: 0.010000000000000002
+    total: 0.31000000000000005
+    real: 0.29831
+    eda: 500
+    weight: 1000
+  - user: 0.28
+    system: 0.0
+    total: 0.28
+    real: 0.283006
+    eda: 500
+    weight: 1000
+  - user: 0.29000000000000004
+    system: 0.0
+    total: 0.29000000000000004
+    real: 0.2954
+    eda: 500
+    weight: 1000
+  - user: 0.28
+    system: 0.0
+    total: 0.28
+    real: 0.279109
+    eda: 500
+    weight: 1000
+  - user: 0.6
+    system: 0.0
+    total: 0.6
+    real: 0.600102
+    eda: 1000
+    weight: 1000
+  - user: 0.56
+    system: 0.0
+    total: 0.56
+    real: 0.562132
+    eda: 1000
+    weight: 1000
+  - user: 0.62
+    system: 0.0
+    total: 0.62
+    real: 0.62722
+    eda: 1000
+    weight: 1000
+  - user: 0.67
+    system: 0.0
+    total: 0.67
+    real: 0.673534
+    eda: 1000
+    weight: 1000
+  - user: 0.5800000000000001
+    system: 0.0
+    total: 0.5800000000000001
+    real: 0.584082
+    eda: 1000
+    weight: 1000
+  - user: 0.6
+    system: 0.0
+    total: 0.6
+    real: 0.604343
+    eda: 1000
+    weight: 1000
+  - user: 0.61
+    system: 0.010000000000000002
+    total: 0.62
+    real: 0.62084
+    eda: 1000
+    weight: 1000
+  - user: 0.8200000000000001
+    system: 0.010000000000000002
+    total: 0.8300000000000001
+    real: 0.889012
+    eda: 1000
+    weight: 1000
+  - user: 0.76
+    system: 0.009999999999999995
+    total: 0.77
+    real: 0.833583
+    eda: 1000
+    weight: 1000
+  - user: 0.74
+    system: 0.010000000000000002
+    total: 0.75
+    real: 0.819163
+    eda: 1000
+    weight: 1000
+nancy:
+  0.3.0:
+  - user: 0.16
+    system: 0.010000000000000002
+    total: 0.17
+    real: 0.193841
+    eda: 100
+    weight: 1000
+  - user: 0.13
+    system: 0.0
+    total: 0.13
+    real: 0.139684
+    eda: 100
+    weight: 1000
+  - user: 0.12999999999999998
+    system: 0.010000000000000002
+    total: 0.13999999999999999
+    real: 0.129325
+    eda: 100
+    weight: 1000
+  - user: 0.12999999999999998
+    system: 0.010000000000000002
+    total: 0.13999999999999999
+    real: 0.135633
+    eda: 100
+    weight: 1000
+  - user: 0.14
+    system: 0.010000000000000002
+    total: 0.15000000000000002
+    real: 0.147338
+    eda: 100
+    weight: 1000
+  - user: 0.14
+    system: 0.0
+    total: 0.14
+    real: 0.151961
+    eda: 100
+    weight: 1000
+  - user: 0.12999999999999998
+    system: 0.010000000000000002
+    total: 0.13999999999999999
+    real: 0.127833
+    eda: 100
+    weight: 1000
+  - user: 0.19999999999999998
+    system: 0.0
+    total: 0.19999999999999998
+    real: 0.243451
+    eda: 100
+    weight: 1000
+  - user: 0.12999999999999998
+    system: 0.0
+    total: 0.12999999999999998
+    real: 0.132568
+    eda: 100
+    weight: 1000
+  - user: 0.12999999999999998
+    system: 0.010000000000000002
+    total: 0.13999999999999999
+    real: 0.131344
+    eda: 100
+    weight: 1000
+  - user: 0.22
+    system: 0.0
+    total: 0.22
+    real: 0.238519
+    eda: 200
+    weight: 1000
+  - user: 0.17
+    system: 0.0
+    total: 0.17
+    real: 0.179493
+    eda: 200
+    weight: 1000
+  - user: 0.19
+    system: 0.0
+    total: 0.19
+    real: 0.186349
+    eda: 200
+    weight: 1000
+  - user: 0.23999999999999996
+    system: 0.010000000000000002
+    total: 0.24999999999999997
+    real: 0.282975
+    eda: 200
+    weight: 1000
+  - user: 0.19
+    system: 0.0
+    total: 0.19
+    real: 0.195972
+    eda: 200
+    weight: 1000
+  - user: 0.17
+    system: 0.0
+    total: 0.17
+    real: 0.174489
+    eda: 200
+    weight: 1000
+  - user: 0.18999999999999997
+    system: 0.0
+    total: 0.18999999999999997
+    real: 0.185902
+    eda: 200
+    weight: 1000
+  - user: 0.18999999999999997
+    system: 0.010000000000000002
+    total: 0.19999999999999998
+    real: 0.198014
+    eda: 200
+    weight: 1000
+  - user: 0.17
+    system: 0.0
+    total: 0.17
+    real: 0.177636
+    eda: 200
+    weight: 1000
+  - user: 0.17
+    system: 0.0
+    total: 0.17
+    real: 0.180344
+    eda: 200
+    weight: 1000
+  - user: 0.32000000000000006
+    system: 0.010000000000000002
+    total: 0.33000000000000007
+    real: 0.334144
+    eda: 500
+    weight: 1000
+  - user: 0.33000000000000007
+    system: 0.0
+    total: 0.33000000000000007
+    real: 0.344306
+    eda: 500
+    weight: 1000
+  - user: 0.35
+    system: 0.010000000000000002
+    total: 0.36
+    real: 0.362883
+    eda: 500
+    weight: 1000
+  - user: 0.3400000000000001
+    system: 0.0
+    total: 0.3400000000000001
+    real: 0.33407
+    eda: 500
+    weight: 1000
+  - user: 0.44000000000000006
+    system: 0.010000000000000002
+    total: 0.45000000000000007
+    real: 0.472112
+    eda: 500
+    weight: 1000
+  - user: 0.36000000000000004
+    system: 0.009999999999999995
+    total: 0.37000000000000005
+    real: 0.383467
+    eda: 500
+    weight: 1000
+  - user: 0.33999999999999997
+    system: 0.0
+    total: 0.33999999999999997
+    real: 0.352123
+    eda: 500
+    weight: 1000
+  - user: 0.33000000000000007
+    system: 0.010000000000000002
+    total: 0.3400000000000001
+    real: 0.339227
+    eda: 500
+    weight: 1000
+  - user: 0.37
+    system: 0.010000000000000002
+    total: 0.38
+    real: 0.392828
+    eda: 500
+    weight: 1000
+  - user: 0.33000000000000007
+    system: 0.010000000000000002
+    total: 0.3400000000000001
+    real: 0.333694
+    eda: 500
+    weight: 1000
+  - user: 0.62
+    system: 0.0
+    total: 0.62
+    real: 0.622696
+    eda: 1000
+    weight: 1000
+  - user: 0.59
+    system: 0.0
+    total: 0.59
+    real: 0.597977
+    eda: 1000
+    weight: 1000
+  - user: 0.59
+    system: 0.010000000000000002
+    total: 0.6
+    real: 0.602719
+    eda: 1000
+    weight: 1000
+  - user: 0.62
+    system: 0.0
+    total: 0.62
+    real: 0.628361
+    eda: 1000
+    weight: 1000
+  - user: 0.65
+    system: 0.010000000000000002
+    total: 0.66
+    real: 0.66081
+    eda: 1000
+    weight: 1000
+  - user: 0.63
+    system: 0.010000000000000002
+    total: 0.64
+    real: 0.630778
+    eda: 1000
+    weight: 1000
+  - user: 0.64
+    system: 0.010000000000000002
+    total: 0.65
+    real: 0.679257
+    eda: 1000
+    weight: 1000
+  - user: 0.6
+    system: 0.010000000000000002
+    total: 0.61
+    real: 0.598541
+    eda: 1000
+    weight: 1000
+  - user: 0.5800000000000001
+    system: 0.010000000000000002
+    total: 0.5900000000000001
+    real: 0.591477
+    eda: 1000
+    weight: 1000
+  - user: 0.6
+    system: 0.010000000000000002
+    total: 0.61
+    real: 0.603879
+    eda: 1000
+    weight: 1000
+rack:
+  1.6.4:
   - user: 0.0
     system: 0.0
     total: 0.0
-    real: 0.00013273
-    eda: 100
-    weight: 100
-  - user: 0.0001999999999999999
+    real: 0.001623
+    eda: 1
+    weight: 1000
+  - user: 0.0
     system: 0.0
-    total: 0.0001999999999999999
-    real: 0.00013361000000000004
-    eda: 100
-    weight: 100
-  - user: 0.00073
-    system: 1.0000000000000003e-05
-    total: 0.00074
-    real: 0.0007323459999999995
-    eda: 1000
+    total: 0.0
+    real: 0.00155
+    eda: 1
     weight: 1000
-  - user: 0.0005600000000000001
-    system: 1.0000000000000003e-05
-    total: 0.0005700000000000001
-    real: 0.0005697249999999994
-    eda: 1000
-    weight: 1000
-  - user: 0.00058
-    system: 1.0000000000000003e-05
-    total: 0.0005899999999999999
-    real: 0.0006007220000000001
-    eda: 1000
-    weight: 1000
-  - user: 0.00066
+  - user: 0.0
     system: 0.0
-    total: 0.00066
-    real: 0.0006561140000000001
-    eda: 1000
+    total: 0.0
+    real: 0.002163
+    eda: 1
     weight: 1000
-  - user: 0.0006
+  - user: 0.0
     system: 0.0
-    total: 0.0006
-    real: 0.0005933809999999996
-    eda: 1000
+    total: 0.0
+    real: 0.001689
+    eda: 1
     weight: 1000
-  - user: 0.009127
-    system: 8.499999999999999e-05
-    total: 0.009212000000000008
-    real: 0.009470582200000001
-    eda: 10000
-    weight: 10000
-  - user: 0.008894999999999997
-    system: 7.0e-05
-    total: 0.008965000000000002
-    real: 0.009216043500000016
-    eda: 10000
-    weight: 10000
-  - user: 0.008581999999999998
-    system: 6.8e-05
-    total: 0.008650000000000005
-    real: 0.008888604800000035
-    eda: 10000
-    weight: 10000
-  - user: 0.008438999999999997
-    system: 6.500000000000001e-05
-    total: 0.008504000000000001
-    real: 0.00860483570000004
-    eda: 10000
-    weight: 10000
-  - user: 0.008487999999999997
-    system: 6.399999999999998e-05
-    total: 0.008552000000000004
-    real: 0.00870374329999999
-    eda: 10000
-    weight: 10000
-camping:
-  2.1.532:
-  - user: 0.0010999999999999998
-    system: 0.00010000000000000009
-    total: 0.0012
-    real: 0.0012818200000000004
-    eda: 100
-    weight: 100
-  - user: 0.0009999999999999998
-    system: 0.00010000000000000002
-    total: 0.0010999999999999998
-    real: 0.00113625
-    eda: 100
-    weight: 100
-  - user: 0.0011
-    system: 0.00010000000000000002
-    total: 0.0012000000000000003
-    real: 0.0011592500000000006
-    eda: 100
-    weight: 100
-  - user: 0.0012
-    system: 0.00010000000000000002
-    total: 0.0013
-    real: 0.0014704400000000004
-    eda: 100
-    weight: 100
-  - user: 0.001
+  - user: 0.0
     system: 0.0
-    total: 0.001
-    real: 0.00104257
+    total: 0.0
+    real: 0.001454
+    eda: 1
+    weight: 1000
+  - user: 0.0
+    system: 0.0
+    total: 0.0
+    real: 0.001431
+    eda: 1
+    weight: 1000
+  - user: 0.0
+    system: 0.0
+    total: 0.0
+    real: 0.001545
+    eda: 1
+    weight: 1000
+  - user: 0.010000000000000009
+    system: 0.0
+    total: 0.010000000000000009
+    real: 0.001604
+    eda: 1
+    weight: 1000
+  - user: 0.0
+    system: 0.0
+    total: 0.0
+    real: 0.001435
+    eda: 1
+    weight: 1000
+  - user: 0.0
+    system: 0.0
+    total: 0.0
+    real: 0.001521
+    eda: 1
+    weight: 1000
+  - user: 0.0
+    system: 0.0
+    total: 0.0
+    real: 0.001729
+    eda: 1
+    weight: 1000
+  - user: 0.0
+    system: 0.0
+    total: 0.0
+    real: 0.001763
+    eda: 1
+    weight: 1000
+  - user: 0.0
+    system: 0.0
+    total: 0.0
+    real: 0.001657
+    eda: 1
+    weight: 1000
+  - user: 0.0
+    system: 0.0
+    total: 0.0
+    real: 0.001588
+    eda: 1
+    weight: 1000
+  - user: 0.0
+    system: 0.0
+    total: 0.0
+    real: 0.001832
+    eda: 1
+    weight: 1000
+  - user: 0.010000000000000009
+    system: 0.0
+    total: 0.010000000000000009
+    real: 0.001599
+    eda: 1
+    weight: 1000
+  - user: 0.0
+    system: 0.0
+    total: 0.0
+    real: 0.001912
+    eda: 1
+    weight: 1000
+  - user: 0.0
+    system: 0.0
+    total: 0.0
+    real: 0.001552
+    eda: 1
+    weight: 1000
+  - user: 0.0
+    system: 0.0
+    total: 0.0
+    real: 0.001547
+    eda: 1
+    weight: 1000
+  - user: 0.010000000000000009
+    system: 0.0
+    total: 0.010000000000000009
+    real: 0.001495
+    eda: 1
+    weight: 1000
+  - user: 0.0
+    system: 0.0
+    total: 0.0
+    real: 0.001992
+    eda: 1
+    weight: 1000
+  - user: 0.010000000000000009
+    system: 0.0
+    total: 0.010000000000000009
+    real: 0.001602
+    eda: 1
+    weight: 1000
+  - user: 0.010000000000000009
+    system: 0.0
+    total: 0.010000000000000009
+    real: 0.001672
+    eda: 1
+    weight: 1000
+  - user: 0.0
+    system: 0.0
+    total: 0.0
+    real: 0.001861
+    eda: 1
+    weight: 1000
+  - user: 0.0
+    system: 0.0
+    total: 0.0
+    real: 0.001588
+    eda: 1
+    weight: 1000
+  - user: 0.0
+    system: 0.0
+    total: 0.0
+    real: 0.001448
+    eda: 1
+    weight: 1000
+  - user: 0.0
+    system: 0.0
+    total: 0.0
+    real: 0.001613
+    eda: 1
+    weight: 1000
+  - user: 0.010000000000000009
+    system: 0.0
+    total: 0.010000000000000009
+    real: 0.001554
+    eda: 1
+    weight: 1000
+  - user: 0.009999999999999981
+    system: 0.0
+    total: 0.009999999999999981
+    real: 0.003293
+    eda: 1
+    weight: 1000
+  - user: 0.0
+    system: 0.0
+    total: 0.0
+    real: 0.001662
+    eda: 1
+    weight: 1000
+  - user: 0.0
+    system: 0.0
+    total: 0.0
+    real: 0.001409
+    eda: 1
+    weight: 1000
+  - user: 0.0
+    system: 0.0
+    total: 0.0
+    real: 0.001408
+    eda: 1
+    weight: 1000
+  - user: 0.0
+    system: 0.0
+    total: 0.0
+    real: 0.001698
+    eda: 1
+    weight: 1000
+  - user: 0.0
+    system: 0.0
+    total: 0.0
+    real: 0.002001
+    eda: 1
+    weight: 1000
+  - user: 0.0
+    system: 0.0
+    total: 0.0
+    real: 0.001955
+    eda: 1
+    weight: 1000
+  - user: 0.010000000000000009
+    system: 0.0
+    total: 0.010000000000000009
+    real: 0.001544
+    eda: 1
+    weight: 1000
+  - user: 0.0
+    system: 0.0
+    total: 0.0
+    real: 0.001538
+    eda: 1
+    weight: 1000
+  - user: 0.0
+    system: 0.0
+    total: 0.0
+    real: 0.001529
+    eda: 1
+    weight: 1000
+  - user: 0.0
+    system: 0.0
+    total: 0.0
+    real: 0.001508
+    eda: 1
+    weight: 1000
+  - user: 0.010000000000000009
+    system: 0.0
+    total: 0.010000000000000009
+    real: 0.00146
+    eda: 1
+    weight: 1000
+rack-app:
+  0.23.0:
+  - user: 0.020000000000000018
+    system: 0.0
+    total: 0.020000000000000018
+    real: 0.02626
     eda: 100
-    weight: 100
-  - user: 0.013239999999999997
-    system: 0.00024999999999999995
-    total: 0.013489999999999995
-    real: 0.014230491000000008
+    weight: 1000
+  - user: 0.030000000000000027
+    system: 0.0
+    total: 0.030000000000000027
+    real: 0.023347
+    eda: 100
+    weight: 1000
+  - user: 0.020000000000000018
+    system: 0.0
+    total: 0.020000000000000018
+    real: 0.023316
+    eda: 100
+    weight: 1000
+  - user: 0.020000000000000018
+    system: 0.010000000000000002
+    total: 0.03000000000000002
+    real: 0.020801
+    eda: 100
+    weight: 1000
+  - user: 0.020000000000000018
+    system: 0.010000000000000002
+    total: 0.03000000000000002
+    real: 0.021055
+    eda: 100
+    weight: 1000
+  - user: 0.020000000000000018
+    system: 0.0
+    total: 0.020000000000000018
+    real: 0.021158
+    eda: 100
+    weight: 1000
+  - user: 0.020000000000000018
+    system: 0.0
+    total: 0.020000000000000018
+    real: 0.020134
+    eda: 100
+    weight: 1000
+  - user: 0.01999999999999999
+    system: 0.010000000000000002
+    total: 0.029999999999999992
+    real: 0.020518
+    eda: 100
+    weight: 1000
+  - user: 0.010000000000000009
+    system: 0.0
+    total: 0.010000000000000009
+    real: 0.019912
+    eda: 100
+    weight: 1000
+  - user: 0.01999999999999999
+    system: 0.010000000000000002
+    total: 0.029999999999999992
+    real: 0.020475
+    eda: 100
+    weight: 1000
+  - user: 0.02999999999999997
+    system: 0.0
+    total: 0.02999999999999997
+    real: 0.025
+    eda: 200
+    weight: 1000
+  - user: 0.02999999999999997
+    system: 0.010000000000000002
+    total: 0.03999999999999997
+    real: 0.024237
+    eda: 200
+    weight: 1000
+  - user: 0.020000000000000018
+    system: 0.010000000000000002
+    total: 0.03000000000000002
+    real: 0.023243
+    eda: 200
+    weight: 1000
+  - user: 0.019999999999999962
+    system: 0.0
+    total: 0.019999999999999962
+    real: 0.023115
+    eda: 200
+    weight: 1000
+  - user: 0.019999999999999962
+    system: 0.0
+    total: 0.019999999999999962
+    real: 0.023696
+    eda: 200
+    weight: 1000
+  - user: 0.019999999999999962
+    system: 0.0
+    total: 0.019999999999999962
+    real: 0.024267
+    eda: 200
+    weight: 1000
+  - user: 0.02999999999999997
+    system: 0.010000000000000002
+    total: 0.03999999999999997
+    real: 0.02416
+    eda: 200
+    weight: 1000
+  - user: 0.020000000000000018
+    system: 0.0
+    total: 0.020000000000000018
+    real: 0.025366
+    eda: 200
+    weight: 1000
+  - user: 0.019999999999999962
+    system: 0.0
+    total: 0.019999999999999962
+    real: 0.023255
+    eda: 200
+    weight: 1000
+  - user: 0.019999999999999962
+    system: 0.0
+    total: 0.019999999999999962
+    real: 0.022717
+    eda: 200
+    weight: 1000
+  - user: 0.020000000000000018
+    system: 0.0
+    total: 0.020000000000000018
+    real: 0.019924
+    eda: 500
+    weight: 1000
+  - user: 0.020000000000000018
+    system: 0.0
+    total: 0.020000000000000018
+    real: 0.020928
+    eda: 500
+    weight: 1000
+  - user: 0.019999999999999962
+    system: 0.0
+    total: 0.019999999999999962
+    real: 0.020874
+    eda: 500
+    weight: 1000
+  - user: 0.020000000000000018
+    system: 0.0
+    total: 0.020000000000000018
+    real: 0.01952
+    eda: 500
+    weight: 1000
+  - user: 0.010000000000000009
+    system: 0.0
+    total: 0.010000000000000009
+    real: 0.019721
+    eda: 500
+    weight: 1000
+  - user: 0.010000000000000009
+    system: 0.010000000000000002
+    total: 0.02000000000000001
+    real: 0.019357
+    eda: 500
+    weight: 1000
+  - user: 0.020000000000000018
+    system: 0.0
+    total: 0.020000000000000018
+    real: 0.020721
+    eda: 500
+    weight: 1000
+  - user: 0.020000000000000018
+    system: 0.0
+    total: 0.020000000000000018
+    real: 0.020989
+    eda: 500
+    weight: 1000
+  - user: 0.020000000000000018
+    system: 0.0
+    total: 0.020000000000000018
+    real: 0.020044
+    eda: 500
+    weight: 1000
+  - user: 0.020000000000000018
+    system: 0.0
+    total: 0.020000000000000018
+    real: 0.021542
+    eda: 500
+    weight: 1000
+  - user: 0.020000000000000018
+    system: 0.0
+    total: 0.020000000000000018
+    real: 0.02254
     eda: 1000
     weight: 1000
-  - user: 0.012479999999999996
-    system: 0.00024999999999999995
-    total: 0.012729999999999991
-    real: 0.01326984799999999
+  - user: 0.020000000000000018
+    system: 0.0
+    total: 0.020000000000000018
+    real: 0.024114
+    eda: 1000
+    weight: 1000
+  - user: 0.029999999999999805
+    system: 0.0
+    total: 0.029999999999999805
+    real: 0.024014
+    eda: 1000
+    weight: 1000
+  - user: 0.030000000000000027
+    system: 0.0
+    total: 0.030000000000000027
+    real: 0.022487
+    eda: 1000
+    weight: 1000
+  - user: 0.020000000000000018
+    system: 0.0
+    total: 0.020000000000000018
+    real: 0.022507
+    eda: 1000
+    weight: 1000
+  - user: 0.020000000000000018
+    system: 0.0
+    total: 0.020000000000000018
+    real: 0.024237
+    eda: 1000
+    weight: 1000
+  - user: 0.020000000000000018
+    system: 0.0
+    total: 0.020000000000000018
+    real: 0.024693
+    eda: 1000
+    weight: 1000
+  - user: 0.020000000000000018
+    system: 0.0
+    total: 0.020000000000000018
+    real: 0.023628
+    eda: 1000
+    weight: 1000
+  - user: 0.020000000000000018
+    system: 0.0
+    total: 0.020000000000000018
+    real: 0.023551
+    eda: 1000
+    weight: 1000
+  - user: 0.020000000000000018
+    system: 0.0
+    total: 0.020000000000000018
+    real: 0.023566
+    eda: 1000
+    weight: 1000
+rails:
+  4.2.5.1:
+  - user: 0.6400000000000001
+    system: 0.03
+    total: 0.6700000000000002
+    real: 0.672129
+    eda: 100
+    weight: 1000
+  - user: 0.68
+    system: 0.030000000000000013
+    total: 0.7100000000000001
+    real: 0.705399
+    eda: 100
+    weight: 1000
+  - user: 0.59
+    system: 0.020000000000000004
+    total: 0.61
+    real: 0.612255
+    eda: 100
+    weight: 1000
+  - user: 0.75
+    system: 0.03
+    total: 0.78
+    real: 0.827824
+    eda: 100
+    weight: 1000
+  - user: 0.6600000000000001
+    system: 0.03
+    total: 0.6900000000000002
+    real: 0.684041
+    eda: 100
+    weight: 1000
+  - user: 0.74
+    system: 0.03
+    total: 0.77
+    real: 0.782883
+    eda: 100
+    weight: 1000
+  - user: 0.6900000000000001
+    system: 0.020000000000000018
+    total: 0.7100000000000001
+    real: 0.719492
+    eda: 100
+    weight: 1000
+  - user: 0.9400000000000001
+    system: 0.039999999999999994
+    total: 0.9800000000000001
+    real: 1.1434
+    eda: 100
+    weight: 1000
+  - user: 0.6799999999999999
+    system: 0.03
+    total: 0.71
+    real: 0.716635
+    eda: 100
+    weight: 1000
+  - user: 0.7000000000000001
+    system: 0.030000000000000013
+    total: 0.7300000000000001
+    real: 0.741941
+    eda: 100
+    weight: 1000
+  - user: 0.63
+    system: 0.03
+    total: 0.66
+    real: 0.659606
+    eda: 200
+    weight: 1000
+  - user: 0.62
+    system: 0.03
+    total: 0.65
+    real: 0.641785
+    eda: 200
+    weight: 1000
+  - user: 0.67
+    system: 0.020000000000000004
+    total: 0.6900000000000001
+    real: 0.70031
+    eda: 200
+    weight: 1000
+  - user: 0.6000000000000001
+    system: 0.020000000000000018
+    total: 0.6200000000000001
+    real: 0.624014
+    eda: 200
+    weight: 1000
+  - user: 0.66
+    system: 0.030000000000000013
+    total: 0.6900000000000001
+    real: 0.697117
+    eda: 200
+    weight: 1000
+  - user: 0.6500000000000001
+    system: 0.030000000000000013
+    total: 0.6800000000000002
+    real: 0.680099
+    eda: 200
+    weight: 1000
+  - user: 0.6300000000000001
+    system: 0.030000000000000013
+    total: 0.6600000000000001
+    real: 0.648676
+    eda: 200
+    weight: 1000
+  - user: 0.6499999999999999
+    system: 0.03
+    total: 0.6799999999999999
+    real: 0.682873
+    eda: 200
+    weight: 1000
+  - user: 0.7
+    system: 0.03
+    total: 0.73
+    real: 0.747566
+    eda: 200
+    weight: 1000
+  - user: 0.71
+    system: 0.03
+    total: 0.74
+    real: 0.753789
+    eda: 200
+    weight: 1000
+  - user: 0.7100000000000001
+    system: 0.03
+    total: 0.7400000000000001
+    real: 0.740633
+    eda: 500
+    weight: 1000
+  - user: 0.7
+    system: 0.04000000000000001
+    total: 0.74
+    real: 0.739644
+    eda: 500
+    weight: 1000
+  - user: 0.84
+    system: 0.04999999999999999
+    total: 0.8899999999999999
+    real: 0.923272
+    eda: 500
+    weight: 1000
+  - user: 0.9999999999999999
+    system: 0.06
+    total: 1.0599999999999998
+    real: 1.24566
+    eda: 500
+    weight: 1000
+  - user: 0.72
+    system: 0.039999999999999994
+    total: 0.76
+    real: 0.777157
+    eda: 500
+    weight: 1000
+  - user: 1.0400000000000003
+    system: 0.06
+    total: 1.1000000000000003
+    real: 1.26783
+    eda: 500
+    weight: 1000
+  - user: 0.72
+    system: 0.030000000000000013
+    total: 0.75
+    real: 0.763387
+    eda: 500
+    weight: 1000
+  - user: 1.1800000000000002
+    system: 0.06999999999999998
+    total: 1.2500000000000002
+    real: 1.628787
+    eda: 500
+    weight: 1000
+  - user: 0.92
+    system: 0.06
+    total: 0.98
+    real: 1.039696
+    eda: 500
+    weight: 1000
+  - user: 0.7899999999999999
+    system: 0.03999999999999998
+    total: 0.8299999999999998
+    real: 0.861016
+    eda: 500
+    weight: 1000
+  - user: 0.73
+    system: 0.03
+    total: 0.76
+    real: 0.773828
+    eda: 1000
+    weight: 1000
+  - user: 0.7400000000000001
+    system: 0.030000000000000013
+    total: 0.7700000000000001
+    real: 0.774391
+    eda: 1000
+    weight: 1000
+  - user: 0.7200000000000001
+    system: 0.030000000000000013
+    total: 0.7500000000000001
+    real: 0.763596
+    eda: 1000
+    weight: 1000
+  - user: 0.88
+    system: 0.05000000000000002
+    total: 0.93
+    real: 1.029861
+    eda: 1000
+    weight: 1000
+  - user: 0.7100000000000001
+    system: 0.030000000000000013
+    total: 0.7400000000000001
+    real: 0.742034
+    eda: 1000
+    weight: 1000
+  - user: 0.7000000000000001
+    system: 0.030000000000000013
+    total: 0.7300000000000001
+    real: 0.730463
+    eda: 1000
+    weight: 1000
+  - user: 0.7899999999999999
+    system: 0.039999999999999994
+    total: 0.83
+    real: 0.846885
+    eda: 1000
+    weight: 1000
+  - user: 0.83
+    system: 0.03
+    total: 0.86
+    real: 0.892119
+    eda: 1000
+    weight: 1000
+  - user: 0.6799999999999999
+    system: 0.03
+    total: 0.71
+    real: 0.713104
+    eda: 1000
+    weight: 1000
+  - user: 0.73
+    system: 0.03
+    total: 0.76
+    real: 0.773871
+    eda: 1000
+    weight: 1000
+ramaze:
+  2012.12.08:
+  - user: 0.040000000000000036
+    system: 0.0
+    total: 0.040000000000000036
+    real: 0.039748
+    eda: 100
+    weight: 1000
+  - user: 0.03999999999999998
+    system: 0.0
+    total: 0.03999999999999998
+    real: 0.037599
+    eda: 100
+    weight: 1000
+  - user: 0.030000000000000027
+    system: 0.0
+    total: 0.030000000000000027
+    real: 0.037582
+    eda: 100
+    weight: 1000
+  - user: 0.03999999999999998
+    system: 0.0
+    total: 0.03999999999999998
+    real: 0.042569
+    eda: 100
+    weight: 1000
+  - user: 0.03999999999999998
+    system: 0.0
+    total: 0.03999999999999998
+    real: 0.038752
+    eda: 100
+    weight: 1000
+  - user: 0.040000000000000036
+    system: 0.0
+    total: 0.040000000000000036
+    real: 0.04236
+    eda: 100
+    weight: 1000
+  - user: 0.040000000000000036
+    system: 0.0
+    total: 0.040000000000000036
+    real: 0.04043
+    eda: 100
+    weight: 1000
+  - user: 0.03999999999999998
+    system: 0.010000000000000002
+    total: 0.04999999999999998
+    real: 0.036817
+    eda: 100
+    weight: 1000
+  - user: 0.03999999999999998
+    system: 0.0
+    total: 0.03999999999999998
+    real: 0.037606
+    eda: 100
+    weight: 1000
+  - user: 0.040000000000000036
+    system: 0.0
+    total: 0.040000000000000036
+    real: 0.042353
+    eda: 100
+    weight: 1000
+  - user: 0.040000000000000036
+    system: 0.0
+    total: 0.040000000000000036
+    real: 0.044676
+    eda: 200
+    weight: 1000
+  - user: 0.040000000000000036
+    system: 0.0
+    total: 0.040000000000000036
+    real: 0.045206
+    eda: 200
+    weight: 1000
+  - user: 0.050000000000000044
+    system: 0.0
+    total: 0.050000000000000044
+    real: 0.046285
+    eda: 200
+    weight: 1000
+  - user: 0.050000000000000044
+    system: 0.0
+    total: 0.050000000000000044
+    real: 0.051449
+    eda: 200
+    weight: 1000
+  - user: 0.050000000000000044
+    system: 0.0
+    total: 0.050000000000000044
+    real: 0.04469
+    eda: 200
+    weight: 1000
+  - user: 0.050000000000000044
+    system: 0.0
+    total: 0.050000000000000044
+    real: 0.049215
+    eda: 200
+    weight: 1000
+  - user: 0.050000000000000044
+    system: 0.0
+    total: 0.050000000000000044
+    real: 0.046367
+    eda: 200
+    weight: 1000
+  - user: 0.040000000000000036
+    system: 0.0
+    total: 0.040000000000000036
+    real: 0.044685
+    eda: 200
+    weight: 1000
+  - user: 0.040000000000000036
+    system: 0.0
+    total: 0.040000000000000036
+    real: 0.042078
+    eda: 200
+    weight: 1000
+  - user: 0.050000000000000044
+    system: 0.0
+    total: 0.050000000000000044
+    real: 0.050781
+    eda: 200
+    weight: 1000
+  - user: 0.030000000000000027
+    system: 0.0
+    total: 0.030000000000000027
+    real: 0.038887
+    eda: 500
+    weight: 1000
+  - user: 0.040000000000000036
+    system: 0.0
+    total: 0.040000000000000036
+    real: 0.038499
+    eda: 500
+    weight: 1000
+  - user: 0.030000000000000027
+    system: 0.0
+    total: 0.030000000000000027
+    real: 0.038034
+    eda: 500
+    weight: 1000
+  - user: 0.030000000000000027
+    system: 0.0
+    total: 0.030000000000000027
+    real: 0.036649
+    eda: 500
+    weight: 1000
+  - user: 0.030000000000000027
+    system: 0.0
+    total: 0.030000000000000027
+    real: 0.034566
+    eda: 500
+    weight: 1000
+  - user: 0.040000000000000036
+    system: 0.0
+    total: 0.040000000000000036
+    real: 0.038095
+    eda: 500
+    weight: 1000
+  - user: 0.040000000000000036
+    system: 0.0
+    total: 0.040000000000000036
+    real: 0.034151
+    eda: 500
+    weight: 1000
+  - user: 0.040000000000000036
+    system: 0.0
+    total: 0.040000000000000036
+    real: 0.038285
+    eda: 500
+    weight: 1000
+  - user: 0.030000000000000027
+    system: 0.0
+    total: 0.030000000000000027
+    real: 0.036564
+    eda: 500
+    weight: 1000
+  - user: 0.030000000000000027
+    system: 0.0
+    total: 0.030000000000000027
+    real: 0.035618
+    eda: 500
+    weight: 1000
+  - user: 0.040000000000000036
+    system: 0.009999999999999995
+    total: 0.05000000000000003
+    real: 0.041156
+    eda: 1000
+    weight: 1000
+  - user: 0.04999999999999982
+    system: 0.009999999999999995
+    total: 0.05999999999999982
+    real: 0.055657
+    eda: 1000
+    weight: 1000
+  - user: 0.05000000000000071
+    system: 0.0
+    total: 0.05000000000000071
+    real: 0.047729
+    eda: 1000
+    weight: 1000
+  - user: 0.03000000000000025
+    system: 0.009999999999999995
+    total: 0.040000000000000244
+    real: 0.039871
+    eda: 1000
+    weight: 1000
+  - user: 0.040000000000000036
+    system: 0.0
+    total: 0.040000000000000036
+    real: 0.041094
+    eda: 1000
+    weight: 1000
+  - user: 0.05000000000000071
+    system: 0.009999999999999995
+    total: 0.060000000000000706
+    real: 0.050129
+    eda: 1000
+    weight: 1000
+  - user: 0.040000000000000036
+    system: 0.0
+    total: 0.040000000000000036
+    real: 0.049336
+    eda: 1000
+    weight: 1000
+  - user: 0.040000000000000036
+    system: 0.009999999999999995
+    total: 0.05000000000000003
+    real: 0.046211
+    eda: 1000
+    weight: 1000
+  - user: 0.040000000000000036
+    system: 0.0
+    total: 0.040000000000000036
+    real: 0.037123
+    eda: 1000
+    weight: 1000
+  - user: 0.040000000000000036
+    system: 0.0
+    total: 0.040000000000000036
+    real: 0.03859
+    eda: 1000
+    weight: 1000
+scorched:
+  '0.25':
+  - user: 0.2899999999999999
+    system: 0.0
+    total: 0.2899999999999999
+    real: 0.296728
+    eda: 100
+    weight: 1000
+  - user: 0.29000000000000004
+    system: 0.0
+    total: 0.29000000000000004
+    real: 0.294953
+    eda: 100
+    weight: 1000
+  - user: 0.27999999999999997
+    system: 0.009999999999999995
+    total: 0.29
+    real: 0.290687
+    eda: 100
+    weight: 1000
+  - user: 0.28
+    system: 0.010000000000000002
+    total: 0.29000000000000004
+    real: 0.290939
+    eda: 100
+    weight: 1000
+  - user: 0.31999999999999995
+    system: 0.0
+    total: 0.31999999999999995
+    real: 0.335691
+    eda: 100
+    weight: 1000
+  - user: 0.29
+    system: 0.0
+    total: 0.29
+    real: 0.300398
+    eda: 100
+    weight: 1000
+  - user: 0.29000000000000004
+    system: 0.010000000000000002
+    total: 0.30000000000000004
+    real: 0.294982
+    eda: 100
+    weight: 1000
+  - user: 0.29999999999999993
+    system: 0.0
+    total: 0.29999999999999993
+    real: 0.311339
+    eda: 100
+    weight: 1000
+  - user: 0.29000000000000004
+    system: 0.0
+    total: 0.29000000000000004
+    real: 0.290483
+    eda: 100
+    weight: 1000
+  - user: 0.30000000000000004
+    system: 0.0
+    total: 0.30000000000000004
+    real: 0.301097
+    eda: 100
+    weight: 1000
+  - user: 0.35
+    system: 0.0
+    total: 0.35
+    real: 0.350895
+    eda: 200
+    weight: 1000
+  - user: 0.32999999999999996
+    system: 0.0
+    total: 0.32999999999999996
+    real: 0.336941
+    eda: 200
+    weight: 1000
+  - user: 0.33999999999999997
+    system: 0.0
+    total: 0.33999999999999997
+    real: 0.343767
+    eda: 200
+    weight: 1000
+  - user: 0.33999999999999997
+    system: 0.0
+    total: 0.33999999999999997
+    real: 0.350541
+    eda: 200
+    weight: 1000
+  - user: 0.32999999999999996
+    system: 0.0
+    total: 0.32999999999999996
+    real: 0.34173
+    eda: 200
+    weight: 1000
+  - user: 0.33999999999999997
+    system: 0.0
+    total: 0.33999999999999997
+    real: 0.343186
+    eda: 200
+    weight: 1000
+  - user: 0.33999999999999997
+    system: 0.0
+    total: 0.33999999999999997
+    real: 0.341801
+    eda: 200
+    weight: 1000
+  - user: 0.35
+    system: 0.010000000000000002
+    total: 0.36
+    real: 0.357915
+    eda: 200
+    weight: 1000
+  - user: 0.33999999999999997
+    system: 0.0
+    total: 0.33999999999999997
+    real: 0.34156
+    eda: 200
+    weight: 1000
+  - user: 0.36
+    system: 0.010000000000000002
+    total: 0.37
+    real: 0.365177
+    eda: 200
+    weight: 1000
+  - user: 0.5599999999999999
+    system: 0.0
+    total: 0.5599999999999999
+    real: 0.566157
+    eda: 500
+    weight: 1000
+  - user: 0.54
+    system: 0.010000000000000002
+    total: 0.55
+    real: 0.554971
+    eda: 500
+    weight: 1000
+  - user: 0.52
+    system: 0.010000000000000002
+    total: 0.53
+    real: 0.53139
+    eda: 500
+    weight: 1000
+  - user: 0.59
+    system: 0.010000000000000002
+    total: 0.6
+    real: 0.614167
+    eda: 500
+    weight: 1000
+  - user: 0.58
+    system: 0.010000000000000002
+    total: 0.59
+    real: 0.596535
+    eda: 500
+    weight: 1000
+  - user: 0.6399999999999999
+    system: 0.010000000000000009
+    total: 0.6499999999999999
+    real: 0.672148
+    eda: 500
+    weight: 1000
+  - user: 0.52
+    system: 0.010000000000000002
+    total: 0.53
+    real: 0.526423
+    eda: 500
+    weight: 1000
+  - user: 0.57
+    system: 0.0
+    total: 0.57
+    real: 0.572943
+    eda: 500
+    weight: 1000
+  - user: 0.52
+    system: 0.0
+    total: 0.52
+    real: 0.532521
+    eda: 500
+    weight: 1000
+  - user: 0.5599999999999999
+    system: 0.010000000000000002
+    total: 0.57
+    real: 0.565171
+    eda: 500
+    weight: 1000
+  - user: 1.05
+    system: 0.019999999999999997
+    total: 1.07
+    real: 1.095883
+    eda: 1000
+    weight: 1000
+  - user: 0.9099999999999999
+    system: 0.010000000000000002
+    total: 0.9199999999999999
+    real: 0.92791
+    eda: 1000
+    weight: 1000
+  - user: 0.8899999999999999
+    system: 0.010000000000000002
+    total: 0.8999999999999999
+    real: 0.902877
+    eda: 1000
+    weight: 1000
+  - user: 0.8899999999999999
+    system: 0.010000000000000002
+    total: 0.8999999999999999
+    real: 0.902037
+    eda: 1000
+    weight: 1000
+  - user: 1.0
+    system: 0.010000000000000002
+    total: 1.01
+    real: 1.017064
+    eda: 1000
+    weight: 1000
+  - user: 0.8999999999999999
+    system: 0.010000000000000002
+    total: 0.9099999999999999
+    real: 0.908648
+    eda: 1000
+    weight: 1000
+  - user: 0.94
+    system: 0.010000000000000002
+    total: 0.95
+    real: 0.959179
+    eda: 1000
+    weight: 1000
+  - user: 0.95
+    system: 0.010000000000000002
+    total: 0.96
+    real: 0.965225
+    eda: 1000
+    weight: 1000
+  - user: 0.8699999999999999
+    system: 0.010000000000000002
+    total: 0.8799999999999999
+    real: 0.889117
+    eda: 1000
+    weight: 1000
+  - user: 0.9199999999999999
+    system: 0.010000000000000002
+    total: 0.9299999999999999
+    real: 0.937386
+    eda: 1000
+    weight: 1000
+sinatra:
+  1.4.7:
+  - user: 0.29999999999999993
+    system: 0.010000000000000002
+    total: 0.30999999999999994
+    real: 0.311309
+    eda: 100
+    weight: 1000
+  - user: 0.30000000000000004
+    system: 0.0
+    total: 0.30000000000000004
+    real: 0.313629
+    eda: 100
+    weight: 1000
+  - user: 0.32999999999999996
+    system: 0.010000000000000002
+    total: 0.33999999999999997
+    real: 0.345945
+    eda: 100
+    weight: 1000
+  - user: 0.30999999999999994
+    system: 0.010000000000000002
+    total: 0.31999999999999995
+    real: 0.324421
+    eda: 100
+    weight: 1000
+  - user: 0.29999999999999993
+    system: 0.010000000000000002
+    total: 0.30999999999999994
+    real: 0.314835
+    eda: 100
+    weight: 1000
+  - user: 0.31999999999999995
+    system: 0.0
+    total: 0.31999999999999995
+    real: 0.330679
+    eda: 100
+    weight: 1000
+  - user: 0.31999999999999995
+    system: 0.010000000000000002
+    total: 0.32999999999999996
+    real: 0.335654
+    eda: 100
+    weight: 1000
+  - user: 0.29000000000000004
+    system: 0.0
+    total: 0.29000000000000004
+    real: 0.298844
+    eda: 100
+    weight: 1000
+  - user: 0.30999999999999994
+    system: 0.010000000000000002
+    total: 0.31999999999999995
+    real: 0.321973
+    eda: 100
+    weight: 1000
+  - user: 0.30000000000000004
+    system: 0.0
+    total: 0.30000000000000004
+    real: 0.303658
+    eda: 100
+    weight: 1000
+  - user: 0.39
+    system: 0.0
+    total: 0.39
+    real: 0.403727
+    eda: 200
+    weight: 1000
+  - user: 0.38
+    system: 0.0
+    total: 0.38
+    real: 0.396843
+    eda: 200
+    weight: 1000
+  - user: 0.36
+    system: 0.0
+    total: 0.36
+    real: 0.368615
+    eda: 200
+    weight: 1000
+  - user: 0.38
+    system: 0.0
+    total: 0.38
+    real: 0.394221
+    eda: 200
+    weight: 1000
+  - user: 0.41000000000000003
+    system: 0.0
+    total: 0.41000000000000003
+    real: 0.422505
+    eda: 200
+    weight: 1000
+  - user: 0.55
+    system: 0.009999999999999995
+    total: 0.56
+    real: 0.593314
+    eda: 200
+    weight: 1000
+  - user: 0.42000000000000004
+    system: 0.010000000000000002
+    total: 0.43000000000000005
+    real: 0.433464
+    eda: 200
+    weight: 1000
+  - user: 0.38
+    system: 0.010000000000000002
+    total: 0.39
+    real: 0.386018
+    eda: 200
+    weight: 1000
+  - user: 0.38
+    system: 0.010000000000000002
+    total: 0.39
+    real: 0.386133
+    eda: 200
+    weight: 1000
+  - user: 0.38
+    system: 0.0
+    total: 0.38
+    real: 0.388711
+    eda: 200
+    weight: 1000
+  - user: 0.71
+    system: 0.010000000000000002
+    total: 0.72
+    real: 0.730863
+    eda: 500
+    weight: 1000
+  - user: 0.7
+    system: 0.010000000000000002
+    total: 0.71
+    real: 0.716905
+    eda: 500
+    weight: 1000
+  - user: 0.69
+    system: 0.0
+    total: 0.69
+    real: 0.698143
+    eda: 500
+    weight: 1000
+  - user: 0.76
+    system: 0.010000000000000002
+    total: 0.77
+    real: 0.775113
+    eda: 500
+    weight: 1000
+  - user: 0.81
+    system: 0.019999999999999997
+    total: 0.8300000000000001
+    real: 0.857834
+    eda: 500
+    weight: 1000
+  - user: 0.8699999999999999
+    system: 0.010000000000000009
+    total: 0.8799999999999999
+    real: 0.902834
+    eda: 500
+    weight: 1000
+  - user: 0.72
+    system: 0.009999999999999995
+    total: 0.73
+    real: 0.746369
+    eda: 500
+    weight: 1000
+  - user: 0.74
+    system: 0.010000000000000002
+    total: 0.75
+    real: 0.765804
+    eda: 500
+    weight: 1000
+  - user: 0.8200000000000001
+    system: 0.010000000000000002
+    total: 0.8300000000000001
+    real: 0.856088
+    eda: 500
+    weight: 1000
+  - user: 0.78
+    system: 0.010000000000000002
+    total: 0.79
+    real: 0.839987
+    eda: 500
+    weight: 1000
+  - user: 1.26
+    system: 0.010000000000000002
+    total: 1.27
+    real: 1.274285
+    eda: 1000
+    weight: 1000
+  - user: 1.43
+    system: 0.019999999999999997
+    total: 1.45
+    real: 1.480534
+    eda: 1000
+    weight: 1000
+  - user: 1.53
+    system: 0.019999999999999997
+    total: 1.55
+    real: 1.589179
+    eda: 1000
+    weight: 1000
+  - user: 1.3599999999999999
+    system: 0.010000000000000002
+    total: 1.3699999999999999
+    real: 1.389612
+    eda: 1000
+    weight: 1000
+  - user: 1.3599999999999999
+    system: 0.019999999999999997
+    total: 1.38
+    real: 1.390507
+    eda: 1000
+    weight: 1000
+  - user: 1.19
+    system: 0.010000000000000002
+    total: 1.2
+    real: 1.199604
+    eda: 1000
+    weight: 1000
+  - user: 1.3
+    system: 0.019999999999999997
+    total: 1.32
+    real: 1.339071
+    eda: 1000
+    weight: 1000
+  - user: 1.39
+    system: 0.019999999999999997
+    total: 1.41
+    real: 1.427908
+    eda: 1000
+    weight: 1000
+  - user: 1.29
+    system: 0.010000000000000002
+    total: 1.3
+    real: 1.321902
+    eda: 1000
+    weight: 1000
+  - user: 1.51
+    system: 0.030000000000000006
+    total: 1.54
+    real: 1.628018
     eda: 1000
     weight: 1000

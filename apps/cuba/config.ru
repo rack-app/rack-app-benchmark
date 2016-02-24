@@ -7,7 +7,7 @@ require "cuba"
 
 HelloWorld = Cuba.new do
 
-  (ENDPOINT_DECLARATION_AMOUNT || ENV['EDA']).times do |index|
+  ENV['EDA'].to_i.times do |index|
     on "/#{index}" do
       res.write "hello world"
     end

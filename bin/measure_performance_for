@@ -1,18 +1,33 @@
 #!/usr/bin/env ruby
 require 'benchmark'
 require 'rubygems'
-TEST_OPTIONS = {}
 
-test_count = ARGV[1].to_i
-raise('test count must be more than at least 0') if test_count <= 0
+SUBJECT_NAME= (ARGV[0] || raise('missing framework gem name')).to_s.downcase
+ENV['EDA']= (ENV['EDA'] || ARGV[1] || 1).to_s
+TESTING_AMOUNT= 1000
 
-TESTING_AMOUNT= test_count
-ENDPOINT_DECLARATION_AMOUNT = (ARGV[1] || raise('missing endpoint count')).to_i
-SUBJECT_NAME= ARGV[0].to_s.downcase
+class TEST
+  class << self
+    attr_accessor :instance
+  end
+end
 
-T = {}
 def run(app)
-  T[:instance] = app
+  TEST.instance = app
+end
+
+require 'yaml'
+
+def load_file(file_path)
+  file_content = File.read(file_path)
+  return Hash.new if file_content.to_s.empty?
+  YAML.load(file_content)
+rescue Errno::ENOENT
+  unless File.exist?(file_path)
+    File.write(file_path, YAML.dump({}))
+  end
+  sleep(1)
+  retry
 end
 
 benchmark_folder = File.realpath(File.dirname(File.dirname(__FILE__)))
@@ -46,51 +61,28 @@ rack_env = {
     "rack.input" => ::Rack::Lint::InputWrapper.new(StringIO.new(''))
 }
 
-require 'yaml'
-benchmark_result = TESTING_AMOUNT.times.map do
-  env = rack_env.dup
-  Benchmark.measure { T[:instance].call(env) }
-end
 
+rack_envs = TESTING_AMOUNT.times.map { rack_env.dup }
+eda = SUBJECT_NAME == 'rack' ? 1 : ENV['EDA'].to_i
+benchmark_result = Benchmark.measure { TESTING_AMOUNT.times { |i| TEST.instance.call(rack_envs[i]) } }
 
-def load_file(file_path)
-  file_content = File.read(file_path)
-  return Hash.new if file_content.to_s.empty?
-  YAML.load(file_content)
-rescue Errno::ENOENT
-  unless File.exist?(file_path)
-    File.write(file_path, YAML.dump({}))
-  end
-  sleep(1)
-  retry
-end
+report = {
+    'user' => benchmark_result.utime,
+    'system' => benchmark_result.stime,
+    'total' => benchmark_result.total,
+    'real' => benchmark_result.real,
+    'eda' => eda,
+    'weight' => TESTING_AMOUNT
+}
+
 
 measure_file_path = File.join(benchmark_folder, 'measure.yml')
 benchmarks = load_file(measure_file_path)
 
 gem_version = Gem.loaded_specs[SUBJECT_NAME].version.to_s
 gem_space = (benchmarks[SUBJECT_NAME] ||= {})
-results = (gem_space[gem_version] ||= [])
-
-def avg(array, method)
-  array.reduce(0.0) { |r, bm| r + bm.public_send(method) } / array.length
-end
-
-user_time = avg(benchmark_result, :utime)
-system_time = avg(benchmark_result, :stime)
-total_time = avg(benchmark_result, :total)
-real_time = avg(benchmark_result, :real)
-
-results.push(
-    {
-        'user' => user_time,
-        'system' => system_time,
-        'total' => total_time,
-        'real' => real_time,
-        'eda' => ENDPOINT_DECLARATION_AMOUNT,
-        'weight' => TESTING_AMOUNT
-    }
-)
+reports = (gem_space[gem_version] ||= [])
+reports << report
 
 File.write(measure_file_path, YAML.dump(benchmarks))
 

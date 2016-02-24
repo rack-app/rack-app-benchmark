@@ -4,15 +4,17 @@ Camping.goes :Hello
 
 module Hello::Controllers
 
-  (ENDPOINT_DECLARATION_AMOUNT || ENV['EDA']).times do |index|
+  classes = []
+  ENV['EDA'].to_i.times do |index|
 
-    eval <<-RUBY
-      class Endpoint#{index} < R '/#{index}'
-       def get
-          render :hello
-       end
+    new_class = Class.new(R("/#{index}"))
+    new_class.class_eval do
+      def get
+        render :hello
       end
-    RUBY
+    end
+
+    classes << new_class
 
   end
 

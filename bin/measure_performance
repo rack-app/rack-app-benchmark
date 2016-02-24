@@ -2,17 +2,17 @@
 require_relative('../lib/bootstrap')
 require 'progressbar'
 
-ENDPOINT_CASES = [100, 1000, 10000]
+ENDPOINT_CASES = [100, 200, 500, 1000]
 APP_FOLDERS = app_folders
 TEST_SAMPLES_AMOUNT = (ARGV[0] || 1).to_i
 
 benchmarker = File.realpath(File.join(File.dirname(__FILE__), 'measure_performance_for'))
 
-bar = ProgressBar.new('start',(APP_FOLDERS.length * ENDPOINT_CASES.length * TEST_SAMPLES_AMOUNT))
+bar = ProgressBar.new('start', (APP_FOLDERS.length * ENDPOINT_CASES.length * TEST_SAMPLES_AMOUNT))
 APP_FOLDERS.each do |app_project_directory|
 
   app_name = File.basename(app_project_directory)
-  bar.instance_variable_set(:@title,app_name)
+  bar.instance_variable_set(:@title, app_name)
 
   ENDPOINT_CASES.each do |endpoint_count|
     TEST_SAMPLES_AMOUNT.times do

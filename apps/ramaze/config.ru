@@ -4,7 +4,7 @@ require "ramaze"
 
 class HelloWorld < Ramaze::Controller
 
-  (ENDPOINT_DECLARATION_AMOUNT || ENV['EDA']).times do |index|
+  ENV['EDA'].to_i.times do |index|
     map "/#{index}"
   end
 

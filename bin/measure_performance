@@ -5,8 +5,9 @@ require 'progressbar'
 ENDPOINT_CASES = [100, 200, 500, 1000]
 APP_FOLDERS = app_folders
 TEST_SAMPLES_AMOUNT = (ARGV[0] || 1).to_i
+ENDPOINT_TYPE = ARGV[1]
 
-benchmarker = File.realpath(File.join(File.dirname(__FILE__), 'measure_static_performance_for'))
+benchmarker = File.realpath(File.join(File.dirname(__FILE__), 'measure_performance_for'))
 
 bar = ProgressBar.new('start', (APP_FOLDERS.length * ENDPOINT_CASES.length * TEST_SAMPLES_AMOUNT))
 APP_FOLDERS.each do |app_project_directory|
@@ -16,7 +17,7 @@ APP_FOLDERS.each do |app_project_directory|
 
   ENDPOINT_CASES.each do |endpoint_count|
     TEST_SAMPLES_AMOUNT.times do
-      `#{benchmarker} #{app_name} #{endpoint_count}`
+      system([benchmarker, app_name, endpoint_count, ENDPOINT_TYPE].compact.join(' '))
 
       bar.inc
     end

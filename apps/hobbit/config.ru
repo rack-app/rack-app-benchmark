@@ -17,6 +17,10 @@ class HelloWorld < Hobbit::Base
     "hello world"
   end
 
+  get '/users/:user_id' do
+    "d"
+  end
+
 end
 
 run HelloWorld.new

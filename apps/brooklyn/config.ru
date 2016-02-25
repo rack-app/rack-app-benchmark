@@ -13,6 +13,10 @@ class HelloWorld < Brooklyn::App
   get "/" do
     "hello world"
   end
+
+  get '/users/:user_id' do
+    "d"
+  end
   
 end
 

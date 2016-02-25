@@ -10,7 +10,7 @@ raise("Choose one from the following: #{measured_times.join(', ')}") unless meas
 
 
 benchmark_folder = File.realpath(File.dirname(File.dirname(__FILE__)))
-measure_file_path = File.join(benchmark_folder, 'measure.yml')
+measure_file_path = File.join(benchmark_folder, 'static.yml')
 
 reports = YAML.load_file(measure_file_path)
 

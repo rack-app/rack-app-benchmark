@@ -19,16 +19,22 @@ module Hello::Controllers
   end
 
   class Index < R '/'
-     def get
-        render :hello
-     end
+    def get
+      render :hello
+    end
+  end
+
+  class Users < R '/users/:user_id'
+    def get
+      render :hello
+    end
   end
 
 end
 
 module Hello::Views
   def hello
-     p  "hello world"
+    "hello world"
   end
 end
 

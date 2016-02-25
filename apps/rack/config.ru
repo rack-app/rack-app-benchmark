@@ -10,6 +10,8 @@ class RackSkeleton
 
     if request_path == '/'
       ['200', {'Content-Type' => 'text/html'}, ['static endpoint']]
+    elsif request_path =~ /^\/users\/.*/
+      ['200', {'Content-Type' => 'text/html'}, ['dynamic endpoint']]
     else
       ['404', {}, ['404 Not Found']]
     end

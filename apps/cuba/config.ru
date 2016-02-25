@@ -17,6 +17,10 @@ HelloWorld = Cuba.new do
     res.write "hello world"
   end
 
+  on '/users/:user_id' do
+    res.write "hello world"
+  end
+
 end
 
 run HelloWorld

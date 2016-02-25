@@ -14,6 +14,8 @@ class HelloWorld < Rails::Application
       get "/index" => "hello#{index}#world"
     end
 
+    get '/users/:user_id' => 'hello#world'
+
     root "hello#world"
 
   end

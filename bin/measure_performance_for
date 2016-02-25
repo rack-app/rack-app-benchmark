@@ -4,6 +4,9 @@ require 'rubygems'
 
 SUBJECT_NAME= (ARGV[0] || raise('missing framework gem name')).to_s.downcase
 ENV['EDA']= (ENV['EDA'] || ARGV[1] || 1).to_s
+
+TEST_TYPE = ARGV[2].to_s =~ /^d/i ? 'dynamic' : 'static'
+
 TESTING_AMOUNT= 1000
 
 class TEST
@@ -40,12 +43,14 @@ Bundler.require
 
 load(config_file_path)
 
+request_path = TEST_TYPE == 'static' ? '/' : '/users/123'
+
 rack_env = {
     "REMOTE_ADDR" => "192.168.56.1",
     "REQUEST_METHOD" => 'GET',
-    "REQUEST_PATH" => '/',
-    "REQUEST_URI" => '/',
-    "PATH_INFO" => '/',
+    "REQUEST_PATH" => request_path,
+    "REQUEST_URI" => request_path,
+    "PATH_INFO" => request_path,
     "SERVER_PROTOCOL" => "HTTP/1.1",
     "CONTENT_LENGTH" => "0",
     "CONTENT_TYPE" => "application/x-www-form-urlencoded",
@@ -76,7 +81,7 @@ report = {
 }
 
 
-measure_file_path = File.join(benchmark_folder, 'measure.yml')
+measure_file_path = File.join(benchmark_folder, "#{TEST_TYPE}.yml")
 benchmarks = load_file(measure_file_path)
 
 gem_version = Gem.loaded_specs[SUBJECT_NAME].version.to_s

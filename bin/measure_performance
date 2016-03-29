@@ -1,25 +1,60 @@
 #!/usr/bin/env ruby
 require_relative('../lib/bootstrap')
 require 'progressbar'
+require 'optparse'
 
-ENDPOINT_CASES = [100, 200, 500, 1000]
-APP_FOLDERS = app_folders
-TEST_SAMPLES_AMOUNT = (ARGV[0] || 1).to_i
-ENDPOINT_TYPE = ARGV[1]
+options = {}
+parser = OptionParser.new do |o|
 
-benchmarker = File.realpath(File.join(File.dirname(__FILE__), 'measure_performance_for'))
+  o.on('-e', '--endpoint-type [static|dynamic]', 'set the endpoint type for the testing. default: both') do |type|
+    options[:endpoint_types]= [type]
+  end
 
-bar = ProgressBar.new('start', (APP_FOLDERS.length * ENDPOINT_CASES.length * TEST_SAMPLES_AMOUNT))
-APP_FOLDERS.each do |app_project_directory|
+  o.on('-q','--quantity [TEST_QUANTITY_AMOUNT]','set test quantity amount. default: 1') do |amount|
+    options[:test_quantity]= amount.to_i
+  end
+
+  o.on('-a','--apps [COLUMN_SEPARATED_LIST]','set the test for the given apps. default: all') do |apps|
+    app_names = apps.split(/\s*,\s*/)
+    folders = app_folders.select{|path| app_names.include?(File.basename(path)) }
+    options[:apps_folders]= folders
+  end
+
+  o.on('-c','--endpoint-amount [COLUMN_SEPARATED_LIST]','set the endpoint cases for the test. default: 100, 200, 500, 1000') do |amounts|
+    options[:endpoint_amount]= amounts.split(/\s*,\s*/).map(&:to_i)
+  end
+
+end
+
+def set_defaults(options)
+  options[:endpoint_types]  ||= %W[static dynamic]
+  options[:test_quantity]   ||= 1
+  options[:apps_folders]    ||= app_folders
+  options[:endpoint_amount] ||= [100, 200, 500, 1000]
+end
+
+parser.parse(ARGV)
+set_defaults(options)
+
+# require 'yaml'
+# puts YAML.dump options
+# exit!
+
+exec_file = File.realpath(File.join(File.dirname(__FILE__), 'measure_performance_for'))
+total_count = (options[:apps_folders].length * options[:endpoint_amount].length * options[:test_quantity] * options[:endpoint_types].length)
+bar = ProgressBar.new('start', total_count)
+options[:apps_folders].each do |app_project_directory|
 
   app_name = File.basename(app_project_directory)
   bar.instance_variable_set(:@title, app_name)
 
-  ENDPOINT_CASES.each do |endpoint_count|
-    TEST_SAMPLES_AMOUNT.times do
-      system([benchmarker, app_name, endpoint_count, ENDPOINT_TYPE].compact.join(' '))
+  options[:endpoint_amount].each do |endpoint_count|
+    options[:test_quantity].times do
+      options[:endpoint_types].each do |endpoint_type|
+        system([exec_file, app_name, endpoint_count, endpoint_type].compact.join(' '))
 
-      bar.inc
+        bar.inc
+      end
     end
   end
 

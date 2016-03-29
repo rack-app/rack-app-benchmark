@@ -3986,3 +3986,27 @@ nyny:
     real: 0.147324
     eda: 100
     weight: 1000
+  - user: 0.14999999999999997
+    system: 0.0
+    total: 0.14999999999999997
+    real: 0.14884
+    eda: 100
+    weight: 1000
+  - user: 0.15999999999999998
+    system: 0.0
+    total: 0.15999999999999998
+    real: 0.155662
+    eda: 200
+    weight: 1000
+  - user: 0.2
+    system: 0.0
+    total: 0.2
+    real: 0.197842
+    eda: 500
+    weight: 1000
+  - user: 0.36999999999999994
+    system: 0.009999999999999995
+    total: 0.37999999999999995
+    real: 0.36863
+    eda: 1000
+    weight: 1000

@@ -15,10 +15,6 @@ class TEST
   end
 end
 
-def run(app)
-  TEST.instance = app
-end
-
 require 'yaml'
 
 def load_file(file_path)
@@ -40,6 +36,11 @@ config_file_path = File.join(app_folder, 'config.ru')
 Dir.chdir(app_folder)
 require 'bundler'
 Bundler.require
+require 'rack'
+
+def run(app)
+  TEST.instance = app
+end
 
 load(config_file_path)
 

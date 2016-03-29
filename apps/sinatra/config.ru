@@ -13,6 +13,11 @@ class HelloWorld < Sinatra::Base
   get '/' do
     'hello world sinatra'
   end
+
+  get '/users/:user_id' do
+    'dynamic'
+  end
+
 end
 
 run HelloWorld

@@ -15,7 +15,7 @@ class HelloWorld < Brooklyn::App
   end
 
   get '/users/:user_id' do
-    "d"
+   'hello world'
   end
   
 end

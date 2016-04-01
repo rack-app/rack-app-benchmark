@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/rack-app/rack-app.git
-  revision: 3347f38bd4767dd3be3484aac8a6a1378448a9b3
+  revision: 2ece102da6dfe082402afa665e329ea96611137d
   specs:
-    rack-app (3.0.0.beta)
+    rack-app (3.0.0.gamma)
       rack
 
 GEM

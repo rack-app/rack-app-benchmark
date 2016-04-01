@@ -2,7 +2,6 @@ GEM
   remote: https://rubygems.org/
   specs:
     progressbar (0.21.0)
-    rack (1.6.4)
     rake (10.5.0)
 
 PLATFORMS
@@ -10,7 +9,6 @@ PLATFORMS
 
 DEPENDENCIES
   progressbar
-  rack
   rake
 
 BUNDLED WITH

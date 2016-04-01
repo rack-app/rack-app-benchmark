@@ -27,7 +27,7 @@ class HelloWorld < Rails::Application
   %w(Rack::Lock ActionDispatch::Flash ActionDispatch::BestStandardsSupport Rack::Sendfile ActionDispatch::Static Rack::MethodOverride ActionDispatch::RequestId Rails::Rack::Logger ActionDispatch::ShowExceptions ActionDispatch::DebugExceptions ActionDispatch::RemoteIp ActionDispatch::Callbacks ActionDispatch::Cookies ActionDispatch::Session::CookieStore ActionDispatch::ParamsParser Rack::Head Rack::ConditionalGet Rack::ETag).each do |middleware|
     config.middleware.delete(middleware)
   end
-
+p  config.middleware.length
 end
 
 ENV['EDA'].to_i.times do |index|

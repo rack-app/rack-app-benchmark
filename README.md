@@ -12,13 +12,6 @@ the benchmarking was taken on the following hardware specification:
 ### Endpoint to be call type: static
 
 
-#### number of declared endpoints: 0
-
-| name                   | version                | current / fastest      | real                   |
-| ---------------------- | ---------------------- | ---------------------- | ---------------------- |
-| rails                  | 5.0.0                  | 1.0                    | 0.0016031708529917713  |
-
-
 #### number of declared endpoints: 100
 
 | name                   | version                | current / fastest      | real                   |

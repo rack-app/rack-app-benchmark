@@ -8,6 +8,12 @@ class App < Rack::App
     end
   end
 
+  desc 'example dynamic endpoint' 
+  get '/users/:user_id' do
+    'hello world Rack::App'
+  end
+
+  desc 'example static endpoint' 
   get '/' do 
     'hello world Rack::App'
   end

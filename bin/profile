@@ -1,0 +1,89 @@
+#!/usr/bin/env ruby
+require_relative '../lib/bootstrap'
+require 'progressbar'
+require 'optparse'
+
+options = {}
+parser = OptionParser.new do |o|
+
+  options[:test_quantity]= 1_000_000
+  o.on('-q', '--quantity [TEST_QUANTITY_AMOUNT]', 'set test quantity amount. default: 1') do |amount|
+    options[:test_quantity]= amount.to_i
+  end
+
+  options[:path_infos]=[]
+  o.on('-e','--add-endpoint [PATH_INFO]','add endpoint to the test') do |path_info|
+    options[:path_infos] << path_info
+  end
+
+end
+
+parser.parse(ARGV)
+
+if options[:path_infos].empty?
+  options[:path_infos] << '/'
+  options[:path_infos] << '/users/123'
+end
+
+app_folder = File.realpath(File.join(File.dirname(__FILE__), '..', 'apps', 'rack-app'))
+config_file_path = File.join(app_folder, 'config.ru')
+
+
+class TEST
+  class << self
+    attr_accessor :instance
+  end
+end
+
+Dir.chdir(app_folder)
+require 'bundler'
+Bundler.require
+require 'rack'
+
+def run(app)
+  TEST.instance = app
+end
+
+load(config_file_path)
+
+
+total_count = options[:test_quantity] * options[:path_infos].length
+bar = ProgressBar.new('profiling', total_count)
+
+profiler = Profiler.new('rack-app')
+
+
+options[:path_infos].each do |path_info|
+  options[:test_quantity].times do
+
+    env = {
+        "REMOTE_ADDR" => "192.168.56.1",
+        "REQUEST_METHOD" => 'GET',
+        "REQUEST_PATH" => path_info,
+        "REQUEST_URI" => path_info,
+        "PATH_INFO" => path_info,
+        "SERVER_PROTOCOL" => "HTTP/1.1",
+        "CONTENT_LENGTH" => "0",
+        "CONTENT_TYPE" => "application/x-www-form-urlencoded",
+        "SERVER_NAME" => "dev.ett.local",
+        "SERVER_PORT" => "80",
+        "QUERY_STRING" => 'hello=world',
+        "HTTP_VERSION" => "HTTP/1.1",
+        "HTTP_USER_AGENT" => "spec",
+        "HTTP_HOST" => "spec.local",
+        "HTTP_ACCEPT_ENCODING" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
+        "HTTP_ACCEPT" => "*/*",
+        "HTTP_CONNECTION" => "close",
+        "rack.input" => ::Rack::Lint::InputWrapper.new(StringIO.new(''))
+    }
+
+    response = profiler.measure { TEST.instance.call(env) }
+    raise unless response[0] == 200
+    bar.inc
+
+  end
+end
+
+
+profiler.finish
+bar.finish

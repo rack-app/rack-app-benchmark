@@ -4,7 +4,7 @@ GEM
     innate (2015.10.28)
       rack (~> 1.6.4)
     rack (1.6.4)
-    rake (10.5.0)
+    rake (11.2.2)
     ramaze (2012.12.08)
       innate (>= 2012.12)
       rake
@@ -16,4 +16,4 @@ DEPENDENCIES
   ramaze
 
 BUNDLED WITH
-   1.11.0
+   1.12.5

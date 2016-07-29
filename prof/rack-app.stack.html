@@ -1,0 +1,762 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>ruby-prof call tree</title>
+<style type="text/css">
+<!--
+  body {
+    font-size:70%;
+    padding:0;
+    margin:5px;
+    margin-right:0px;
+    margin-left:0px;
+    background: #ffffff;
+  }
+  ul {
+    margin-left:0px;
+    margin-top:0px;
+    margin-bottom:0px;
+    padding-left:0px;
+    list-style-type:none;
+  }
+  li {
+    margin-left:11px;
+    padding:0px;
+    white-space:nowrap;
+    border-top:1px solid #cccccc;
+    border-left:1px solid #cccccc;
+    border-bottom:none;
+  }
+  .thread {
+    margin-left:11px;
+    background:#708090;
+    padding-top:3px;
+    padding-left:12px;
+    padding-bottom:2px;
+    border-left:1px solid #CCCCCC;
+    border-top:1px solid #CCCCCC;
+    font-weight:bold;
+  }
+  .hidden {
+    display:none;
+    width:0px;
+    height:0px;
+    margin:0px;
+    padding:0px;
+    border-style:none;
+  }
+  .color01 { background:#adbdeb }
+  .color05 { background:#9daddb }
+  .color0 { background:#8d9dcb }
+  .color1 { background:#89bccb }
+  .color2 { background:#56e3e7 }
+  .color3 { background:#32cd70 }
+  .color4 { background:#a3d53c }
+  .color5 { background:#c4cb34 }
+  .color6 { background:#dcb66d }
+  .color7 { background:#cda59e }
+  .color8 { background:#be9d9c }
+  .color9 { background:#cf947a }
+  #commands {
+    font-size:10pt;
+    padding:10px;
+    margin-left:11px;
+    margin-bottom:0px;
+    margin-top:0px;
+    background:#708090;
+    border-top:1px solid #cccccc;
+    border-left:1px solid #cccccc;
+    border-bottom:none;
+  }
+  #titlebar {
+    font-size:10pt;
+    padding:10px;
+    margin-left:11px;
+    margin-bottom:0px;
+    margin-top:10px;
+    background:#8090a0;
+    border-top:1px solid #cccccc;
+    border-left:1px solid #cccccc;
+    border-bottom:none;
+  }
+  #help {
+    font-size:10pt;
+    padding:10px;
+    margin-left:11px;
+    margin-bottom:0px;
+    margin-top:0px;
+    background:#8090a0;
+    display:none;
+    border-top:1px solid #cccccc;
+    border-left:1px solid #cccccc;
+    border-bottom:none;
+  }
+  #sentinel {
+    height: 400px;
+    margin-left:11px;
+    background:#8090a0;
+    border-top:1px solid #cccccc;
+    border-left:1px solid #cccccc;
+    border-bottom:none;
+  }
+  input { margin-left:10px; }
+
+  .toggle {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAJCAMAAAD0FKf3AAAAA3NCSVQICAjb4U/gAAAAb1BMVEX///98jcR8jMV4jMB7jcR7jcR8jcT////7/f/3/P/0+vzx+v7s9vzq9Pzm8Prk7vzi7fnj5/Pc5vTb5vbg5PHW4fHV3/XS3fLM1+3K1e/G0e3EzuzCzey8x+m8xuystuSqtt98jsR8jcR7jcQAAADWswcWAAAAJXRSTlMAVVVV3e7u////////////////////////////////////////Vv4VOQAAAAlwSFlzAAALEgAACxIB0t1+/AAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAACVSURBVAiZPc/hDoIwDATgobCWgZsWgSGidOz9n9F1CPfrki+5tIqPXHSQVMVZFH8/sx/Is16X9zR2vtQPAMC6LxVnco5Dpvtt40QRGrspnueBqDUcdmrEMILtknkiQkQOU5RAsn9RPGRKNkLOxiibIEauNSYZy2CNyerGRngtsilkiLXP9Cx1bzuAZU13Himq/a3rWX4VVRPEuDWiLQAAAABJRU5ErkJggg==) no-repeat left center;
+    float:left;
+    width:9px;
+    height:9px;
+    margin:2px 1px 1px 1px;
+  }
+
+  .toggle.minus {
+    background-position: -9px 0;
+  }
+
+  .toggle.plus {
+    background-position: -18px 0;
+  }
+
+-->
+</style>
+<script type="text/javascript">
+  /*
+   Copyright (C) 2005,2009  Stefan Kaes
+   skaes@railsexpress.de
+   */
+
+  function rootNode() {
+    return currentThread;
+  }
+
+  function showUL(node, show) {
+    var lis = node.childNodes;
+    var l = lis.length;
+    for (var i=0; i < l ; i++ ) {
+      toggle(lis[i], show);
+    }
+  }
+
+  function findUlChild(li){
+    var ul = li.childNodes[2];
+    while (ul && ul.nodeName != "UL") {
+      ul = ul.nextSibling;
+    }
+    return ul;
+  }
+
+  function isLeafNode(li) {
+    var img = li.firstChild;
+    return (img.className.indexOf('empty') > -1);
+  }
+
+  function toggle(li, show) {
+    if (isLeafNode(li))
+      return;
+
+    var img = li.firstChild;
+    img.className = 'toggle ';
+    img.className += show ? 'minus' : 'plus';
+
+    var ul = findUlChild(li);
+    if (ul) {
+      ul.style.display = show ? 'block' : 'none';
+      showUL(ul, true);
+    }
+  }
+
+  function toggleLI(li) {
+    var img = li.firstChild;
+    if (img.className.indexOf("minus")>-1)
+      toggle(li, false);
+    else {
+      if (img.className.indexOf("plus")>-1)
+        toggle(li, true);
+    }
+  }
+
+  function aboveThreshold(text, threshold) {
+    var match = text.match(/\d+[.,]\d+/);
+    return (match && parseFloat(match[0].replace(/,/, '.'))>=threshold);
+  }
+
+  function setThresholdLI(li, threshold) {
+    var img = li.firstChild;
+    var text = img.nextSibling;
+    var ul = findUlChild(li);
+
+    var visible = aboveThreshold(text.nodeValue, threshold) ? 1 : 0;
+
+    var count = 0;
+    if (ul) {
+      count = setThresholdUL(ul, threshold);
+    }
+    if (count>0) {
+      img.className = 'toggle minus';
+    }
+    else {
+      img.className = 'toggle empty';
+    }
+    if (visible) {
+      li.style.display = 'block'
+    }
+    else {
+      li.style.display = 'none'
+    }
+    return visible;
+  }
+
+  function setThresholdUL(node, threshold) {
+    var lis = node.childNodes;
+    var l = lis.length;
+
+    var count = 0;
+    for ( var i = 0; i < l ; i++ ) {
+      count = count + setThresholdLI(lis[i], threshold);
+    }
+
+    var visible = (count > 0) ? 1 : 0;
+    if (visible) {
+      node.style.display = 'block';
+    }
+    else {
+      node.style.display = 'none';
+    }
+    return visible;
+  }
+
+  function toggleChildren(img, event) {
+    event.cancelBubble=true;
+    if (img.className.indexOf('empty') > -1)
+      return;
+
+    var minus = (img.className.indexOf('minus') > -1);
+
+    if (minus) {
+      img.className = 'toggle plus';
+    }
+    else
+      img.className = 'toggle minus';
+
+    var li = img.parentNode;
+    var ul = findUlChild(li);
+    if (ul) {
+      if (minus)
+        ul.style.display = 'none';
+      else
+        ul.style.display = 'block';
+    }
+    if (minus)
+      moveSelectionIfNecessary(li);
+  }
+
+  function showChildren(li) {
+    var img = li.firstChild;
+    if (img.className.indexOf('empty') > -1)
+      return;
+    img.className = 'toggle minus';
+
+    var ul = findUlChild(li);
+    if (ul) {
+      ul.style.display = 'block';
+    }
+  }
+
+  function setThreshold() {
+    var tv = document.getElementById("threshold").value;
+    if (tv.match(/[0-9]+([.,][0-9]+)?/)) {
+      var f = parseFloat(tv.replace(/,/, '.'));
+      var threads = document.getElementsByName("thread");
+      var l = threads.length;
+      for ( var i = 0; i < l ; i++ ) {
+        setThresholdUL(threads[i], f);
+      }
+      var p = selectedNode;
+      while (p && p.style.display=='none')
+        p=p.parentNode.parentNode;
+      if (p && p.nodeName=="LI")
+        selectNode(p);
+    }
+    else {
+      alert("Please specify a decimal number as threshold value!");
+    }
+  }
+
+  function expandAll(event) {
+    toggleAll(event, true);
+  }
+
+  function collapseAll(event) {
+    toggleAll(event, false);
+    selectNode(rootNode(), null);
+  }
+
+  function toggleAll(event, show) {
+    event.cancelBubble=true;
+    var threads = document.getElementsByName("thread");
+    var l = threads.length;
+    for ( var i = 0; i < l ; i++ ) {
+      showUL(threads[i], show);
+    }
+  }
+
+  function toggleHelp(node) {
+    var help = document.getElementById("help");
+    if (node.value == "Show Help") {
+      node.value = "Hide Help";
+      help.style.display = 'block';
+    }
+    else {
+      node.value = "Show Help";
+      help.style.display = 'none';
+    }
+  }
+
+  var selectedNode = null;
+  var selectedColor = null;
+  var selectedThread = null;
+
+  function descendentOf(a,b){
+    while (a!=b && b!=null)
+      b=b.parentNode;
+    return (a==b);
+  }
+
+  function moveSelectionIfNecessary(node){
+    if (descendentOf(node, selectedNode))
+      selectNode(node, null);
+  }
+
+  function selectNode(node, event) {
+    if (event) {
+      event.cancelBubble = true;
+      thread = findThread(node);
+      selectThread(thread);
+    }
+    if (selectedNode) {
+      selectedNode.style.background = selectedColor;
+    }
+    selectedNode = node;
+    selectedColor = node.style.background;
+    selectedNode.style.background = "red";
+    selectedNode.scrollIntoView();
+    window.scrollBy(0,-400);
+  }
+
+  function moveUp(){
+    move(selectedNode.previousSibling);
+  }
+
+  function moveDown(){
+    move(selectedNode.nextSibling);
+  }
+
+  function move(p) {
+    while (p && p.style.display == 'none')
+      p = p.nextSibling;
+    if (p && p.nodeName == "LI") {
+      selectNode(p, null);
+    }
+  }
+
+  function moveLeft(){
+    var p = selectedNode.parentNode.parentNode;
+    if (p && p.nodeName=="LI") {
+      selectNode(p, null);
+    }
+  }
+
+  function moveRight(){
+    if (!isLeafNode(selectedNode)) {
+      showChildren(selectedNode);
+      var ul = findUlChild(selectedNode);
+      if (ul) {
+        selectNode(ul.firstChild, null);
+      }
+    }
+  }
+
+  function moveForward(){
+    if (isLeafNode(selectedNode)) {
+      var p = selectedNode;
+      while ((p.nextSibling == null || p.nextSibling.style.display=='none') && p.nodeName=="LI") {
+        p = p.parentNode.parentNode;
+      }
+      if (p.nodeName=="LI")
+        selectNode(p.nextSibling, null);
+    }
+    else {
+      moveRight();
+    }
+  }
+
+  function isExpandedNode(li){
+    var img = li.firstChild;
+    return(img.className.indexOf('minus')>-1);
+  }
+
+  function moveBackward(){
+    var p = selectedNode;
+    var q = p.previousSibling;
+    while (q != null && q.style.display=='none')
+      q = q.previousSibling;
+    if (q == null) {
+      p = p.parentNode.parentNode;
+    } else {
+      while (!isLeafNode(q) && isExpandedNode(q)) {
+        q = findUlChild(q).lastChild;
+        while (q.style.display=='none')
+          q = q.previousSibling;
+      }
+      p = q;
+    }
+    if (p.nodeName=="LI")
+      selectNode(p, null);
+  }
+
+  function moveHome() {
+    selectNode(currentThread);
+  }
+
+  var currentThreadIndex = null;
+
+  function findThread(node){
+    while (node && !node.parentNode.nodeName.match(/BODY|DIV/g)) {
+      node = node.parentNode;
+    }
+    return node.firstChild;
+  }
+
+  function selectThread(node){
+    var threads = document.getElementsByName("thread");
+    currentThread = node;
+    for (var i=0; i<threads.length; i++) {
+      if (threads[i]==currentThread.parentNode)
+        currentThreadIndex = i;
+    }
+  }
+
+  function nextThread(){
+    var threads = document.getElementsByName("thread");
+    if (currentThreadIndex==threads.length-1)
+      currentThreadIndex = 0;
+    else
+      currentThreadIndex += 1
+    currentThread = threads[currentThreadIndex].firstChild;
+    selectNode(currentThread, null);
+  }
+
+  function previousThread(){
+    var threads = document.getElementsByName("thread");
+    if (currentThreadIndex==0)
+      currentThreadIndex = threads.length-1;
+    else
+      currentThreadIndex -= 1
+    currentThread = threads[currentThreadIndex].firstChild;
+    selectNode(currentThread, null);
+  }
+
+  function switchThread(node, event){
+    event.cancelBubble = true;
+    selectThread(node.nextSibling.firstChild);
+    selectNode(currentThread, null);
+  }
+
+  function handleKeyEvent(event){
+    var code = event.charCode ? event.charCode : event.keyCode;
+    var str = String.fromCharCode(code);
+    switch (str) {
+      case "a": moveLeft();  break;
+      case "s": moveDown();  break;
+      case "d": moveRight(); break;
+      case "w": moveUp();    break;
+      case "f": moveForward(); break;
+      case "b": moveBackward(); break;
+      case "x": toggleChildren(selectedNode.firstChild, event); break;
+      case "*": toggleLI(selectedNode); break;
+      case "n": nextThread(); break;
+      case "h": moveHome(); break;
+      case "p": previousThread(); break;
+    }
+  }
+  document.onkeypress=function(event){ handleKeyEvent(event) };
+
+  window.onload=function(){
+    var images = document.querySelectorAll(".toggle");
+    for (var i=0; i<images.length; i++) {
+      var img = images[i];
+        img.onclick = function(event){ toggleChildren(this, event); return false; };
+    }
+    var divs = document.getElementsByTagName("div");
+    for (i=0; i<divs.length; i++) {
+      var div = divs[i];
+      if (div.className == "thread")
+        div.onclick = function(event){ switchThread(this, event) };
+    }
+    var lis = document.getElementsByTagName("li");
+    for (var i=0; i<lis.length; i++) {
+      lis[i].onclick = function(event){ selectNode(this, event); };
+    }
+    var threads = document.getElementsByName("thread");;
+    currentThreadIndex = 0;
+    currentThread = threads[0].firstChild;
+    selectNode(currentThread, null);
+  };
+
+</script>
+</head><body><div style="display: inline-block;">
+<div id="titlebar">
+Call tree for application <b>bin/profile </b><br/>
+Generated on 2016-04-29 12:15:51 +0200 with options {}<br/>
+</div>
+<div id="commands">
+<span style="font-size: 11pt; font-weight: bold;">Threshold:</span>
+<input value="1.0" size="3" id="threshold" type="text">
+<input value="Apply" onclick="setThreshold();" type="submit">
+<input value="Expand All" onclick="expandAll(event);" type="submit">
+<input value="Collapse All" onclick="collapseAll(event);" type="submit">
+<input value="Show Help" onclick="toggleHelp(this);" type="submit">
+</div>
+<div style="display: none;" id="help">
+&#8226; Enter a decimal value <i>d</i> into the threshold field and click "Apply"
+        to hide all nodes marked with time values lower than <i>d</i>.<br>
+&#8226; Click on "Expand All" for full tree expansion.<br>
+&#8226; Click on "Collapse All" to show only top level nodes.<br>
+&#8226; Use a, s, d, w as in Quake or Urban Terror to navigate the tree.<br>
+&#8226; Use f and b to navigate the tree in preorder forward and backwards.<br>
+&#8226; Use x to toggle visibility of a subtree.<br>
+&#8226; Use * to expand/collapse a whole subtree.<br>
+&#8226; Use h to navigate to thread root.<br>
+&#8226; Use n and p to navigate between threads.<br>
+&#8226; Click on background to move focus to a subtree.<br>
+</div>
+<div class="thread">Thread: 70260376312800, Fiber: 70260376849000 (100.00% ~ 293.01188039779663)</div><ul name="thread"><li class="color3" style="display:block"><a href="#" class="toggle minus" ></a><span> 39.34% (39.34%) <a href="txmt://open?url=file:///Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/bin/profile&line=81">Global#[No method]</a> [1 calls, <a href='rack-app.graph.html#Global_[No method]_70260376849000'>3</a> total]</span>
+<ul><li class="color3" style="display:block"><a href="#" class="toggle minus" ></a><span> 33.17% (84.30%) <a href="txmt://open?url=file:///Users/aluzsi/Works/rack-app/benchmark/lib/profiler.rb&line=13">Profiler#measure</a> [999999 calls, <a href='rack-app.graph.html#Profiler_measure_70260376849000'>2000000</a> total]</span>
+<ul><li class="color3" style="display:block"><a href="#" class="toggle minus" ></a><span> 30.75% (92.72%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/singleton_methods/rack_interface.rb&line=5">Rack::App::SingletonMethods::RackInterface#call</a> [999999 calls, <a href='rack-app.graph.html#Rack__App__SingletonMethods__RackInterface_call_70260376849000'>2000000</a> total]</span>
+<ul><li class="color2" style="display:block"><a href="#" class="toggle minus" ></a><span> 25.89% (84.19%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/router.rb&line=8">Rack::App::Router#call</a> [999999 calls, <a href='rack-app.graph.html#Rack__App__Router_call_70260376849000'>2000000</a> total]</span>
+<ul><li class="color2" style="display:block"><a href="#" class="toggle minus" ></a><span> 25.58% (98.79%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/router/base.rb&line=3">Rack::App::Router::Base#call</a> [999999 calls, <a href='rack-app.graph.html#Rack__App__Router__Base_call_70260376849000'>3000000</a> total]</span>
+<ul><li class="color2" style="display:block"><a href="#" class="toggle minus" ></a><span> 21.31% (83.31%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/endpoint.rb&line=21">Rack::App::Endpoint#call</a> [999999 calls, <a href='rack-app.graph.html#Rack__App__Endpoint_call_70260376849000'>2000000</a> total]</span>
+<ul><li class="color2" style="display:block"><a href="#" class="toggle minus" ></a><span> 21.04% (98.73%) Proc#call [999999 calls, <a href='rack-app.graph.html#Proc_call_70260376849000'>6000000</a> total]</span>
+<ul><li class="color2" style="display:block"><a href="#" class="toggle minus" ></a><span> 20.63% (98.04%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/endpoint.rb&line=25">Rack::App::Endpoint#execute</a> [999999 calls, <a href='rack-app.graph.html#Rack__App__Endpoint_execute_70260376849000'>2000000</a> total]</span>
+<ul><li class="color05" style="display:block"><a href="#" class="toggle minus" ></a><span> 10.33% (50.08%) Class#new [1999998 calls, <a href='rack-app.graph.html#Class_new_70260376849000'>13999998</a> total]</span>
+<ul><li class="color05" style="display:block"><a href="#" class="toggle plus" ></a><span> 9.13% (88.37%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/response.rb&line=25">Rack::Response#initialize</a> [999999 calls, <a href='rack-app.graph.html#Rack__Response_initialize_70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:block"><a href="#" class="toggle plus" ></a><span> 2.30% (25.20%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb&line=478">&lt;Class::Rack::Utils::HeaderHash&gt;#new</a> [999999 calls, <a href='rack-app.graph.html#_Class__Rack__Utils__HeaderHash__new_70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:block"><a href="#" class="toggle plus" ></a><span> 1.76% (76.56%) Class#new [999999 calls, <a href='rack-app.graph.html#Class_new_70260376849000'>13999998</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:block"><a href="#" class="toggle empty" ></a><span> 1.42% (80.66%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb&line=482">Rack::Utils::HeaderHash#initialize</a> [999999 calls, <a href='rack-app.graph.html#Rack__Utils__HeaderHash_initialize_70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.30% (21.13%) Hash#initialize [999999 calls, <a href='rack-app.graph.html#Hash_initialize_70260376849000'>2000000</a> total]</span>
+</li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.16% (11.13%) Hash#each [999999 calls, <a href='rack-app.graph.html#Hash_each_70260376849000'>4000000</a> total]</span>
+</li></ul></li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.14% (5.89%) Module#=== [999999 calls, <a href='rack-app.graph.html#Module_____70260376849000'>2000000</a> total]</span>
+</li></ul></li><li class="color01" style="display:block"><a href="#" class="toggle plus" ></a><span> 1.89% (20.69%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb&line=531">Rack::Utils::HeaderHash#merge</a> [999999 calls, <a href='rack-app.graph.html#Rack__Utils__HeaderHash_merge_70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:block"><a href="#" class="toggle empty" ></a><span> 1.10% (58.09%) Kernel#dup [999999 calls, <a href='rack-app.graph.html#Kernel_dup_70260376849000'>3000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.41% (37.72%) Kernel#initialize_dup [999999 calls, <a href='rack-app.graph.html#Kernel_initialize_dup_70260376849000'>3000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.24% (57.29%) Hash#initialize_copy [999999 calls, <a href='rack-app.graph.html#Hash_initialize_copy_70260376849000'>3000000</a> total]</span>
+</li></ul></li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.38% (20.34%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb&line=526">Rack::Utils::HeaderHash#merge!</a> [999999 calls, <a href='rack-app.graph.html#Rack__Utils__HeaderHash_merge!_70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.10% (25.20%) Hash#each [999999 calls, <a href='rack-app.graph.html#Hash_each_70260376849000'>4000000</a> total]</span>
+</li></ul></li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 1.00% (10.95%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb&line=500">Rack::Utils::HeaderHash#[]</a> [999999 calls, <a href='rack-app.graph.html#Rack__Utils__HeaderHash_[]_70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.32% (31.66%) String#downcase [999999 calls, <a href='rack-app.graph.html#String_downcase_70260376849000'>4000000</a> total]</span>
+</li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.26% (25.67%) Hash#[] [1999998 calls, <a href='rack-app.graph.html#Hash_[]_70260376849000'>4000000</a> total]</span>
+</li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.57% (6.29%) Kernel#lambda [999999 calls, <a href='rack-app.graph.html#Kernel_lambda_70260376849000'>2000000</a> total]</span>
+</li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.45% (4.94%) Kernel#respond_to? [1999998 calls, <a href='rack-app.graph.html#Kernel_respond_to__70260376849000'>7999999</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.08% (18.73%) Kernel#respond_to_missing? [999999 calls, <a href='rack-app.graph.html#Kernel_respond_to_missing__70260376849000'>7999999</a> total]</span>
+</li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.31% (3.42%) String#== [999999 calls, <a href='rack-app.graph.html#String____70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.09% (29.89%) Kernel#respond_to_missing? [999999 calls, <a href='rack-app.graph.html#Kernel_respond_to_missing__70260376849000'>7999999</a> total]</span>
+</li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.14% (1.58%) Kernel#block_given? [999999 calls, <a href='rack-app.graph.html#Kernel_block_given__70260376849000'>2000000</a> total]</span>
+</li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.14% (1.58%) Integer#to_i [999999 calls, <a href='rack-app.graph.html#Integer_to_i_70260376849000'>10000000</a> total]</span>
+</li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.12% (1.33%) Array#each [999999 calls, <a href='rack-app.graph.html#Array_each_70260376849000'>3000379</a> total]</span>
+</li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.21% (1.99%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/request.rb&line=16">Rack::Request#initialize</a> [999999 calls, <a href='rack-app.graph.html#Rack__Request_initialize_70260376849000'>2000000</a> total]</span>
+</li></ul></li><li class="color01" style="display:block"><a href="#" class="toggle plus" ></a><span> 4.75% (23.00%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/endpoint.rb&line=47">Rack::App::Endpoint#set_response_body</a> [999999 calls, <a href='rack-app.graph.html#Rack__App__Endpoint_set_response_body_70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:block"><a href="#" class="toggle plus" ></a><span> 3.24% (68.32%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/response.rb&line=98">Rack::Response#write</a> [999999 calls, <a href='rack-app.graph.html#Rack__Response_write_70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:block"><a href="#" class="toggle empty" ></a><span> 1.42% (43.67%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb&line=504">Rack::Utils::HeaderHash#[]=</a> [999999 calls, <a href='rack-app.graph.html#Rack__Utils__HeaderHash_[]__70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.24% (16.69%) String#downcase [999999 calls, <a href='rack-app.graph.html#String_downcase_70260376849000'>4000000</a> total]</span>
+</li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.15% (10.28%) Hash#[]= [999999 calls, <a href='rack-app.graph.html#Hash_[]__70260376849000'>2000000</a> total]</span>
+</li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.32% (9.83%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb&line=368">Rack::Utils#bytesize</a> [999999 calls, <a href='rack-app.graph.html#Rack__Utils_bytesize_70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.10% (31.63%) String#bytesize [999999 calls, <a href='rack-app.graph.html#String_bytesize_70260376849000'>2000000</a> total]</span>
+</li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.30% (9.29%) Fixnum#to_s [999999 calls, <a href='rack-app.graph.html#Fixnum_to_s_70260376849000'>2000000</a> total]</span>
+</li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.25% (7.67%) Proc#call [999999 calls, <a href='rack-app.graph.html#Proc_call_70260376849000'>6000000</a> total]</span>
+</li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.09% (2.72%) String#to_s [999999 calls, <a href='rack-app.graph.html#String_to_s_70260376849000'>5000000</a> total]</span>
+</li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.67% (14.07%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/serializer.rb&line=13">Rack::App::Serializer#serialize</a> [999999 calls, <a href='rack-app.graph.html#Rack__App__Serializer_serialize_70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.39% (58.66%) Proc#call [999999 calls, <a href='rack-app.graph.html#Proc_call_70260376849000'>6000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.10% (25.20%) String#to_s [999999 calls, <a href='rack-app.graph.html#String_to_s_70260376849000'>5000000</a> total]</span>
+</li></ul></li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.12% (2.57%) Kernel#String [999999 calls, <a href='rack-app.graph.html#Kernel_String_70260376849000'>2000000</a> total]</span>
+</li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.12% (2.43%) Kernel#is_a? [999999 calls, <a href='rack-app.graph.html#Kernel_is_a__70260376849000'>5000000</a> total]</span>
+</li></ul></li><li class="color01" style="display:block"><a href="#" class="toggle plus" ></a><span> 2.89% (13.99%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/response.rb&line=73">Rack::Response#finish</a> [999999 calls, <a href='rack-app.graph.html#Rack__Response_finish_70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:block"><a href="#" class="toggle empty" ></a><span> 1.23% (42.61%) Class#new [999999 calls, <a href='rack-app.graph.html#Class_new_70260376849000'>13999998</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.37% (30.46%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/body_proxy.rb&line=3">Rack::BodyProxy#initialize</a> [999999 calls, <a href='rack-app.graph.html#Rack__BodyProxy_initialize_70260376849000'>2000000</a> total]</span>
+</li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.61% (21.08%) Array#include? [999999 calls, <a href='rack-app.graph.html#Array_include__70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.25% (40.87%) Fixnum#== [2999997 calls, <a href='rack-app.graph.html#Fixnum____70260376849000'>6000000</a> total]</span>
+</li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.21% (7.18%) Integer#to_i [1999998 calls, <a href='rack-app.graph.html#Integer_to_i_70260376849000'>10000000</a> total]</span>
+</li></ul></li><li class="color01" style="display:block"><a href="#" class="toggle empty" ></a><span> 1.81% (8.75%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/endpoint.rb&line=35">Rack::App::Endpoint#get_response_body</a> [999999 calls, <a href='rack-app.graph.html#Rack__App__Endpoint_get_response_body_70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.79% (43.75%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/error_handler.rb&line=16">Rack::App::ErrorHandler#execute_with_error_handling_for</a> [999999 calls, <a href='rack-app.graph.html#Rack__App__ErrorHandler_execute_with_error_handling_for_70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.37% (46.77%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/error_handler.rb&line=17">App#66faeffd-c619-49cf-83da-2def7826a09a</a> [999999 calls, <a href='rack-app.graph.html#App_66faeffd-c619-49cf-83da-2def7826a09a_70260376849000'>1000000</a> total]</span>
+</li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.46% (25.41%) Class#new [999999 calls, <a href='rack-app.graph.html#Class_new_70260376849000'>13999998</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.10% (22.54%) BasicObject#initialize [999999 calls, <a href='rack-app.graph.html#BasicObject_initialize_70260376849000'>3999999</a> total]</span>
+</li></ul></li></ul></li></ul></li></ul></li></ul></li><li class="color01" style="display:block"><a href="#" class="toggle empty" ></a><span> 2.81% (10.99%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/router/static.rb&line=13">Rack::App::Router::Static#fetch_context</a> [999999 calls, <a href='rack-app.graph.html#Rack__App__Router__Static_fetch_context_70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.82% (29.19%) Array#hash [999999 calls, <a href='rack-app.graph.html#Array_hash_70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.23% (27.76%) String#hash [1999998 calls, <a href='rack-app.graph.html#String_hash_70260376849000'>4000000</a> total]</span>
+</li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.60% (21.22%) Array#eql? [999999 calls, <a href='rack-app.graph.html#Array_eql__70260376849000'>1000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.21% (34.76%) String#eql? [1999998 calls, <a href='rack-app.graph.html#String_eql__70260376849000'>2000000</a> total]</span>
+</li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.22% (7.76%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/router/static.rb&line=18">Rack::App::Router::Static#mapped_endpoint_routes</a> [999999 calls, <a href='rack-app.graph.html#Rack__App__Router__Static_mapped_endpoint_routes_70260376849000'>2000000</a> total]</span>
+</li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.12% (0.49%) Kernel#is_a? [999999 calls, <a href='rack-app.graph.html#Kernel_is_a__70260376849000'>5000000</a> total]</span>
+</li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.12% (0.47%) Kernel#nil? [999999 calls, <a href='rack-app.graph.html#Kernel_nil__70260376849000'>5000000</a> total]</span>
+</li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.11% (0.45%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/router/base.rb&line=16">Rack::App::Router::Base#format_env</a> [999999 calls, <a href='rack-app.graph.html#Rack__App__Router__Base_format_env_70260376849000'>1000000</a> total]</span>
+</li></ul></li></ul></li><li class="color01" style="display:block"><a href="#" class="toggle plus" ></a><span> 4.03% (13.09%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/request_configurator.rb&line=5">Rack::App::RequestConfigurator#configure</a> [999999 calls, <a href='rack-app.graph.html#Rack__App__RequestConfigurator_configure_70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:block"><a href="#" class="toggle plus" ></a><span> 3.66% (91.04%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/request_configurator.rb&line=12">Rack::App::RequestConfigurator#path_info</a> [999999 calls, <a href='rack-app.graph.html#Rack__App__RequestConfigurator_path_info_70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:block"><a href="#" class="toggle plus" ></a><span> 2.94% (80.26%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/utils.rb&line=15">Rack::App::Utils#normalize_path</a> [999999 calls, <a href='rack-app.graph.html#Rack__App__Utils_normalize_path_70260376849000'>3000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:block"><a href="#" class="toggle empty" ></a><span> 1.23% (41.92%) String#sub! [999999 calls, <a href='rack-app.graph.html#String_sub!_70260376849000'>4000000</a> total]</span>
+</li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.36% (12.39%) String#squeeze! [999999 calls, <a href='rack-app.graph.html#String_squeeze!_70260376849000'>3000000</a> total]</span>
+</li></ul></li></ul></li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.26% (0.84%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/singleton_methods/route_handling.rb&line=3">Rack::App::SingletonMethods::RouteHandling#router</a> [999999 calls, <a href='rack-app.graph.html#Rack__App__SingletonMethods__RouteHandling_router_70260376849000'>2000000</a> total]</span>
+</li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.38% (1.13%) Kernel#respond_to? [1999998 calls, <a href='rack-app.graph.html#Kernel_respond_to__70260376849000'>7999999</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.09% (24.89%) Kernel#respond_to_missing? [1999998 calls, <a href='rack-app.graph.html#Kernel_respond_to_missing__70260376849000'>7999999</a> total]</span>
+</li></ul></li></ul></li><li class="color01" style="display:block"><a href="#" class="toggle plus" ></a><span> 1.23% (3.13%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb&line=262">ProgressBar#inc</a> [1000000 calls, <a href='rack-app.graph.html#ProgressBar_inc_70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:block"><a href="#" class="toggle empty" ></a><span> 1.11% (90.20%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb&line=207">ProgressBar#show_if_needed</a> [1000000 calls, <a href='rack-app.graph.html#ProgressBar_show_if_needed_70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.18% (15.94%) Time#- [999950 calls, <a href='rack-app.graph.html#Time_-_70260376849000'>2000279</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.05% (25.55%) Numeric#quo [999950 calls, <a href='rack-app.graph.html#Numeric_quo_70260376849000'>2000279</a> total]</span>
+<ul style="display:none"></ul></li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.10% (9.05%) &lt;Class::Time&gt;#now [999950 calls, <a href='rack-app.graph.html#_Class__Time__now_70260376849000'>2000658</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.05% (51.47%) Time#initialize [999950 calls, <a href='rack-app.graph.html#Time_initialize_70260376849000'>2000658</a> total]</span>
+<ul style="display:none"></ul></li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.01% (0.50%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb&line=186">ProgressBar#show</a> [156 calls, <a href='rack-app.graph.html#ProgressBar_show_70260376849000'>379</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (40.14%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb&line=162">ProgressBar#get_term_width</a> [156 calls, <a href='rack-app.graph.html#ProgressBar_get_term_width_70260376849000'>379</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (27.91%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb&line=182">ProgressBar#shell_command_exists?</a> [156 calls, <a href='rack-app.graph.html#ProgressBar_shell_command_exists__70260376849000'>379</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (88.59%) Enumerable#any? [156 calls, <a href='rack-app.graph.html#Enumerable_any__70260376849000'>379</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (96.76%) Array#each [156 calls, <a href='rack-app.graph.html#Array_each_70260376849000'>3000379</a> total]</span>
+<ul style="display:none"></ul></li></ul></li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (2.74%) Array#map [156 calls, <a href='rack-app.graph.html#Array_map_70260376849000'>758</a> total]</span>
+<ul style="display:none"></ul></li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (26.75%) Array#map [156 calls, <a href='rack-app.graph.html#Array_map_70260376849000'>758</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (24.61%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb&line=56">ProgressBar#fmt_stat</a> [156 calls, <a href='rack-app.graph.html#ProgressBar_fmt_stat_70260376849000'>379</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (96.38%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb&line=106">ProgressBar#eta</a> [156 calls, <a href='rack-app.graph.html#ProgressBar_eta_70260376849000'>379</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (33.27%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb&line=97">ProgressBar#format_time</a> [156 calls, <a href='rack-app.graph.html#ProgressBar_format_time_70260376849000'>379</a> total]</span>
+<ul style="display:none"></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (8.31%) Time#- [156 calls, <a href='rack-app.graph.html#Time_-_70260376849000'>2000279</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (26.32%) Numeric#quo [156 calls, <a href='rack-app.graph.html#Numeric_quo_70260376849000'>2000279</a> total]</span>
+<ul style="display:none"></ul></li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (4.81%) &lt;Class::Time&gt;#now [156 calls, <a href='rack-app.graph.html#_Class__Time__now_70260376849000'>2000658</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (39.23%) Time#initialize [156 calls, <a href='rack-app.graph.html#Time_initialize_70260376849000'>2000658</a> total]</span>
+<ul style="display:none"></ul></li></ul></li></ul></li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (12.69%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb&line=45">ProgressBar#fmt_bar</a> [156 calls, <a href='rack-app.graph.html#ProgressBar_fmt_bar_70260376849000'>379</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (11.15%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb&line=153">ProgressBar#do_percentage</a> [156 calls, <a href='rack-app.graph.html#ProgressBar_do_percentage_70260376849000'>758</a> total]</span>
+<ul style="display:none"></ul></li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (12.62%) Kernel#sprintf [624 calls, <a href='rack-app.graph.html#Kernel_sprintf_70260376849000'>3032</a> total]</span>
+<ul style="display:none"></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (3.51%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb&line=72">ProgressBar#fmt_title</a> [156 calls, <a href='rack-app.graph.html#ProgressBar_fmt_title_70260376849000'>379</a> total]</span>
+<ul style="display:none"></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (3.37%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb&line=52">ProgressBar#fmt_percentage</a> [156 calls, <a href='rack-app.graph.html#ProgressBar_fmt_percentage_70260376849000'>379</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (81.04%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb&line=153">ProgressBar#do_percentage</a> [156 calls, <a href='rack-app.graph.html#ProgressBar_do_percentage_70260376849000'>758</a> total]</span>
+<ul style="display:none"></ul></li></ul></li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (1.03%) IO#print [156 calls, <a href='rack-app.graph.html#IO_print_70260376849000'>379</a> total]</span>
+<ul style="display:none"></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (0.71%) &lt;Class::Time&gt;#now [156 calls, <a href='rack-app.graph.html#_Class__Time__now_70260376849000'>2000658</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (64.40%) Time#initialize [156 calls, <a href='rack-app.graph.html#Time_initialize_70260376849000'>2000658</a> total]</span>
+<ul style="display:none"></ul></li></ul></li></ul></li></ul></li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.20% (0.50%) Class#new [1999998 calls, <a href='rack-app.graph.html#Class_new_70260376849000'>13999998</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.09% (47.59%) StringIO#initialize [999999 calls, <a href='rack-app.graph.html#StringIO_initialize_70260376849000'>1999999</a> total]</span>
+<ul style="display:none"></ul></li></ul></li></ul></li><li class="color6" style="display:block"><a href="#" class="toggle minus" ></a><span> 60.66% (60.66%) <a href="txmt://open?url=file:///Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/bin/profile&line=81">Global#[No method]</a> [1 calls, <a href='rack-app.graph.html#Global_[No method]_70260376849000'>3</a> total]</span>
+<ul><li class="color6" style="display:block"><a href="#" class="toggle minus" ></a><span> 60.66% (100.00%) Integer#times [1 calls, <a href='rack-app.graph.html#Integer_times_70260376849000'>1</a> total]</span>
+<ul><li class="color5" style="display:block"><a href="#" class="toggle minus" ></a><span> 53.66% (88.46%) <a href="txmt://open?url=file:///Users/aluzsi/Works/rack-app/benchmark/lib/profiler.rb&line=13">Profiler#measure</a> [1000000 calls, <a href='rack-app.graph.html#Profiler_measure_70260376849000'>2000000</a> total]</span>
+<ul><li class="color5" style="display:block"><a href="#" class="toggle minus" ></a><span> 50.74% (94.56%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/singleton_methods/rack_interface.rb&line=5">Rack::App::SingletonMethods::RackInterface#call</a> [1000000 calls, <a href='rack-app.graph.html#Rack__App__SingletonMethods__RackInterface_call_70260376849000'>2000000</a> total]</span>
+<ul><li class="color4" style="display:block"><a href="#" class="toggle minus" ></a><span> 45.58% (89.84%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/router.rb&line=8">Rack::App::Router#call</a> [1000000 calls, <a href='rack-app.graph.html#Rack__App__Router_call_70260376849000'>2000000</a> total]</span>
+<ul><li class="color4" style="display:block"><a href="#" class="toggle minus" ></a><span> 45.11% (98.97%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/router/base.rb&line=3">Rack::App::Router::Base#call</a> [2000000 calls, <a href='rack-app.graph.html#Rack__App__Router__Base_call_70260376849000'>3000000</a> total]</span>
+<ul><li class="color2" style="display:block"><a href="#" class="toggle minus" ></a><span> 25.21% (55.88%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/endpoint.rb&line=21">Rack::App::Endpoint#call</a> [1000000 calls, <a href='rack-app.graph.html#Rack__App__Endpoint_call_70260376849000'>2000000</a> total]</span>
+<ul><li class="color2" style="display:block"><a href="#" class="toggle minus" ></a><span> 24.85% (98.56%) Proc#call [1000000 calls, <a href='rack-app.graph.html#Proc_call_70260376849000'>6000000</a> total]</span>
+<ul><li class="color2" style="display:block"><a href="#" class="toggle minus" ></a><span> 24.36% (98.06%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/endpoint.rb&line=25">Rack::App::Endpoint#execute</a> [1000000 calls, <a href='rack-app.graph.html#Rack__App__Endpoint_execute_70260376849000'>2000000</a> total]</span>
+<ul><li class="color1" style="display:block"><a href="#" class="toggle minus" ></a><span> 11.99% (49.22%) Class#new [2000000 calls, <a href='rack-app.graph.html#Class_new_70260376849000'>13999998</a> total]</span>
+<ul><li class="color05" style="display:block"><a href="#" class="toggle minus" ></a><span> 10.62% (88.60%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/response.rb&line=25">Rack::Response#initialize</a> [1000000 calls, <a href='rack-app.graph.html#Rack__Response_initialize_70260376849000'>2000000</a> total]</span>
+<ul><li class="color01" style="display:block"><a href="#" class="toggle plus" ></a><span> 2.61% (24.59%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb&line=478">&lt;Class::Rack::Utils::HeaderHash&gt;#new</a> [1000000 calls, <a href='rack-app.graph.html#_Class__Rack__Utils__HeaderHash__new_70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:block"><a href="#" class="toggle plus" ></a><span> 1.93% (74.02%) Class#new [1000000 calls, <a href='rack-app.graph.html#Class_new_70260376849000'>13999998</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:block"><a href="#" class="toggle empty" ></a><span> 1.56% (80.61%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb&line=482">Rack::Utils::HeaderHash#initialize</a> [1000000 calls, <a href='rack-app.graph.html#Rack__Utils__HeaderHash_initialize_70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.37% (23.65%) Hash#initialize [1000000 calls, <a href='rack-app.graph.html#Hash_initialize_70260376849000'>2000000</a> total]</span>
+</li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.17% (10.88%) Hash#each [1000000 calls, <a href='rack-app.graph.html#Hash_each_70260376849000'>4000000</a> total]</span>
+</li></ul></li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.17% (6.55%) Module#=== [1000000 calls, <a href='rack-app.graph.html#Module_____70260376849000'>2000000</a> total]</span>
+</li></ul></li><li class="color01" style="display:block"><a href="#" class="toggle plus" ></a><span> 2.18% (20.53%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb&line=531">Rack::Utils::HeaderHash#merge</a> [1000000 calls, <a href='rack-app.graph.html#Rack__Utils__HeaderHash_merge_70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:block"><a href="#" class="toggle empty" ></a><span> 1.23% (56.23%) Kernel#dup [1000000 calls, <a href='rack-app.graph.html#Kernel_dup_70260376849000'>3000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.49% (39.68%) Kernel#initialize_dup [1000000 calls, <a href='rack-app.graph.html#Kernel_initialize_dup_70260376849000'>3000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.27% (55.65%) Hash#initialize_copy [1000000 calls, <a href='rack-app.graph.html#Hash_initialize_copy_70260376849000'>3000000</a> total]</span>
+</li></ul></li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.46% (20.95%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb&line=526">Rack::Utils::HeaderHash#merge!</a> [1000000 calls, <a href='rack-app.graph.html#Rack__Utils__HeaderHash_merge!_70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.11% (23.92%) Hash#each [1000000 calls, <a href='rack-app.graph.html#Hash_each_70260376849000'>4000000</a> total]</span>
+</li></ul></li></ul></li><li class="color01" style="display:block"><a href="#" class="toggle empty" ></a><span> 1.18% (11.08%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb&line=500">Rack::Utils::HeaderHash#[]</a> [1000000 calls, <a href='rack-app.graph.html#Rack__Utils__HeaderHash_[]_70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.34% (28.52%) String#downcase [1000000 calls, <a href='rack-app.graph.html#String_downcase_70260376849000'>4000000</a> total]</span>
+</li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.30% (25.85%) Hash#[] [2000000 calls, <a href='rack-app.graph.html#Hash_[]_70260376849000'>4000000</a> total]</span>
+</li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.67% (6.28%) Kernel#lambda [1000000 calls, <a href='rack-app.graph.html#Kernel_lambda_70260376849000'>2000000</a> total]</span>
+</li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.56% (5.30%) Kernel#respond_to? [2000000 calls, <a href='rack-app.graph.html#Kernel_respond_to__70260376849000'>7999999</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.11% (20.19%) Kernel#respond_to_missing? [1000000 calls, <a href='rack-app.graph.html#Kernel_respond_to_missing__70260376849000'>7999999</a> total]</span>
+</li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.43% (4.04%) String#== [1000000 calls, <a href='rack-app.graph.html#String____70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.12% (28.75%) Kernel#respond_to_missing? [1000000 calls, <a href='rack-app.graph.html#Kernel_respond_to_missing__70260376849000'>7999999</a> total]</span>
+</li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.18% (1.69%) Kernel#block_given? [1000000 calls, <a href='rack-app.graph.html#Kernel_block_given__70260376849000'>2000000</a> total]</span>
+</li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.16% (1.53%) Integer#to_i [1000000 calls, <a href='rack-app.graph.html#Integer_to_i_70260376849000'>10000000</a> total]</span>
+</li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.13% (1.26%) Array#each [1000000 calls, <a href='rack-app.graph.html#Array_each_70260376849000'>3000379</a> total]</span>
+</li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.26% (2.20%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/request.rb&line=16">Rack::Request#initialize</a> [1000000 calls, <a href='rack-app.graph.html#Rack__Request_initialize_70260376849000'>2000000</a> total]</span>
+</li></ul></li><li class="color01" style="display:block"><a href="#" class="toggle plus" ></a><span> 5.77% (23.68%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/endpoint.rb&line=47">Rack::App::Endpoint#set_response_body</a> [1000000 calls, <a href='rack-app.graph.html#Rack__App__Endpoint_set_response_body_70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:block"><a href="#" class="toggle plus" ></a><span> 3.96% (68.65%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/response.rb&line=98">Rack::Response#write</a> [1000000 calls, <a href='rack-app.graph.html#Rack__Response_write_70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:block"><a href="#" class="toggle empty" ></a><span> 1.67% (42.25%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb&line=504">Rack::Utils::HeaderHash#[]=</a> [1000000 calls, <a href='rack-app.graph.html#Rack__Utils__HeaderHash_[]__70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.26% (15.49%) String#downcase [1000000 calls, <a href='rack-app.graph.html#String_downcase_70260376849000'>4000000</a> total]</span>
+</li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.18% (10.95%) Hash#[]= [1000000 calls, <a href='rack-app.graph.html#Hash_[]__70260376849000'>2000000</a> total]</span>
+</li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.39% (9.86%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb&line=368">Rack::Utils#bytesize</a> [1000000 calls, <a href='rack-app.graph.html#Rack__Utils_bytesize_70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.12% (31.72%) String#bytesize [1000000 calls, <a href='rack-app.graph.html#String_bytesize_70260376849000'>2000000</a> total]</span>
+</li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.35% (8.90%) Fixnum#to_s [1000000 calls, <a href='rack-app.graph.html#Fixnum_to_s_70260376849000'>2000000</a> total]</span>
+</li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.32% (8.14%) Proc#call [1000000 calls, <a href='rack-app.graph.html#Proc_call_70260376849000'>6000000</a> total]</span>
+</li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.16% (4.00%) String#to_s [1000000 calls, <a href='rack-app.graph.html#String_to_s_70260376849000'>5000000</a> total]</span>
+</li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.83% (14.44%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/serializer.rb&line=13">Rack::App::Serializer#serialize</a> [1000000 calls, <a href='rack-app.graph.html#Rack__App__Serializer_serialize_70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.49% (59.32%) Proc#call [1000000 calls, <a href='rack-app.graph.html#Proc_call_70260376849000'>6000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.14% (27.76%) String#to_s [1000000 calls, <a href='rack-app.graph.html#String_to_s_70260376849000'>5000000</a> total]</span>
+</li></ul></li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.17% (2.93%) Kernel#String [1000000 calls, <a href='rack-app.graph.html#Kernel_String_70260376849000'>2000000</a> total]</span>
+</li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.12% (2.04%) Kernel#is_a? [1000000 calls, <a href='rack-app.graph.html#Kernel_is_a__70260376849000'>5000000</a> total]</span>
+</li></ul></li><li class="color01" style="display:block"><a href="#" class="toggle plus" ></a><span> 3.29% (13.48%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/response.rb&line=73">Rack::Response#finish</a> [1000000 calls, <a href='rack-app.graph.html#Rack__Response_finish_70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:block"><a href="#" class="toggle empty" ></a><span> 1.34% (40.90%) Class#new [1000000 calls, <a href='rack-app.graph.html#Class_new_70260376849000'>13999998</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.38% (28.49%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/body_proxy.rb&line=3">Rack::BodyProxy#initialize</a> [1000000 calls, <a href='rack-app.graph.html#Rack__BodyProxy_initialize_70260376849000'>2000000</a> total]</span>
+</li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.69% (20.89%) Array#include? [1000000 calls, <a href='rack-app.graph.html#Array_include__70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.27% (39.60%) Fixnum#== [3000000 calls, <a href='rack-app.graph.html#Fixnum____70260376849000'>6000000</a> total]</span>
+</li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.25% (7.49%) Integer#to_i [2000000 calls, <a href='rack-app.graph.html#Integer_to_i_70260376849000'>10000000</a> total]</span>
+</li></ul></li><li class="color01" style="display:block"><a href="#" class="toggle empty" ></a><span> 2.22% (9.09%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/endpoint.rb&line=35">Rack::App::Endpoint#get_response_body</a> [1000000 calls, <a href='rack-app.graph.html#Rack__App__Endpoint_get_response_body_70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.96% (43.35%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/error_handler.rb&line=16">Rack::App::ErrorHandler#execute_with_error_handling_for</a> [1000000 calls, <a href='rack-app.graph.html#Rack__App__ErrorHandler_execute_with_error_handling_for_70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.43% (44.71%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/error_handler.rb&line=17">App#4564ad48-2cc5-4e43-a546-4303ce788a87</a> [1000000 calls, <a href='rack-app.graph.html#App_4564ad48-2cc5-4e43-a546-4303ce788a87_70260376849000'>1000000</a> total]</span>
+</li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.55% (24.77%) Class#new [1000000 calls, <a href='rack-app.graph.html#Class_new_70260376849000'>13999998</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.13% (24.21%) BasicObject#initialize [1000000 calls, <a href='rack-app.graph.html#BasicObject_initialize_70260376849000'>3999999</a> total]</span>
+</li></ul></li></ul></li></ul></li></ul></li></ul></li><li class="color1" style="display:block"><a href="#" class="toggle minus" ></a><span> 11.40% (25.27%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/router/dynamic.rb&line=108">Rack::App::Router::Dynamic#fetch_context</a> [1000000 calls, <a href='rack-app.graph.html#Rack__App__Router__Dynamic_fetch_context_70260376849000'>1000000</a> total]</span>
+<ul><li class="color05" style="display:block"><a href="#" class="toggle plus" ></a><span> 6.33% (55.53%) Array#each [1000000 calls, <a href='rack-app.graph.html#Array_each_70260376849000'>3000379</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:block"><a href="#" class="toggle empty" ></a><span> 1.17% (18.41%) Kernel#hash [13000000 calls, <a href='rack-app.graph.html#Kernel_hash_70260376849000'>13000000</a> total]</span>
+</li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.28% (4.45%) Kernel#nil? [3000000 calls, <a href='rack-app.graph.html#Kernel_nil__70260376849000'>5000000</a> total]</span>
+</li></ul></li><li class="color01" style="display:block"><a href="#" class="toggle empty" ></a><span> 2.29% (20.06%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/utils.rb&line=15">Rack::App::Utils#normalize_path</a> [1000000 calls, <a href='rack-app.graph.html#Rack__App__Utils_normalize_path_70260376849000'>3000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.80% (34.84%) String#sub! [1000000 calls, <a href='rack-app.graph.html#String_sub!_70260376849000'>4000000</a> total]</span>
+</li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.31% (13.64%) String#squeeze! [1000000 calls, <a href='rack-app.graph.html#String_squeeze!_70260376849000'>3000000</a> total]</span>
+</li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.90% (7.89%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/router/dynamic.rb&line=22">Rack::App::Router::Dynamic#main_cluster</a> [1000000 calls, <a href='rack-app.graph.html#Rack__App__Router__Dynamic_main_cluster_70260376849000'>1000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.28% (31.06%) String#upcase [1000000 calls, <a href='rack-app.graph.html#String_upcase_70260376849000'>1000000</a> total]</span>
+</li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.16% (18.27%) String#to_s [1000000 calls, <a href='rack-app.graph.html#String_to_s_70260376849000'>5000000</a> total]</span>
+</li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.87% (7.62%) String#split [1000000 calls, <a href='rack-app.graph.html#String_split_70260376849000'>1000379</a> total]</span>
+</li></ul></li><li class="color01" style="display:block"><a href="#" class="toggle plus" ></a><span> 3.85% (8.54%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/router/dynamic.rb&line=146">Rack::App::Router::Dynamic#format_env</a> [1000000 calls, <a href='rack-app.graph.html#Rack__App__Router__Dynamic_format_env_70260376849000'>1000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:block"><a href="#" class="toggle plus" ></a><span> 1.48% (38.52%) Kernel#dup [1000000 calls, <a href='rack-app.graph.html#Kernel_dup_70260376849000'>3000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:block"><a href="#" class="toggle empty" ></a><span> 1.07% (72.09%) Kernel#initialize_dup [1000000 calls, <a href='rack-app.graph.html#Kernel_initialize_dup_70260376849000'>3000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.85% (79.22%) Hash#initialize_copy [1000000 calls, <a href='rack-app.graph.html#Hash_initialize_copy_70260376849000'>3000000</a> total]</span>
+</li></ul></li></ul></li><li class="color01" style="display:block"><a href="#" class="toggle empty" ></a><span> 1.37% (35.62%) String#sub! [1000000 calls, <a href='rack-app.graph.html#String_sub!_70260376849000'>4000000</a> total]</span>
+</li></ul></li><li class="color01" style="display:block"><a href="#" class="toggle empty" ></a><span> 2.19% (4.86%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/router/static.rb&line=13">Rack::App::Router::Static#fetch_context</a> [1000000 calls, <a href='rack-app.graph.html#Rack__App__Router__Static_fetch_context_70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.97% (44.21%) Array#hash [1000000 calls, <a href='rack-app.graph.html#Array_hash_70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.27% (27.37%) String#hash [2000000 calls, <a href='rack-app.graph.html#String_hash_70260376849000'>4000000</a> total]</span>
+</li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.29% (13.22%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/router/static.rb&line=18">Rack::App::Router::Static#mapped_endpoint_routes</a> [1000000 calls, <a href='rack-app.graph.html#Rack__App__Router__Static_mapped_endpoint_routes_70260376849000'>2000000</a> total]</span>
+</li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.29% (0.65%) Kernel#is_a? [2000000 calls, <a href='rack-app.graph.html#Kernel_is_a__70260376849000'>5000000</a> total]</span>
+</li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.10% (0.22%) Kernel#nil? [1000000 calls, <a href='rack-app.graph.html#Kernel_nil__70260376849000'>5000000</a> total]</span>
+</li></ul></li></ul></li><li class="color01" style="display:block"><a href="#" class="toggle plus" ></a><span> 4.12% (8.12%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/request_configurator.rb&line=5">Rack::App::RequestConfigurator#configure</a> [1000000 calls, <a href='rack-app.graph.html#Rack__App__RequestConfigurator_configure_70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:block"><a href="#" class="toggle plus" ></a><span> 3.71% (90.07%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/request_configurator.rb&line=12">Rack::App::RequestConfigurator#path_info</a> [1000000 calls, <a href='rack-app.graph.html#Rack__App__RequestConfigurator_path_info_70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:block"><a href="#" class="toggle plus" ></a><span> 2.82% (76.03%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/utils.rb&line=15">Rack::App::Utils#normalize_path</a> [1000000 calls, <a href='rack-app.graph.html#Rack__App__Utils_normalize_path_70260376849000'>3000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:block"><a href="#" class="toggle empty" ></a><span> 1.06% (37.60%) String#sub! [1000000 calls, <a href='rack-app.graph.html#String_sub!_70260376849000'>4000000</a> total]</span>
+</li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.42% (14.71%) String#squeeze! [1000000 calls, <a href='rack-app.graph.html#String_squeeze!_70260376849000'>3000000</a> total]</span>
+</li></ul></li></ul></li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.34% (0.67%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/singleton_methods/route_handling.rb&line=3">Rack::App::SingletonMethods::RouteHandling#router</a> [1000000 calls, <a href='rack-app.graph.html#Rack__App__SingletonMethods__RouteHandling_router_70260376849000'>2000000</a> total]</span>
+</li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.42% (0.79%) Kernel#respond_to? [2000000 calls, <a href='rack-app.graph.html#Kernel_respond_to__70260376849000'>7999999</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.10% (23.04%) Kernel#respond_to_missing? [2000000 calls, <a href='rack-app.graph.html#Kernel_respond_to_missing__70260376849000'>7999999</a> total]</span>
+</li></ul></li></ul></li><li class="color01" style="display:block"><a href="#" class="toggle plus" ></a><span> 1.48% (2.44%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb&line=262">ProgressBar#inc</a> [1000000 calls, <a href='rack-app.graph.html#ProgressBar_inc_70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:block"><a href="#" class="toggle empty" ></a><span> 1.33% (90.20%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb&line=207">ProgressBar#show_if_needed</a> [1000000 calls, <a href='rack-app.graph.html#ProgressBar_show_if_needed_70260376849000'>2000000</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.22% (16.78%) Time#- [999950 calls, <a href='rack-app.graph.html#Time_-_70260376849000'>2000279</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.05% (21.35%) Numeric#quo [999950 calls, <a href='rack-app.graph.html#Numeric_quo_70260376849000'>2000279</a> total]</span>
+<ul style="display:none"></ul></li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.11% (8.12%) &lt;Class::Time&gt;#now [999950 calls, <a href='rack-app.graph.html#_Class__Time__now_70260376849000'>2000658</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.06% (53.31%) Time#initialize [999950 calls, <a href='rack-app.graph.html#Time_initialize_70260376849000'>2000658</a> total]</span>
+<ul style="display:none"></ul></li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.03% (2.58%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb&line=186">ProgressBar#show</a> [223 calls, <a href='rack-app.graph.html#ProgressBar_show_70260376849000'>379</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.01% (37.67%) Array#map [223 calls, <a href='rack-app.graph.html#Array_map_70260376849000'>758</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.01% (42.04%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb&line=56">ProgressBar#fmt_stat</a> [223 calls, <a href='rack-app.graph.html#ProgressBar_fmt_stat_70260376849000'>379</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.01% (99.71%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb&line=106">ProgressBar#eta</a> [223 calls, <a href='rack-app.graph.html#ProgressBar_eta_70260376849000'>379</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (90.10%) Time#- [223 calls, <a href='rack-app.graph.html#Time_-_70260376849000'>2000279</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (0.21%) Numeric#quo [223 calls, <a href='rack-app.graph.html#Numeric_quo_70260376849000'>2000279</a> total]</span>
+<ul style="display:none"></ul></li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (3.55%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb&line=97">ProgressBar#format_time</a> [223 calls, <a href='rack-app.graph.html#ProgressBar_format_time_70260376849000'>379</a> total]</span>
+<ul style="display:none"></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (0.44%) &lt;Class::Time&gt;#now [223 calls, <a href='rack-app.graph.html#_Class__Time__now_70260376849000'>2000658</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (52.74%) Time#initialize [223 calls, <a href='rack-app.graph.html#Time_initialize_70260376849000'>2000658</a> total]</span>
+<ul style="display:none"></ul></li></ul></li></ul></li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (4.16%) Kernel#sprintf [892 calls, <a href='rack-app.graph.html#Kernel_sprintf_70260376849000'>3032</a> total]</span>
+<ul style="display:none"></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (4.02%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb&line=45">ProgressBar#fmt_bar</a> [223 calls, <a href='rack-app.graph.html#ProgressBar_fmt_bar_70260376849000'>379</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (5.25%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb&line=153">ProgressBar#do_percentage</a> [223 calls, <a href='rack-app.graph.html#ProgressBar_do_percentage_70260376849000'>758</a> total]</span>
+<ul style="display:none"></ul></li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (1.21%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb&line=72">ProgressBar#fmt_title</a> [223 calls, <a href='rack-app.graph.html#ProgressBar_fmt_title_70260376849000'>379</a> total]</span>
+<ul style="display:none"></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (0.45%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb&line=52">ProgressBar#fmt_percentage</a> [223 calls, <a href='rack-app.graph.html#ProgressBar_fmt_percentage_70260376849000'>379</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (73.71%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb&line=153">ProgressBar#do_percentage</a> [223 calls, <a href='rack-app.graph.html#ProgressBar_do_percentage_70260376849000'>758</a> total]</span>
+<ul style="display:none"></ul></li></ul></li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (10.42%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb&line=162">ProgressBar#get_term_width</a> [223 calls, <a href='rack-app.graph.html#ProgressBar_get_term_width_70260376849000'>379</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (29.68%) <a href="txmt://open?url=file:///Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb&line=182">ProgressBar#shell_command_exists?</a> [223 calls, <a href='rack-app.graph.html#ProgressBar_shell_command_exists__70260376849000'>379</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (85.84%) Enumerable#any? [223 calls, <a href='rack-app.graph.html#Enumerable_any__70260376849000'>379</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (96.51%) Array#each [223 calls, <a href='rack-app.graph.html#Array_each_70260376849000'>3000379</a> total]</span>
+<ul style="display:none"></ul></li></ul></li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (4.64%) Array#map [223 calls, <a href='rack-app.graph.html#Array_map_70260376849000'>758</a> total]</span>
+<ul style="display:none"></ul></li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (0.11%) &lt;Class::Time&gt;#now [223 calls, <a href='rack-app.graph.html#_Class__Time__now_70260376849000'>2000658</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (49.90%) Time#initialize [223 calls, <a href='rack-app.graph.html#Time_initialize_70260376849000'>2000658</a> total]</span>
+<ul style="display:none"></ul></li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.00% (0.11%) IO#print [223 calls, <a href='rack-app.graph.html#IO_print_70260376849000'>379</a> total]</span>
+<ul style="display:none"></ul></li></ul></li></ul></li></ul></li><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.23% (0.38%) Class#new [2000000 calls, <a href='rack-app.graph.html#Class_new_70260376849000'>13999998</a> total]</span>
+<ul style="display:none"><li class="color01" style="display:none"><a href="#" class="toggle empty" ></a><span> 0.11% (48.35%) StringIO#initialize [1000000 calls, <a href='rack-app.graph.html#StringIO_initialize_70260376849000'>1999999</a> total]</span>
+<ul style="display:none"></ul></li></ul></li></ul></li></ul></li></ul><div id="sentinel"></div></div></body></html>

@@ -55,7 +55,7 @@ rack_env = {
     "SERVER_PROTOCOL" => "HTTP/1.1",
     "CONTENT_LENGTH" => "0",
     "CONTENT_TYPE" => "application/x-www-form-urlencoded",
-    "SERVER_NAME" => "hds-dev.ett.local",
+    "SERVER_NAME" => "dev.ett.local",
     "SERVER_PORT" => "80",
     "QUERY_STRING" => 'hello=world',
     "HTTP_VERSION" => "HTTP/1.1",

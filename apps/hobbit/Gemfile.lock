@@ -9,7 +9,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    rack (1.6.4)
+    rack (2.0.1)
 
 PLATFORMS
   ruby
@@ -18,4 +18,4 @@ DEPENDENCIES
   hobbit!
 
 BUNDLED WITH
-   1.11.0
+   1.12.5

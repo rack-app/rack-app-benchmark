@@ -1,0 +1,1982 @@
+events: wall_time
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/lib/profiler.rb
+fn=Profiler#finish
+19 0
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/error_handler.rb
+fn=App#4564ad48-2cc5-4e43-a546-4303ce788a87
+17 1258033
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/router/dynamic.rb
+fn=Rack::App::Router::Dynamic#format_env
+146 2919746
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#dup
+calls=1000000 148
+148 4348521
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#sub!
+calls=1000000 149
+149 4020853
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Kernel#hash
+0 3414255
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=String#upcase
+0 819029
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/router/dynamic.rb
+fn=Rack::App::Router::Dynamic#main_cluster
+22 1335993
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#to_s
+calls=1000000 23
+23 481773
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#upcase
+calls=1000000 23
+23 819029
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/router/dynamic.rb
+fn=Rack::App::Router::Dynamic#fetch_context
+108 2971304
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/utils.rb
+cfn=Rack::App::Utils#normalize_path
+calls=1000000 109
+109 6699578
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/router/dynamic.rb
+cfn=Rack::App::Router::Dynamic#main_cluster
+calls=1000000 113
+113 2636795
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#split
+calls=1000000 115
+115 2546173
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Array#each
+calls=1000000 115
+115 18545814
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Integer#times
+0 15500752
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Class#new
+calls=2000000 59
+59 672165
+cfl=/Users/aluzsi/Works/rack-app/benchmark/lib/profiler.rb
+cfn=Profiler#measure
+calls=1000000 80
+80 157221564
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+cfn=ProgressBar#inc
+calls=1000000 82
+82 4334011
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=IO#flush
+0 0
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=IO#write
+0 0
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=IO#print
+0 278
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=IO#write
+calls=156 195
+195 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=IO#write
+calls=223 195
+195 0
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+fn=ProgressBar#eol
+149 0
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=String#to_i
+0 0
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=String#scan
+0 0
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Kernel#`
+0 0
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=<Class::File>#exists?
+0 0
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=<Class::File>#join
+0 0
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Enumerable#any?
+0 146
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Array#each
+calls=156 183
+183 1567
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Array#each
+calls=223 183
+183 2587
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=String#split
+0 2546173
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+fn=ProgressBar#shell_command_exists?
+182 651
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=<Object::Object>#[]
+calls=156 183
+183 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#split
+calls=156 183
+183 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Enumerable#any?
+calls=156 183
+183 1619
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=<Object::Object>#[]
+calls=223 183
+183 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#split
+calls=223 183
+183 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Enumerable#any?
+calls=223 183
+183 2681
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=IO#tty?
+0 0
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Kernel#=~
+0 0
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=<Object::Object>#[]
+0 0
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+fn=ProgressBar#get_term_width
+162 11451
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=<Object::Object>#[]
+calls=156 163
+163 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#=~
+calls=156 163
+163 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=IO#tty?
+calls=312 163
+163 0
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+cfn=ProgressBar#shell_command_exists?
+calls=156 163
+163 1828
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#`
+calls=156 168
+168 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#scan
+calls=156 168
+168 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Array#map
+calls=156 168
+168 180
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=<Object::Object>#[]
+calls=223 163
+163 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#=~
+calls=223 163
+163 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=IO#tty?
+calls=446 163
+163 0
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+cfn=ProgressBar#shell_command_exists?
+calls=223 163
+163 3123
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#`
+calls=223 168
+168 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#scan
+calls=223 168
+168 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Array#map
+calls=223 168
+168 488
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Float#to_i
+0 0
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+fn=ProgressBar#format_time
+97 911
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Float#to_i
+calls=156 98
+98 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#sprintf
+calls=156 102
+102 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Float#to_i
+calls=223 98
+98 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#sprintf
+calls=223 102
+102 0
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Float#/
+0 0
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Float#*
+0 0
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+fn=ProgressBar#eta
+106 1498
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=<Class::Time>#now
+calls=156 110
+110 50
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Time#-
+calls=156 110
+110 86
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Float#*
+calls=156 111
+111 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Float#/
+calls=156 111
+111 0
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+cfn=ProgressBar#format_time
+calls=156 112
+112 345
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#sprintf
+calls=156 112
+112 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=<Class::Time>#now
+calls=223 110
+110 70
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Time#-
+calls=223 110
+110 14368
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Float#*
+calls=223 111
+111 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Float#/
+calls=223 111
+111 0
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+cfn=ProgressBar#format_time
+calls=223 112
+112 566
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#sprintf
+calls=223 112
+112 0
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+fn=ProgressBar#fmt_stat
+56 86
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+cfn=ProgressBar#eta
+calls=156 57
+57 1035
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+cfn=ProgressBar#eta
+calls=223 57
+57 15947
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=String#*
+0 0
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+fn=ProgressBar#fmt_bar
+45 1941
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+cfn=ProgressBar#do_percentage
+calls=156 46
+46 62
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#*
+calls=312 49
+49 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#sprintf
+calls=156 49
+49 0
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+cfn=ProgressBar#do_percentage
+calls=223 46
+46 80
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#*
+calls=446 49
+49 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#sprintf
+calls=223 49
+49 0
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+fn=ProgressBar#do_percentage
+153 387
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Fixnum#zero?
+calls=156 154
+154 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Fixnum#zero?
+calls=156 154
+154 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Fixnum#zero?
+calls=223 154
+154 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Fixnum#zero?
+calls=223 154
+154 0
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+fn=ProgressBar#fmt_percentage
+52 73
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+cfn=ProgressBar#do_percentage
+calls=156 53
+53 119
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+cfn=ProgressBar#do_percentage
+calls=223 53
+53 126
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=String#[]
+0 0
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+fn=ProgressBar#fmt_title
+72 613
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#[]
+calls=156 73
+73 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#[]
+calls=223 73
+73 0
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Symbol#to_s
+0 0
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Kernel#sprintf
+0 2134
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Symbol#to_s
+calls=624 188
+188 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Symbol#to_s
+calls=892 188
+188 0
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Array#map
+0 20861
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#sprintf
+calls=624 188
+188 551
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+cfn=ProgressBar#fmt_title
+calls=156 189
+189 153
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+cfn=ProgressBar#fmt_percentage
+calls=156 189
+189 147
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+cfn=ProgressBar#fmt_bar
+calls=156 189
+189 554
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+cfn=ProgressBar#fmt_stat
+calls=156 189
+189 1074
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#to_i
+calls=312 168
+168 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#sprintf
+calls=892 188
+188 1583
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+cfn=ProgressBar#fmt_title
+calls=223 189
+189 460
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+cfn=ProgressBar#fmt_percentage
+calls=223 189
+189 170
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+cfn=ProgressBar#fmt_bar
+calls=223 189
+189 1529
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+cfn=ProgressBar#fmt_stat
+calls=223 189
+189 15994
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#to_i
+calls=446 168
+168 0
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+fn=ProgressBar#show
+186 57337
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Array#map
+calls=156 187
+187 4364
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#sprintf
+calls=156 191
+191 0
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+cfn=ProgressBar#get_term_width
+calls=156 193
+193 6550
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+cfn=ProgressBar#eol
+calls=156 195
+195 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=IO#print
+calls=156 195
+195 168
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=IO#flush
+calls=156 196
+196 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=<Class::Time>#now
+calls=156 204
+204 116
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Array#map
+calls=223 187
+187 38044
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#sprintf
+calls=223 191
+191 0
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+cfn=ProgressBar#get_term_width
+calls=223 193
+193 10520
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+cfn=ProgressBar#eol
+calls=223 195
+195 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=IO#print
+calls=223 195
+195 110
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=IO#flush
+calls=223 196
+196 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=<Class::Time>#now
+calls=223 204
+204 114
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/lint.rb
+fn=Rack::Lint::InputWrapper#initialize
+356 0
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=StringIO#initialize
+0 597613
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=BasicObject#initialize
+calls=999999 77
+77 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=BasicObject#initialize
+calls=1000000 77
+77 0
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Float#>=
+0 0
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Fixnum#fdiv
+0 0
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Numeric#quo
+0 272408
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Fixnum#fdiv
+calls=999950 218
+218 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Fixnum#fdiv
+calls=156 110
+110 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Fixnum#fdiv
+calls=999950 218
+218 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Fixnum#fdiv
+calls=223 110
+110 0
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Fixnum#-
+0 0
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Time#-
+0 915916
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Fixnum#-
+calls=999950 218
+218 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Numeric#quo
+calls=999950 218
+218 132336
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Fixnum#-
+calls=156 110
+110 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Numeric#quo
+calls=156 110
+110 23
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Fixnum#-
+calls=999950 218
+218 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Numeric#quo
+calls=999950 218
+218 140019
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Fixnum#-
+calls=223 110
+110 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Numeric#quo
+calls=223 110
+110 30
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Fixnum#+
+0 0
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Time#initialize
+0 320890
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Fixnum#+
+calls=999948 218
+218 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Fixnum#+
+calls=156 110
+110 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Fixnum#+
+calls=156 204
+204 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Fixnum#+
+calls=999949 218
+218 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Fixnum#+
+calls=223 110
+110 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Fixnum#+
+calls=223 204
+204 0
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=<Class::Time>#now
+0 291222
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Time#initialize
+calls=999950 218
+218 151441
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Time#initialize
+calls=156 110
+110 20
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Time#initialize
+calls=156 204
+204 75
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Time#initialize
+calls=999950 218
+218 169261
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Time#initialize
+calls=223 110
+110 37
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Time#initialize
+calls=223 204
+204 57
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Fixnum#zero?
+0 0
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+fn=ProgressBar#show_if_needed
+207 5255926
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Fixnum#zero?
+calls=1000000 208
+208 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Integer#to_i
+calls=2000000 213
+213 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=<Class::Time>#now
+calls=999950 218
+218 294241
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Time#-
+calls=999950 218
+218 517987
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Float#>=
+calls=999950 218
+218 0
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+cfn=ProgressBar#show
+calls=156 219
+219 16318
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Fixnum#zero?
+calls=1000000 208
+208 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Integer#to_i
+calls=2000000 213
+213 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=<Class::Time>#now
+calls=999950 218
+218 317523
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Time#-
+calls=999950 218
+218 655883
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Float#>=
+calls=999950 218
+218 0
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+cfn=ProgressBar#show
+calls=223 219
+219 101005
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+fn=ProgressBar#inc
+262 777778
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+cfn=ProgressBar#show_if_needed
+calls=1000000 265
+265 3249761
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+cfn=ProgressBar#show_if_needed
+calls=1000000 265
+265 3909121
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/bin/profile
+fn=Global#[No method]
+81 13925736
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/progressbar-0.21.0/lib/progressbar.rb
+cfn=ProgressBar#inc
+calls=1000000 82
+82 3602648
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Class#new
+calls=1999998 59
+59 572869
+cfl=/Users/aluzsi/Works/rack-app/benchmark/lib/profiler.rb
+cfn=Profiler#measure
+calls=999999 80
+80 97181767
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Integer#times
+calls=1 57
+57 177728492
+cfl=/Users/aluzsi/Works/rack-app/benchmark/lib/profiler.rb
+cfn=Profiler#finish
+calls=1 87
+87 0
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/body_proxy.rb
+fn=Rack::BodyProxy#initialize
+3 2219316
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Fixnum#==
+0 1525057
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Array#include?
+0 2268692
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Fixnum#==
+calls=3 76
+76 2
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Fixnum#==
+calls=2999997 76
+76 728758
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Fixnum#==
+calls=3000000 76
+76 796297
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/response.rb
+fn=Rack::Response#finish
+73 5420171
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Integer#to_i
+calls=2 82
+82 1
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Array#include?
+calls=1 76
+76 5
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Class#new
+calls=1 82
+82 5
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Integer#to_i
+calls=1999998 82
+82 607186
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Array#include?
+calls=999999 76
+76 1782929
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Class#new
+calls=999999 82
+82 3603133
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Integer#to_i
+calls=2000000 82
+82 721446
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Array#include?
+calls=1000000 76
+76 2010815
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Class#new
+calls=1000000 82
+82 3937271
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Hash#[]=
+0 963380
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb
+fn=Rack::Utils::HeaderHash#[]=
+504 6635989
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#downcase
+calls=1 505
+505 1
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Hash#[]=
+calls=1 508
+508 3
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#downcase
+calls=999999 505
+505 692188
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Hash#[]=
+calls=999999 508
+508 426640
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#downcase
+calls=1000000 505
+505 759661
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Hash#[]=
+calls=1000000 508
+508 536736
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Fixnum#to_s
+0 1915225
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=String#bytesize
+0 658264
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb
+fn=Rack::Utils#bytesize
+368 1419738
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#bytesize
+calls=1 369
+369 3
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#bytesize
+calls=999999 369
+369 295310
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#bytesize
+calls=1000000 369
+369 362952
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/response.rb
+fn=Rack::Response#write
+98 5662746
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#to_s
+calls=1 99
+99 0
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb
+cfn=Rack::Utils#bytesize
+calls=1 100
+100 8
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Proc#call
+calls=1 101
+101 3
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Fixnum#to_s
+calls=1 103
+103 4
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb
+cfn=Rack::Utils::HeaderHash#[]=
+calls=1 103
+103 7
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#to_s
+calls=999999 99
+99 258354
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb
+cfn=Rack::Utils#bytesize
+calls=999999 100
+100 933775
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Proc#call
+calls=999999 101
+101 728282
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Fixnum#to_s
+calls=999999 103
+103 882627
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb
+cfn=Rack::Utils::HeaderHash#[]=
+calls=999999 103
+103 4148433
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#to_s
+calls=1000000 99
+99 464690
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb
+cfn=Rack::Utils#bytesize
+calls=1000000 100
+100 1144220
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Proc#call
+calls=1000000 101
+101 945221
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Fixnum#to_s
+calls=1000000 103
+103 1032595
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb
+cfn=Rack::Utils::HeaderHash#[]=
+calls=1000000 103
+103 4902780
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Kernel#String
+0 852422
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=String#to_s
+0 1896138
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/serializer.rb
+fn=Rack::App::Serializer#serialize
+13 1802197
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Proc#call
+calls=1 14
+14 7
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Proc#call
+calls=999999 14
+14 1147614
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Proc#call
+calls=1000000 14
+14 1448301
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/endpoint.rb
+fn=Rack::App::Endpoint#set_response_body
+47 3771402
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#is_a?
+calls=1 48
+48 0
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/serializer.rb
+cfn=Rack::App::Serializer#serialize
+calls=1 50
+50 10
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#String
+calls=1 50
+50 3
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/response.rb
+cfn=Rack::Response#write
+calls=1 50
+50 33
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#is_a?
+calls=999999 48
+48 338398
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/serializer.rb
+cfn=Rack::App::Serializer#serialize
+calls=999999 50
+50 1956500
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#String
+calls=999999 50
+50 357776
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/response.rb
+cfn=Rack::Response#write
+calls=999999 50
+50 9498492
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#is_a?
+calls=1000000 48
+48 344020
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/serializer.rb
+cfn=Rack::App::Serializer#serialize
+calls=1000000 50
+50 2441608
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#String
+calls=1000000 50
+50 494644
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/response.rb
+cfn=Rack::Response#write
+calls=1000000 50
+50 11605217
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/error_handler.rb
+fn=App#66faeffd-c619-49cf-83da-2def7826a09a
+17 1082389
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/error_handler.rb
+fn=Rack::App::ErrorHandler#execute_with_error_handling_for
+16 2787470
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/error_handler.rb
+cfn=App#66faeffd-c619-49cf-83da-2def7826a09a
+calls=1 17
+17 3
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/error_handler.rb
+cfn=App#66faeffd-c619-49cf-83da-2def7826a09a
+calls=999999 17
+17 1082386
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/error_handler.rb
+cfn=App#4564ad48-2cc5-4e43-a546-4303ce788a87
+calls=1000000 17
+17 1258033
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=BasicObject#initialize
+0 692138
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/endpoint.rb
+fn=Rack::App::Endpoint#get_response_body
+35 3700779
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Class#new
+calls=1 37
+37 5
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/error_handler.rb
+cfn=Rack::App::ErrorHandler#execute_with_error_handling_for
+calls=1 41
+41 10
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Class#new
+calls=999999 37
+37 1344135
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/error_handler.rb
+cfn=Rack::App::ErrorHandler#execute_with_error_handling_for
+calls=999999 41
+41 2314265
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Class#new
+calls=1000000 37
+37 1607731
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/error_handler.rb
+cfn=Rack::App::ErrorHandler#execute_with_error_handling_for
+calls=1000000 41
+41 2813617
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Kernel#block_given?
+0 950051
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Array#each
+0 15056352
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=<Class::File>#join
+calls=1560 183
+183 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=<Class::File>#exists?
+calls=1560 183
+183 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#hash
+calls=13000000 123
+123 3414255
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#nil?
+calls=3000000 125
+125 826208
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=<Class::File>#join
+calls=2230 183
+183 0
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=<Class::File>#exists?
+calls=2230 183
+183 0
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Kernel#respond_to?
+0 4172551
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#respond_to_missing?
+calls=1 36
+36 4
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#respond_to_missing?
+calls=1 174
+174 2
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#respond_to_missing?
+calls=1999998 174
+174 274540
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#respond_to_missing?
+calls=999999 36
+36 247713
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#respond_to_missing?
+calls=2000000 174
+174 285006
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#respond_to_missing?
+calls=1000000 36
+36 333221
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Kernel#lambda
+0 3638407
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Kernel#respond_to_missing?
+0 1774916
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=String#==
+0 1536150
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#respond_to_missing?
+calls=1 29
+29 2
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#respond_to_missing?
+calls=999999 29
+29 273082
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#respond_to_missing?
+calls=1000000 29
+29 361346
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=String#downcase
+0 3363034
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Hash#[]
+0 1644000
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb
+fn=Rack::Utils::HeaderHash#[]
+500 2823812
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Hash#[]
+calls=2 501
+501 3
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#downcase
+calls=1 501
+501 3
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Hash#[]
+calls=1999998 501
+501 751916
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#downcase
+calls=999999 501
+501 927123
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Hash#[]
+calls=2000000 501
+501 892081
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#downcase
+calls=1000000 501
+501 984058
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb
+fn=Rack::Utils::HeaderHash#merge!
+526 1860706
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Hash#each
+calls=1 527
+527 1
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Hash#each
+calls=999999 527
+527 283807
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Hash#each
+calls=1000000 527
+527 320140
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Hash#initialize_copy
+0 3971321
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Kernel#initialize_dup
+0 1801827
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Hash#initialize_copy
+calls=1 532
+532 1
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Hash#initialize_copy
+calls=999999 532
+532 694852
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Hash#initialize_copy
+calls=1000000 148
+148 2483166
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Hash#initialize_copy
+calls=1000000 532
+532 793303
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Kernel#dup
+0 5383709
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#initialize_dup
+calls=1 532
+532 6
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#initialize_dup
+calls=999999 532
+532 1212896
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#initialize_dup
+calls=1000000 148
+148 3134686
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#initialize_dup
+calls=1000000 532
+532 1425560
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb
+fn=Rack::Utils::HeaderHash#merge
+531 2652127
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#dup
+calls=1 532
+532 11
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb
+cfn=Rack::Utils::HeaderHash#merge!
+calls=1 533
+533 4
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#dup
+calls=999999 532
+532 3215449
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb
+cfn=Rack::Utils::HeaderHash#merge!
+calls=999999 533
+533 1126141
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#dup
+calls=1000000 532
+532 3592876
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb
+cfn=Rack::Utils::HeaderHash#merge!
+calls=1000000 533
+533 1338508
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Hash#each
+0 1564449
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Hash#initialize
+0 1959834
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb
+fn=Rack::Utils::HeaderHash#initialize
+482 5810491
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Hash#initialize
+calls=1 483
+483 3
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Hash#each
+calls=1 485
+485 2
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Hash#initialize
+calls=999999 483
+483 879548
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Hash#each
+calls=999999 485
+485 463387
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Hash#initialize
+calls=1000000 483
+483 1080283
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Hash#each
+calls=1000000 485
+485 497113
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Module#===
+0 898422
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb
+fn=<Class::Rack::Utils::HeaderHash>#new
+478 2670085
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Module#===
+calls=1 479
+479 2
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Class#new
+calls=1 479
+479 14
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Module#===
+calls=999999 479
+479 396868
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Class#new
+calls=999999 479
+479 5161473
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Module#===
+calls=1000000 479
+479 501552
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Class#new
+calls=1000000 479
+479 5665917
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Integer#to_i
+0 2225600
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/response.rb
+fn=Rack::Response#initialize
+25 13802470
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Integer#to_i
+calls=1 26
+26 5
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb
+cfn=<Class::Rack::Utils::HeaderHash>#new
+calls=1 27
+27 23
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb
+cfn=Rack::Utils::HeaderHash#merge
+calls=1 27
+27 21
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb
+cfn=Rack::Utils::HeaderHash#[]
+calls=1 29
+29 13
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#==
+calls=1 29
+29 6
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#lambda
+calls=1 30
+30 4
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#respond_to?
+calls=2 36
+36 9
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Array#each
+calls=1 39
+39 1
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#block_given?
+calls=1 46
+46 3
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Integer#to_i
+calls=999999 26
+26 421630
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb
+cfn=<Class::Rack::Utils::HeaderHash>#new
+calls=999999 27
+27 6741496
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb
+cfn=Rack::Utils::HeaderHash#merge
+calls=999999 27
+27 5535299
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb
+cfn=Rack::Utils::HeaderHash#[]
+calls=999999 29
+29 2928653
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#==
+calls=999999 29
+29 913697
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#lambda
+calls=999999 30
+30 1682236
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#respond_to?
+calls=1999998 36
+36 1322368
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Array#each
+calls=999999 39
+39 355538
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#block_given?
+calls=999999 46
+46 422927
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Integer#to_i
+calls=1000000 26
+26 475332
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb
+cfn=<Class::Rack::Utils::HeaderHash>#new
+calls=1000000 27
+27 7654392
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb
+cfn=Rack::Utils::HeaderHash#merge
+calls=1000000 27
+27 6389797
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb
+cfn=Rack::Utils::HeaderHash#[]
+calls=1000000 29
+29 3450330
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#==
+calls=1000000 29
+29 1256877
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#lambda
+calls=1000000 30
+30 1956166
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#respond_to?
+calls=2000000 36
+36 1650589
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Array#each
+calls=1000000 39
+39 391308
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#block_given?
+calls=1000000 46
+46 527121
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/request.rb
+fn=Rack::Request#initialize
+16 1374864
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Class#new
+0 14380636
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/request.rb
+cfn=Rack::Request#initialize
+calls=1 27
+27 11
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/response.rb
+cfn=Rack::Response#initialize
+calls=1 28
+28 106
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb
+cfn=Rack::Utils::HeaderHash#initialize
+calls=1 479
+479 12
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=BasicObject#initialize
+calls=1 37
+37 2
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/body_proxy.rb
+cfn=Rack::BodyProxy#initialize
+calls=1 82
+82 3
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=StringIO#initialize
+calls=999999 77
+77 272614
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/lint.rb
+cfn=Rack::Lint::InputWrapper#initialize
+calls=999999 77
+77 0
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/request.rb
+cfn=Rack::Request#initialize
+calls=999999 27
+27 602139
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/response.rb
+cfn=Rack::Response#initialize
+calls=999999 28
+28 26748334
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb
+cfn=Rack::Utils::HeaderHash#initialize
+calls=999999 479
+479 4163302
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=BasicObject#initialize
+calls=999999 37
+37 302931
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/body_proxy.rb
+cfn=Rack::BodyProxy#initialize
+calls=999999 82
+82 1097522
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=StringIO#initialize
+calls=1000000 77
+77 324998
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/lint.rb
+cfn=Rack::Lint::InputWrapper#initialize
+calls=1000000 77
+77 0
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/request.rb
+cfn=Rack::Request#initialize
+calls=1000000 27
+27 772714
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/response.rb
+cfn=Rack::Response#initialize
+calls=1000000 28
+28 31129870
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/utils.rb
+cfn=Rack::Utils::HeaderHash#initialize
+calls=1000000 479
+479 4567511
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=BasicObject#initialize
+calls=1000000 37
+37 389205
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/body_proxy.rb
+cfn=Rack::BodyProxy#initialize
+calls=1000000 82
+82 1121790
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/endpoint.rb
+fn=Rack::App::Endpoint#execute
+25 5754920
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Class#new
+calls=2 28
+28 126
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/endpoint.rb
+cfn=Rack::App::Endpoint#get_response_body
+calls=1 30
+30 24
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/endpoint.rb
+cfn=Rack::App::Endpoint#set_response_body
+calls=1 30
+30 56
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/response.rb
+cfn=Rack::Response#finish
+calls=1 31
+31 22
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Class#new
+calls=1999998 28
+28 30268810
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/endpoint.rb
+cfn=Rack::App::Endpoint#get_response_body
+calls=999999 30
+30 5290083
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/endpoint.rb
+cfn=Rack::App::Endpoint#set_response_body
+calls=999999 30
+30 13903853
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/response.rb
+cfn=Rack::Response#finish
+calls=999999 31
+31 8456571
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Class#new
+calls=2000000 28
+28 35136628
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/endpoint.rb
+cfn=Rack::App::Endpoint#get_response_body
+calls=1000000 30
+30 6490435
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/endpoint.rb
+cfn=Rack::App::Endpoint#set_response_body
+calls=1000000 30
+30 16904194
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/rack-1.6.4/lib/rack/response.rb
+cfn=Rack::Response#finish
+calls=1000000 31
+31 9626369
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Proc#call
+0 2621029
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/endpoint.rb
+cfn=Rack::App::Endpoint#execute
+calls=1 15
+15 236
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#to_s
+calls=1 6
+6 4
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/endpoint.rb
+cfn=Rack::App::Endpoint#execute
+calls=999999 15
+15 60444186
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#to_s
+calls=999999 6
+6 289222
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/endpoint.rb
+cfn=Rack::App::Endpoint#execute
+calls=1000000 15
+15 71387669
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#to_s
+calls=1000000 6
+6 402097
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/endpoint.rb
+fn=Rack::App::Endpoint#call
+21 1851292
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Proc#call
+calls=1 22
+22 242
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Proc#call
+calls=999999 22
+22 61649936
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Proc#call
+calls=1000000 22
+22 72802941
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/router/base.rb
+fn=Rack::App::Router::Base#format_env
+16 335690
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Kernel#nil?
+0 1475583
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Kernel#is_a?
+0 1909186
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=String#eql?
+0 607899
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Array#eql?
+0 1141026
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#eql?
+calls=2 14
+14 3
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#eql?
+calls=1999998 14
+14 607896
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=String#hash
+0 1445127
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=Array#hash
+0 3800526
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#hash
+calls=2 14
+14 4
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#hash
+calls=1999998 14
+14 667708
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#hash
+calls=2000000 14
+14 777415
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/router/static.rb
+fn=Rack::App::Router::Static#mapped_endpoint_routes
+18 1488743
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/router/static.rb
+fn=Rack::App::Router::Static#fetch_context
+13 6181505
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/router/static.rb
+cfn=Rack::App::Router::Static#mapped_endpoint_routes
+calls=1 14
+14 1
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Array#hash
+calls=1 14
+14 8
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Array#eql?
+calls=1 14
+14 6
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/router/static.rb
+cfn=Rack::App::Router::Static#mapped_endpoint_routes
+calls=999999 14
+14 639363
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Array#hash
+calls=999999 14
+14 2405536
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Array#eql?
+calls=999999 14
+14 1748919
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/router/static.rb
+cfn=Rack::App::Router::Static#mapped_endpoint_routes
+calls=1000000 14
+14 849379
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Array#hash
+calls=1000000 14
+14 2840109
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/router/base.rb
+fn=Rack::App::Router::Base#call
+3 9265071
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/router/static.rb
+cfn=Rack::App::Router::Static#fetch_context
+calls=1 8
+8 26
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#is_a?
+calls=1 9
+9 2
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#nil?
+calls=1 9
+9 3
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/router/base.rb
+cfn=Rack::App::Router::Base#format_env
+calls=1 11
+11 3
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/endpoint.rb
+cfn=Rack::App::Endpoint#call
+calls=1 12
+12 247
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/router/static.rb
+cfn=Rack::App::Router::Static#fetch_context
+calls=999999 8
+8 8240180
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#is_a?
+calls=999999 9
+9 364230
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#nil?
+calls=999999 9
+9 353273
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/router/base.rb
+cfn=Rack::App::Router::Base#format_env
+calls=999999 11
+11 335687
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/endpoint.rb
+cfn=Rack::App::Endpoint#call
+calls=999999 12
+12 62440300
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/router/static.rb
+cfn=Rack::App::Router::Static#fetch_context
+calls=1000000 8
+8 6424620
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#is_a?
+calls=2000000 9
+9 862535
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/router/dynamic.rb
+cfn=Rack::App::Router::Dynamic#fetch_context
+calls=1000000 8
+8 33399663
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#nil?
+calls=1000000 9
+9 296098
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/router/dynamic.rb
+cfn=Rack::App::Router::Dynamic#format_env
+calls=1000000 11
+11 11289120
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/endpoint.rb
+cfn=Rack::App::Endpoint#call
+calls=1000000 12
+12 73863865
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/router.rb
+fn=Rack::App::Router#call
+8 2290497
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/router/base.rb
+cfn=Rack::App::Router::Base#call
+calls=1 9
+9 295
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/router/base.rb
+cfn=Rack::App::Router::Base#call
+calls=999999 9
+9 74947535
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/router/base.rb
+cfn=Rack::App::Router::Base#call
+calls=2000000 9
+9 132187094
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/singleton_methods/route_handling.rb
+fn=Rack::App::SingletonMethods::RouteHandling#router
+3 1752960
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=String#sub!
+0 13077100
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+fn=String#squeeze!
+0 3198551
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/utils.rb
+fn=Rack::App::Utils#normalize_path
+15 11332623
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#squeeze!
+calls=1 17
+17 2
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#sub!
+calls=1 18
+18 8
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#squeeze!
+calls=999999 17
+17 1067925
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#sub!
+calls=999999 18
+18 3612674
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#squeeze!
+calls=1000000 17
+17 1216579
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#sub!
+calls=1000000 18
+18 3109527
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#squeeze!
+calls=1000000 17
+17 914044
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=String#sub!
+calls=1000000 18
+18 2334039
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/request_configurator.rb
+fn=Rack::App::RequestConfigurator#path_info
+12 4727149
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/utils.rb
+cfn=Rack::App::Utils#normalize_path
+calls=1 15
+15 18
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/utils.rb
+cfn=Rack::App::Utils#normalize_path
+calls=999999 15
+15 8617712
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/utils.rb
+cfn=Rack::App::Utils#normalize_path
+calls=1000000 15
+15 8270113
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/request_configurator.rb
+fn=Rack::App::RequestConfigurator#configure
+5 2255788
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/request_configurator.rb
+cfn=Rack::App::RequestConfigurator#path_info
+calls=1 6
+6 24
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/request_configurator.rb
+cfn=Rack::App::RequestConfigurator#path_info
+calls=999999 6
+6 10737750
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/request_configurator.rb
+cfn=Rack::App::RequestConfigurator#path_info
+calls=1000000 6
+6 10877218
+
+fl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/singleton_methods/rack_interface.rb
+fn=Rack::App::SingletonMethods::RackInterface#call
+5 3729784
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/request_configurator.rb
+cfn=Rack::App::RequestConfigurator#configure
+calls=1 6
+6 28
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/singleton_methods/route_handling.rb
+cfn=Rack::App::SingletonMethods::RouteHandling#router
+calls=1 7
+7 3
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/router.rb
+cfn=Rack::App::Router#call
+calls=1 7
+7 299
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/request_configurator.rb
+cfn=Rack::App::RequestConfigurator#configure
+calls=999999 6
+6 11794144
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/singleton_methods/route_handling.rb
+cfn=Rack::App::SingletonMethods::RouteHandling#router
+calls=999999 7
+7 757117
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/router.rb
+cfn=Rack::App::Router#call
+calls=999999 7
+7 75862745
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/request_configurator.rb
+cfn=Rack::App::RequestConfigurator#configure
+calls=1000000 6
+6 12076608
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/singleton_methods/route_handling.rb
+cfn=Rack::App::SingletonMethods::RouteHandling#router
+calls=1000000 7
+7 995840
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/router.rb
+cfn=Rack::App::Router#call
+calls=1000000 7
+7 133562377
+
+fl=/Users/aluzsi/Works/rack-app/benchmark/lib/profiler.rb
+fn=Profiler#measure
+13 13284682
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/singleton_methods/rack_interface.rb
+cfn=Rack::App::SingletonMethods::RackInterface#call
+calls=1 80
+80 339
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#respond_to?
+calls=1 14
+14 3
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#respond_to?
+calls=1999998 14
+14 1102829
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/singleton_methods/rack_interface.rb
+cfn=Rack::App::SingletonMethods::RackInterface#call
+calls=999999 80
+80 90104717
+cfl=/Users/aluzsi/Works/rack-app/benchmark/apps/rack-app/ruby_runtime
+cfn=Kernel#respond_to?
+calls=2000000 14
+14 1237240
+cfl=/Users/aluzsi/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/bundler/gems/rack-app-08741a4dcaac/lib/rack/app/singleton_methods/rack_interface.rb
+cfn=Rack::App::SingletonMethods::RackInterface#call
+calls=1000000 80
+80 148673889
+

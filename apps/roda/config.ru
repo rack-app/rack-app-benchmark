@@ -1,12 +1,19 @@
 require 'roda'
 
 class App < Roda
-  route do |r|
-    ENV['EDA'].to_i.times do |index|
-      r.get(index.to_s) do
+  plugin :multi_route
+
+  ENV['EDA'].to_i.times do |index|
+    i = index.to_s
+    route(i) do |r|
+      r.get true do
         'Hello World'
       end
     end
+  end
+  
+  route do |r|
+    r.multi_route
 
     r.root do
       'Hello Roda!'

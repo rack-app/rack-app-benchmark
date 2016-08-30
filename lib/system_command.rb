@@ -9,8 +9,7 @@ def run_system_command(cmd)
 
     exit_status = wait_thr.value
     unless exit_status.success?
-      $stdout.puts("the following command failed: #{cmd}")
-      exit(1)
+      raise("the following command failed: #{cmd}")
     end
 
   end

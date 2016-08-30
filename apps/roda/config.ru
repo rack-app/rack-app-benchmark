@@ -18,4 +18,4 @@ Roda.route do |r|
   end
 end
 
-run Roda.app
+run Roda.freeze.app

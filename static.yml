@@ -4013,3 +4013,53 @@ almost-sinatra:
     real: 14.042880169989076
     eda: 1000
     weight: 1000
+plezi:
+  0.14.1:
+  - user: 0.12
+    system: 0.010000000000000002
+    total: 0.13
+    real: 0.12068218499916838
+    eda: 100
+    weight: 1000
+  - user: 0.14999999999999997
+    system: 0.0
+    total: 0.14999999999999997
+    real: 0.15677428699927987
+    eda: 200
+    weight: 1000
+  - user: 0.24
+    system: 0.0
+    total: 0.24
+    real: 0.24318991800100775
+    eda: 500
+    weight: 1000
+  - user: 0.4
+    system: 0.0
+    total: 0.4
+    real: 0.40458855100041546
+    eda: 1000
+    weight: 1000
+  - user: 0.10999999999999999
+    system: 0.0
+    total: 0.10999999999999999
+    real: 0.11458960999880219
+    eda: 100
+    weight: 1000
+  - user: 0.15
+    system: 0.0
+    total: 0.15
+    real: 0.15325670699894545
+    eda: 200
+    weight: 1000
+  - user: 0.22999999999999998
+    system: 0.0
+    total: 0.22999999999999998
+    real: 0.23522122699978354
+    eda: 500
+    weight: 1000
+  - user: 0.4
+    system: 0.0
+    total: 0.4
+    real: 0.4087737919999199
+    eda: 1000
+    weight: 1000

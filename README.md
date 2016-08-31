@@ -31,6 +31,7 @@ the benchmarking was taken on the following hardware specification:
 | rails                  | 5.0.0                  | 33.234                 | 0.0007329187002032537  |
 | camping                | 2.1.532                | 39.699                 | 0.0008754866444039887  |
 | cuba                   | 3.8.0                  | 54.196                 | 0.001195195165998367   |
+| almost-sinatra         | unknown                | 58.613                 | 0.0012926107780076503  |
 
 
 #### number of declared endpoints: 200
@@ -52,6 +53,7 @@ the benchmarking was taken on the following hardware specification:
 | rails                  | 5.0.0                  | 38.478                 | 0.0008071176647907551  |
 | camping                | 2.1.532                | 78.611                 | 0.001648932262207445   |
 | cuba                   | 3.8.0                  | 118.18                 | 0.002478941784985623   |
+| almost-sinatra         | unknown                | 125.22                 | 0.0026266016100126343  |
 
 
 #### number of declared endpoints: 500
@@ -72,6 +74,7 @@ the benchmarking was taken on the following hardware specification:
 | roda                   | 2.17.0                 | 53.605                 | 0.0009320210926622512  |
 | grape                  | 0.17.0                 | 103.116                | 0.001792874348000587   |
 | camping                | 2.1.532                | 242.614                | 0.004218309565819746   |
+| almost-sinatra         | unknown                | 355.754                | 0.006185458619991472   |
 | cuba                   | 3.8.0                  | 358.594                | 0.006234845724818463   |
 
 
@@ -94,6 +97,7 @@ the benchmarking was taken on the following hardware specification:
 | grape                  | 0.17.0                 | 212.189                | 0.00481913809601665    |
 | camping                | 2.1.532                | 376.125                | 0.00854238839158827    |
 | cuba                   | 3.8.0                  | 548.372                | 0.012454374452400363   |
+| almost-sinatra         | unknown                | 618.314                | 0.014042880169988815   |
 
 ### Endpoint to be call type: dynamic
 
@@ -117,6 +121,7 @@ the benchmarking was taken on the following hardware specification:
 | rails                  | 5.0.0                  | 22.165                 | 0.0007876135203987838  |
 | camping                | 2.1.532                | 22.789                 | 0.0008098106166115665  |
 | cuba                   | 3.8.0                  | 34.493                 | 0.0012257058174116335  |
+| almost-sinatra         | unknown                | 35.035                 | 0.0012449334155098851  |
 
 
 #### number of declared endpoints: 200
@@ -138,6 +143,7 @@ the benchmarking was taken on the following hardware specification:
 | rails                  | 5.0.0                  | 27.469                 | 0.0008661077597877535  |
 | camping                | 2.1.532                | 51.656                 | 0.0016287099403795968  |
 | cuba                   | 3.8.0                  | 77.74                  | 0.0024511273603885753  |
+| almost-sinatra         | unknown                | 98.681                 | 0.003111393496510388   |
 
 
 #### number of declared endpoints: 500
@@ -158,6 +164,7 @@ the benchmarking was taken on the following hardware specification:
 | roda                   | 2.17.0                 | 29.679                 | 0.0009294931286616116  |
 | grape                  | 0.17.0                 | 56.843                 | 0.0017802212750072754  |
 | camping                | 2.1.532                | 133.537                | 0.004182109376439315   |
+| almost-sinatra         | unknown                | 199.699                | 0.006254195182002253   |
 | cuba                   | 3.8.0                  | 200.403                | 0.006276247910410145   |
 
 
@@ -180,3 +187,4 @@ the benchmarking was taken on the following hardware specification:
 | grape                  | 0.17.0                 | 152.193                | 0.004746652859402427   |
 | camping                | 2.1.532                | 273.593                | 0.008532899961783953   |
 | cuba                   | 3.8.0                  | 403.34                 | 0.012579489549412428   |
+| almost-sinatra         | unknown                | 437.323                | 0.01363936998101422    |

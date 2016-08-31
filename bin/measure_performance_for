@@ -85,7 +85,7 @@ report = {
 measure_file_path = File.join(benchmark_folder, "#{TEST_TYPE}.yml")
 benchmarks = load_file(measure_file_path)
 
-gem_version = Gem.loaded_specs[SUBJECT_NAME].version.to_s
+gem_version = Gem.loaded_specs[SUBJECT_NAME].version.to_s rescue 'unknown'
 gem_space = (benchmarks[SUBJECT_NAME] ||= {})
 reports = (gem_space[gem_version] ||= [])
 reports << report

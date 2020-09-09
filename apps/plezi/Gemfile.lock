@@ -4,6 +4,10 @@ GEM
     iodine (0.7.42)
     plezi (0.14.2)
       iodine (~> 0.2, >= 0.2.1)
+    rack (2.0.1)
+    rake (13.0.1)
+    rake-compiler (1.0.3)
+      rake
 
 PLATFORMS
   ruby

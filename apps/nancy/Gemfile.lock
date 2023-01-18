@@ -4,7 +4,7 @@ GEM
     nancy (0.3.0)
       rack
       tilt
-    rack (2.0.1)
+    rack (3.0.4.1)
     tilt (2.0.5)
 
 PLATFORMS

@@ -3,7 +3,7 @@ GEM
   specs:
     cuba (3.8.0)
       rack (>= 1.6.0)
-    rack (2.0.1)
+    rack (3.0.4.2)
 
 PLATFORMS
   ruby

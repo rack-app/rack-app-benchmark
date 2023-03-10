@@ -9,7 +9,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    rack (2.0.1)
+    rack (3.0.4.2)
 
 PLATFORMS
   ruby

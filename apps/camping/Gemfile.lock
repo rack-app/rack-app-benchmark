@@ -5,7 +5,7 @@ GEM
       mab (>= 0.0.3)
       rack (>= 1.0)
     mab (0.0.3)
-    rack (2.0.1)
+    rack (3.0.6.1)
 
 PLATFORMS
   ruby

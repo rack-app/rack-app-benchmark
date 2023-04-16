@@ -1,9 +1,9 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    innate (2015.10.28)
-      rack (~> 1.6.4)
-    rack (1.6.5)
+    innate (2023.01.06)
+      rack (~> 3.0)
+    rack (3.0.7)
     rake (12.0.0)
     ramaze (2012.12.08)
       innate (>= 2012.12)
